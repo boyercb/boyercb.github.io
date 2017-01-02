@@ -4,3 +4,6 @@ _site
 .DS_Store
 .npm-debug.log
 Gemfile.lock
+node_modules
+.travis.yml
+.editorconfig
