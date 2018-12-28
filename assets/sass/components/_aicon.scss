@@ -16,3 +16,15 @@
     .aicon > .label {
         display: none
     }
+
+    ul.icons li .aicon {
+        display: inline-block;
+        width: 2.5em;
+        height: 2.5em;
+        line-height: 2.5em;
+        text-align: center
+    }
+
+    ul.icons li .aicon:before {
+        font-size: 1.25rem
+    }
