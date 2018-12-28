@@ -1,4 +1,23 @@
 ---
-layout: page
-title: Home
+layout: default
 ---
+
+{% comment %}
+
+	Indivisible by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+
+	Name:
+
+		Homepage
+
+	Description:
+
+		Your site's main page.
+
+{% endcomment %}
+
+{% for panel in site.panels %}
+	{% include layout/panel.html panel=panel %}
+{% endfor %}
