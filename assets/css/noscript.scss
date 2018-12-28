@@ -30,6 +30,26 @@
 		}
 	}
 
+.aicon {
+    text-decoration: none;
+    border-bottom: none;
+    position: relative
+}
+
+.aicon:before {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: Academicons;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: none !important
+}
+
+.aicon > .label {
+    display: none
+}
+
+
 /* Footer */
 
 	#footer {
