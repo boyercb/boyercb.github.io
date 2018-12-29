@@ -17,3 +17,6 @@ sass:
 # Add new slides as HTML files inside the _panels folder
 collections:
   - panels
+
+plugins:
+  - jekyll-redirect-from
