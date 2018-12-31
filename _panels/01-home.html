@@ -14,7 +14,11 @@ position: center center
 	<ul class="actions stacked special animated spinY">
 		{% for panel in site.panels %}
 			{% unless panel.class == "special" %}
-				<li><a href="#{{ panel.html_id }}" class="button">{{ panel.title }}</a></li>
+				{% if panel.html_id == "cv" %}
+					<li><a href="/docs/CV_ChristopherBoyer.pdf" class="button">{{ panel.title }}</a></li>
+				{% else %}
+					<li><a href="#{{ panel.html_id }}" class="button">{{ panel.title }}</a></li>
+				{% endif %}
 			{% endunless %}
 		{% endfor %}
 	</ul>

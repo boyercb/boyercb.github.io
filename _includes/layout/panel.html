@@ -48,7 +48,11 @@
 		</div>
 	{% endif %}
 
-	<div class="content">
+	{% if include.panel.image %}
+		<div class="content">
+	{% else %}
+		<div class="content" style="width: 100%">
+	{% endif %}
 
 		{% unless include.panel.class == "special" %}
 			<ul class="actions animated spinX">
