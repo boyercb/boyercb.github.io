@@ -1,10 +1,24 @@
 ---
-title: "About this site"
-description: |
-  Some additional details about the website
+title: "Christopher B. Boyer"
+image: "files/me_boston.jpg"
+links:
+  - label: Website
+    url: "https://christopherbboyer.com/"
+  - label: Github
+    url: "https://github.com/boyercb"
+  - label: Twitter
+    url: "https://twitter.com/chrisbboyer"
+  - label: Email
+    url: "mailto:christopherbboyer@gmail.com"
+output:
+  postcards::trestles
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
+I am a PhD candidate in the Department of Epidemiology at the Harvard T.H. Chan School of Public Health.
 
+# Education
+
+ - PhD Candidate, Epidemiology, Harvard University  (expected 2022)
+ - MS Biostatistics, Harvard University (expected 2022)
+ - MPH Epidemiology, Columbia University, 2015
+ - BS Mechanical Engineering, Wright State University, 2010

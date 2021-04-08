@@ -2,11 +2,10 @@
   "articles": [
     {
       "path": "about.html",
-      "title": "About this site",
-      "description": "Some additional details about the website",
+      "title": "Christopher B. Boyer",
       "author": [],
-      "contents": "\n\n\n\n",
-      "last_modified": "2021-04-08T09:56:49-04:00"
+      "contents": "\n\n    \n    \n      \n        \n          \n            \n              \n            \n              Christopher B. Boyer\n            \n            \n              \n                \n                    \n                      \n                        Website\n                      \n                    \n                  \n                                    \n                    \n                      \n                        Github\n                      \n                    \n                  \n                                    \n                    \n                      \n                        Twitter\n                      \n                    \n                  \n                                    \n                    \n                      \n                        Email\n                      \n                    \n                  \n                                  \n            \n          \n        \n        \n        \n          \n            I am a PhD candidate in the Department of Epidemiology at the Harvard T.H. Chan School of Public Health.\n            \n            Education\n            PhD Candidate, Epidemiology, Harvard University (expected 2022)\n            MS Biostatistics, Harvard University (expected 2022)\n            MPH Epidemiology, Columbia University, 2015\n            BS Mechanical Engineering, Wright State University, 2010\n            \n          \n        \n      \n    \n\n    \n      \n        \n          \n            \n              \n            \n              Christopher B. Boyer\n            \n            \n              \n                \n                                    \n                    \n                      Website\n                    \n                  \n                                    \n                    \n                      Github\n                    \n                  \n                                    \n                    \n                      Twitter\n                    \n                  \n                                    \n                    \n                      Email\n                    \n                  \n                                  \n              \n            \n            \n              I am a PhD candidate in the Department of Epidemiology at the Harvard T.H. Chan School of Public Health.\n              \n              Education\n              PhD Candidate, Epidemiology, Harvard University (expected 2022)\n              MS Biostatistics, Harvard University (expected 2022)\n              MPH Epidemiology, Columbia University, 2015\n              BS Mechanical Engineering, Wright State University, 2010\n              \n            \n        \n      \n    \n\n    \n    \n    ",
+      "last_modified": "2021-04-08T11:27:39-04:00"
     },
     {
       "path": "index.html",
@@ -14,7 +13,7 @@
       "description": "Welcome to the website. I hope you enjoy it!\n",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-04-08T10:08:13-04:00"
+      "last_modified": "2021-04-08T11:27:39-04:00"
     }
   ],
   "collections": []

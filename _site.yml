@@ -3,6 +3,7 @@ title: "Blog"
 description: |
   Academic website and blog for Christopher Boyer
 output_dir: "docs"
+include: ["post", "files"]
 base_url: http://christopherbboyer.com/
 repository_url: https://github.com/boyercb/boyercb.github.io
 theme: theme.css
