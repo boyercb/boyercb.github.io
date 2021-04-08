@@ -1,0 +1,25 @@
+name: "boyercb.github.io"
+title: "Blog"
+description: |
+  Academic website and blog for Christopher Boyer
+output_dir: "docs"
+base_url: http://christopherbboyer.com/
+repository_url: https://github.com/boyercb/boyercb.github.io
+theme: theme.css
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+google_analytics: "G-1D051HLKQD"
+twitter:
+  site: "@chrisbboyer"
+cookie_consent:
+  style: simple
+  type: express
+  palette: light
+  lang: en
+  cookies_policy: url
+creative_commons: CC BY
+output: distill::distill_article
