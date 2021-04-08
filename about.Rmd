@@ -10,6 +10,9 @@ links:
     url: "https://twitter.com/chrisbboyer"
   - label: Email
     url: "mailto:christopherbboyer@gmail.com"
+twitter:
+  creator: "@chrisbboyoer"
+site: distill::distill_website
 output:
   postcards::trestles
 ---

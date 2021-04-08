@@ -19,6 +19,8 @@ navbar:
       href: teaching.html
     - text: "CV"
       href: files/cv.pdf
+    - icon: fa fa-github
+      href: https://github.com/boyercb/
 google_analytics: "G-1D051HLKQD"
 twitter:
   site: "@chrisbboyer"
