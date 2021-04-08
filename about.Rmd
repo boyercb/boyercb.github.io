@@ -14,14 +14,24 @@ twitter:
   creator: "@chrisbboyoer"
 site: distill::distill_website
 output:
-  postcards::trestles
+  postcards::trestles:
+    css: "theme.css"
 ---
+
+<style>
+body {
+  font-size: 1.25rem;
+}
+</style>
 
 I am a PhD candidate in the Department of Epidemiology at the Harvard T.H. Chan School of Public Health.
 
 # Education
 
- - PhD Candidate, Epidemiology, Harvard University  (expected 2022)
- - MS Biostatistics, Harvard University (expected 2022)
- - MPH Epidemiology, Columbia University, 2015
- - BS Mechanical Engineering, Wright State University, 2010
+- PhD Candidate, Epidemiology, Harvard University  (expected 2022)
+- MS Biostatistics, Harvard University (expected 2022)
+- MPH Epidemiology, Columbia University, 2015
+- BS Mechanical Engineering, Wright State University, 2010
+
+# Experience
+

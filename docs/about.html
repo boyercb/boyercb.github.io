@@ -741,12 +741,14 @@
           /* This must remain at the top of this file.                 */
           @import url('https://fonts.googleapis.com/css2?family=Merriweather');
           @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans');
+          @import url('https://fonts.googleapis.com/css2?family=Lora');
+
 
 
           html {
             /*-- Main font sizes --*/
-            --title-size:      50px;
-            --body-size:       1.1rem;
+            --title-size:      55px;
+            --body-size:       1.5rem;
             --code-size:       14px;
             --aside-size:      12px;
             --fig-cap-size:    13px;
@@ -757,10 +759,10 @@
             --aside-color:     rgba(0, 0, 0, 0.6);
             --fig-cap-color:   rgba(0, 0, 0, 0.6);
             /*-- Specify custom fonts ~~~ must be imported above   --*/
-            --heading-font:    "Merriweather", sans-serif;
+            --heading-font:    "Lora", "Merriweather", sans-serif;
             --mono-font:       monospace;
-            --body-font:       "Merriweather+Sans", sans-serif;
-            --navbar-font:     "Merriweather", sans-serif;  /* websites + blogs only */
+            --body-font:       "Lora", "Merriweather+Sans", sans-serif;
+            --navbar-font:     "Lora", "Merriweather", sans-serif;  /* websites + blogs only */
           }
 
           /*-- ARTICLE METADATA --*/
@@ -967,6 +969,7 @@
           }</style>
           <script src="/Library/Frameworks/R.framework/Versions/4.0/Resources/library/rmarkdown/rmd/h/pandoc/header-attrs.js"></script>
     
+          <link rel="stylesheet" href="theme.css" type="text/css" />
     
   </head>
   <body>
@@ -1044,6 +1047,11 @@
         <div class="d-flex flex-column vh-100 border-left"></div>
         <div class="d-flex flex-column col px-5 align-items-center align-self-center mh-100" style="overflow-y: scroll;">
           <div class="my-5" id="content">
+            <style>
+            body {
+              font-size: 1.25rem;
+            }
+            </style>
             <p>I am a PhD candidate in the Department of Epidemiology at the Harvard T.H. Chan School of Public Health.</p>
             <div id="education" class="section level1">
             <h1>Education</h1>
@@ -1053,6 +1061,9 @@
             <li>MPH Epidemiology, Columbia University, 2015</li>
             <li>BS Mechanical Engineering, Wright State University, 2010</li>
             </ul>
+            </div>
+            <div id="experience" class="section level1">
+            <h1>Experience</h1>
             </div>
           </div>
         </div>
@@ -1098,6 +1109,11 @@
               </div>
             </div>
             <div class="p pt-4 px-5">
+              <style>
+              body {
+                font-size: 1.25rem;
+              }
+              </style>
               <p>I am a PhD candidate in the Department of Epidemiology at the Harvard T.H. Chan School of Public Health.</p>
               <div id="education" class="section level1">
               <h1>Education</h1>
@@ -1107,6 +1123,9 @@
               <li>MPH Epidemiology, Columbia University, 2015</li>
               <li>BS Mechanical Engineering, Wright State University, 2010</li>
               </ul>
+              </div>
+              <div id="experience" class="section level1">
+              <h1>Experience</h1>
               </div>
             </div>
         </div>
