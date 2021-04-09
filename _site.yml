@@ -18,6 +18,8 @@ navbar:
       href: research.html
     - text: "Teaching"
       href: teaching.html
+    - text: "Software"
+      href: software.html
     - text: "CV"
       href: files/cv.pdf
     - icon: fa fa-github

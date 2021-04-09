@@ -1,0 +1,13 @@
+---
+title: "Software"
+description: |
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+- [`ipacheck`](https://github.com/PovertyAction/high-frequency-checks). A Stata package for running high-frequency checks on survey data for field experiments. With Rosemarie Sandino, Ishmail Baako, Caton Brewster, and Isabel Oñate. 
+- [`bcstats`](https://github.com/PovertyAction/bcstats). A Stata program for analyzing back check (field audit) data and comparing it to the original survey data. With Matthew White.
+- [`surveycto_api`](https://github.com/PovertyAction/surveycto_api). A Stata program to automate downloading data from SurveyCTO server using the API.
+- [`photobook`](https://github.com/PovertyAction/photobook). A Stata program to create a nicely formatted photobook from a list of image files.
