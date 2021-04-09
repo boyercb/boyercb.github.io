@@ -33,4 +33,4 @@ Year-long required methods course for first-year PhD students. Regression models
 
 [Handout](files/teaching/lab6_bootstrap.pdf) and [code](files/teaching/lab6_bootstrap_code.zip) for lab on the bootstrap.
 
-
+\* Distinction in Teaching Award 
