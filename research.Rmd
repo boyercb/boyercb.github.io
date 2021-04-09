@@ -9,9 +9,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ### Selected Publications
 
-- C. Boyer, J. Cooper, J. Annan, L. Heise, and E. Paluck. "Religious counsel can motivate men to cede power and reduce intimate partner violence: experimental evidence from Uganda". Under Review. 2021
-- C. Boyer and G. Danaei. "New approaches to factual and counterfactual risk prediction using the parametric g-formula". Preprint. 2021
-- C. Boyer, E. Rumpler, and M. Lipsitch. "Gathering size restrictions and outbreak containment". Preprint. 2021
+- C. Boyer, J. Cooper, J. Annan, L. Heise, and E. Paluck. "Religious counsel can motivate men to cede power and reduce intimate partner violence: experimental evidence from Uganda". Under Review. 2021. [pre-analysis plan](https://www.socialscienceregistry.org/trials/3994/history/43131)
+- C. Boyer and G. Danaei. "New approaches to factual and counterfactual risk prediction using the parametric g-formula". Preprint. 2021.
+- C. Boyer, E. Rumpler, and M. Lipsitch. "Gathering size restrictions and outbreak containment". Preprint. 2021.
 
 
 
