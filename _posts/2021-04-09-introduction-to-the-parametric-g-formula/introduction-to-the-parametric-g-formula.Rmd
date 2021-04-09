@@ -1,0 +1,37 @@
+---
+title: "Introduction to the parametric g-formula"
+description: |
+  A short description of the post.
+author:
+  - name: Christopher Boyer
+date: 2021-04-09
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Outline
+- Introduce the g-formula and why it's necessary
+  - the problem of time-varying confounding
+  - notation and setup
+  - simple example
+  - other uses of the g-formula (mediation, etc.)
+  - the g-null paradox
+- Talk about different ways to estimate the g-formula
+  - ICE estimator
+  - NICE estimator
+- Walk through an example
+
+References
+ - Hernan and Robins
+ - McGrath on g-null paradox
+ - Wen on ICE versus NICE
+ - Robins 1986
+ - Taubman
+ 

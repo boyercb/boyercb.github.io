@@ -3,11 +3,12 @@ title: "Christopher B. Boyer"
 description: |
   Academic website and blog for Christopher Boyer
 output_dir: "docs"
-include: ["post", "files"]
+include: ["post", "files", "images"]
 base_url: http://christopherbboyer.com/
 repository_url: https://github.com/boyercb/boyercb.github.io
 theme: theme.css
 navbar:
+  search: false
   right:
     - text: "Posts"
       href: index.html
