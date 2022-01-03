@@ -9,17 +9,21 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Below is a list of courses for which I've served as a teaching fellow. 
 
-### EPI207 - Advanced Epidemiologic Methods (2020)
+### EPI207 - Advanced Epidemiologic Methods 
 
 Instructor: James Robins
+
+Terms: Fall 2020, Fall 2021
 
 Required course for epidemiology PhD students. Causal inference for time-varying exposures: g-formula, inverse-probability weighting, marginal structural models, static and dynamic treatment regimes. Responsible for leading 90 min lab section and grading homeworks and tests.
 
 [Slides](files/teaching/lab3_parametric_g_formula.pdf) and [code](files/teaching/lab3_parametric_g_formula_solutions.R) for lab on parametric g-formula.
 
-### PHS2000 - Quantitative reseach methods (2019-2020)
+### PHS2000 - Quantitative reseach methods 
 
-Instructors: Tyler Vanderweele, Michael Hughes, and Jarvis Chen
+Instructors: Tyler Vanderweele, Michael Hughes, Issa Dahabreh, and Jarvis Chen
+
+Terms: Fall 2019, Spring 2020, Fall 2021
 
 Year-long required methods course for first-year PhD students. Regression models, sampling, longitudinal and multilevel analysis, time-varying confounding, mediation and interaction, econometric methods, and missing data. Responsible for leading 90 min lab section, developing homework assignments and tests, and drafting course materials.
 

@@ -10,6 +10,7 @@ knitr::opts_chunk$set(echo = FALSE)
 Below is a list of software that I've developed or contributed to:
 
 ### R
+- [`globorisk`](https://boyercb.github.io/globorisk). An R package for calculating risks of CVD using Globorisk.
 - [`gmethods`](https://github.com/boyercb/gmethods). An R package for estimating causal effects using Robins' ``g-methods'', i.e. the g-formula, g-estimation, and inverse probability weighting. (In development)
 
 ### Stata
