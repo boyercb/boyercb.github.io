@@ -13,7 +13,7 @@ Below is a list of courses for which I've served as a teaching fellow.
 
 Instructor: James Robins
 
-Terms: Fall 2020, Fall 2021
+Terms: Fall 2020, Fall 2021 (Lead)
 
 Required course for epidemiology PhD students. Causal inference for time-varying exposures: g-formula, inverse-probability weighting, marginal structural models, static and dynamic treatment regimes. Responsible for leading 90 min lab section and grading homeworks and tests.
 
@@ -27,7 +27,11 @@ Terms: Fall 2019, Spring 2020, Fall 2021
 
 Year-long required methods course for first-year PhD students. Regression models, sampling, longitudinal and multilevel analysis, time-varying confounding, mediation and interaction, econometric methods, and missing data. Responsible for leading 90 min lab section, developing homework assignments and tests, and drafting course materials.
 
+[Slides](files/teaching/inference-slides.html) for bootcamp review on inference.
+
 [Slides](files/teaching/phs_2019_bootcamp_regression.pdf) and [code](files/teaching/regression-summer-camp-2019.zip) for bootcamp review on linear regression.
+
+[Slides](files/teaching/Lab10_survival.html) and [code](files/teaching/Lab10_survival.R) for lab on survival analysis.
 
 [Handout](files/teaching/lab2_sensitivity_analysis_solutions.pdf) and [code](files/teaching/lab2_sensitivity_analysis_code.R) for lab on sensitivity analysis.
 
