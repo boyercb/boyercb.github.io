@@ -1,36 +1,24 @@
 ---
-title: "Christopher B. Boyer"
-image: "images/me_boston.jpg"
-links:
-  - label: Website
-    url: "https://christopherbboyer.com/"
-  - label: Github
-    url: "https://github.com/boyercb"
-  - label: Twitter
-    url: "https://twitter.com/chrisbboyer"
-  - label: Email
-    url: "mailto:christopherbboyer@gmail.com"
-twitter:
-  creator: "@chrisbboyoer"
-site: distill::distill_website
-output:
-  postcards::trestles:
-    css: "theme.css"
+title: "About"
 ---
 
-<style>
-body {
-  font-size: 1.25rem;
-}
-</style>
+![    ](images/me_boston.jpg)
 
-I am a PhD candidate in the Department of Epidemiology at the Harvard T.H. Chan School of Public Health. My work spans several topics in clinical and social epidemiology, but it is united by a keen interest in careful design and causal inference. Currently, this includes:
+I am a PhD candidate in the Department of Epidemiology at the Harvard T.H. Chan
+School of Public Health. My work spans several topics in epidemiology and the 
+social sciences, but it is united by an interest in careful design and causal
+inference. Currently, this includes:
 
-- Running two large randomized controlled trials in Uganda and Peru testing social theories about how to reduce male violence and improve equity for women. 
-- Theorizing about the time-varying effects of nonpharmaceutical interventions during the COVID-19 pandemic.
-- Developing methods for time-dependent risk prediction and population-level risk prediction and improving algorithmic fairness using the g-formula.
+- Running randomized controlled trials in Uganda and Peru testing social 
+theories about how to reduce male violence.
+- Theorizing about the effects of nonpharmaceutical interventions
+during the COVID-19 pandemic. 
+- Developing methods for time-dependent risk prediction using the g-formula.
 
-In this, I am aided by a fantastic, multi-displinary set of collaborators and mentors who keep me sane and are an endless source of good ideas. When not writing or coding, I enjoy baking and spending time with my wife, Jama, and our cantankerous feline, Ursula 😼. 
+In this, I am aided by a fantastic, multi-displinary set of collaborators and
+mentors who keep me sane and are an endless source of good ideas. When not
+writing or coding, I enjoy baking and spending time with my wife, Jama, and our
+cantankerous feline, Ursula 😼.
 
 # Education
 
