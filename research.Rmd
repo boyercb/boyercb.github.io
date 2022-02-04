@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ### Peer-reviewed Publications
 - NCD Risk Factor Collaboration (NCD-RisC). (2021) "Worldwide trends in hypertension prevalence and progress in treatment and control from 1990 to 2019: a pooled analysis of 1201 population-representative studies with 104 million participants". *The Lancet*. 398(10304), 957–980. DOI: [10.1016/S0140-6736(21)01330-1](https://doi.org/10.1016/S0140-6736%2821%2901330-1)
 
-- Pinchoff, J., **Boyer, C.**, Chowdhuri, R. N., Smith, G., Chintu, N., & Ngo, T. D. (2019). The evaluation of the Woman’s Condom marketing approach: What value did peer-led interpersonal communication add to the promotion of a new female condom in urban Lusaka? *PLoS ONE*, 14(12), e0225832. DOI: [10.1371/journal.pone.0225832](https://doi.org/10.1371/journal.pone.0225832)
+- Pinchoff, J., **Boyer, C.**, Chowdhuri, R. N., Smith, G., Chintu, N., & Ngo, T. D. (2019). "The evaluation of the Woman’s Condom marketing approach: What value did peer-led interpersonal communication add to the promotion of a new female condom in urban Lusaka?" *PLoS ONE*, 14(12), e0225832. DOI: [10.1371/journal.pone.0225832](https://doi.org/10.1371/journal.pone.0225832)
 
 
 
