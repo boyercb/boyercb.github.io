@@ -9,7 +9,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ### Work in Progress
 
-- **Boyer, C.**, Paluck, E. L., Annan, J., Nevatia, T., Cooper, J., Namubiru, J, Heise, L., & Lehrer, R. (2021) "Religious counsel can motivate men to cede power and reduce intimate partner violence: experimental evidence from Uganda". *Under Review*. [pre-analysis plan](https://www.socialscienceregistry.org/trials/3994/history/43131)
+- **Boyer, C.**, Paluck, E. L., Annan, J., Nevatia, T., Cooper, J., Namubiru, J, Heise, L., & Lehrer, R. (2021) "Religious counsel can motivate men to cede power and reduce intimate partner violence: experimental evidence from Uganda". *Revise & Resubmit at PNAS*. [pre-analysis plan](https://www.socialscienceregistry.org/trials/3994/history/43131)
 - **Boyer, C.**, Bates-Jefferys, E., Fink, G. & Annan, J. (2021) "Texting with men to reduce violence: a cluster-randomized trial of the Modern Man Challenge intervention in Monrovia, Liberia". *Working paper*.
 - **Boyer, C.**, Beam, A., Robins, J, & Danaei, G. (2021) "Factual and counterfactual risk prediction using the parametric g-formula". *Working paper*.
 - **Boyer, C.**, Beam, A., Robins, J, & Danaei, G. (2021) "Prediction under treatment policy shifts". *Working paper*.
