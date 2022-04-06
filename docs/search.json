@@ -5,7 +5,7 @@
       "title": "About",
       "author": [],
       "contents": "\n\nI am a PhD candidate in the Department of Epidemiology at the Harvard\nT.H. Chan School of Public Health. My work spans several topics in\nepidemiology and the social sciences, but it is united by an interest in\ncareful design and causal inference. Currently, this includes:\nRunning randomized controlled trials in Uganda and Peru testing\nsocial theories about how to reduce male violence.\nTheorizing about the effects of nonpharmaceutical interventions\nduring the COVID-19 pandemic.\nDeveloping methods for time-dependent risk prediction using the\ng-formula.\nIn this, I am aided by a fantastic, multi-displinary set of\ncollaborators and mentors who keep me sane and are an endless source of\ngood ideas. When not writing or coding, I enjoy baking and spending time\nwith my wife, Jama, and our cantankerous feline, Ursula 😼.\nEducation\nPhD Candidate, Epidemiology, Harvard University, 2022\n(expected).\nMS Biostatistics, Harvard University, 2022 (expected).\nMPH Epidemiology, Columbia University, 2015.\nBS Mechanical Engineering, Wright State University, 2010.\nExperience\nResearch Analyst. Innovations for Poverty Action, 2015 - 2018.\nConsultant. World Bank, 2016 - 2017.\nScience teacher. Peace Corps (Mozambique), 2010 - 2013.\n\n\n\n",
-      "last_modified": "2022-04-06T09:28:13-04:00"
+      "last_modified": "2022-04-06T09:47:32-04:00"
     },
     {
       "path": "index.html",
@@ -13,28 +13,28 @@
       "description": "Welcome to the website. I hope you enjoy it!\n",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2022-04-06T09:28:14-04:00"
+      "last_modified": "2022-04-06T09:47:33-04:00"
     },
     {
       "path": "research.html",
       "title": "Research",
       "author": [],
       "contents": "\nWork in Progress\nBoyer, C., Paluck, E. L., Annan, J., Nevatia, T.,\nCooper, J., Namubiru, J, Heise, L., & Lehrer, R. (2021) “Religious\ncounsel can motivate men to cede power and reduce intimate partner\nviolence: experimental evidence from Uganda”. Revise & Resubmit\nat PNAS. pre-analysis\nplan\nBoyer, C., Bates-Jefferys, E., Fink, G. &\nAnnan, J. (2021) “Texting with men to reduce violence: a\ncluster-randomized trial of the Modern Man Challenge intervention in\nMonrovia, Liberia”. Working paper.\nBoyer, C., Beam, A., Robins, J, & Danaei, G.\n(2021) “Factual and counterfactual risk prediction using the parametric\ng-formula”. Working paper.\nBoyer, C., Beam, A., Robins, J, & Danaei, G.\n(2021) “Prediction under treatment policy shifts”. Working\npaper.\nBoyer, C., Rumpler, E., Kissler, S., &\nLipsitch., M. (2022) “Infectious disease dynamics and restrictions on\nsocial gathering size”. medRxiv\n2022.01.07.21268585\nPeer-reviewed Publications\nNCD Risk Factor Collaboration (NCD-RisC). (2021) “Worldwide\ntrends in hypertension prevalence and progress in treatment and control\nfrom 1990 to 2019: a pooled analysis of 1201 population-representative\nstudies with 104 million participants”. The Lancet. 398(10304),\n957–980. DOI: 10.1016/S0140-6736(21)01330-1\nPinchoff, J., Boyer, C., Chowdhuri, R. N.,\nSmith, G., Chintu, N., & Ngo, T. D. (2019). “The evaluation of the\nWoman’s Condom marketing approach: What value did peer-led interpersonal\ncommunication add to the promotion of a new female condom in urban\nLusaka?” PLoS ONE, 14(12), e0225832. DOI: 10.1371/journal.pone.0225832\n\n\n\n",
-      "last_modified": "2022-04-06T09:28:16-04:00"
+      "last_modified": "2022-04-06T09:47:35-04:00"
     },
     {
       "path": "software.html",
       "title": "Software",
       "author": [],
       "contents": "\nBelow is a list of software that I’ve developed or contributed\nto:\nR\ngloborisk.\nAn R package for calculating risks of CVD using Globorisk.\ngmethods. An\nR package for estimating causal effects using Robins’ ``g-methods’’,\ni.e. the g-formula, g-estimation, and inverse probability weighting. (In\ndevelopment)\nStata\nipacheck.\nA Stata package for running high-frequency checks on survey data for\nfield experiments. With Rosemarie Sandino, Ishmail Baako, Caton\nBrewster, and Isabel Oñate.\nbcstats.\nA Stata program for analyzing back check (field audit) data and\ncomparing it to the original survey data. With Matthew White.\nsurveycto_api.\nA Stata program to automate downloading data from SurveyCTO server using\nthe API.\nphotobook.\nA Stata program to create a nicely formatted photobook from a list of\nimage files.\n\n\n\n",
-      "last_modified": "2022-04-06T09:28:17-04:00"
+      "last_modified": "2022-04-06T09:47:36-04:00"
     },
     {
       "path": "teaching.html",
       "title": "Teaching",
       "author": [],
       "contents": "\nBelow is a list of courses for which I’ve served as a teaching\nfellow.\nEPI207 - Advanced\nEpidemiologic Methods\nInstructor: James Robins\nTerms: Fall 2020, Fall 2021 (Lead)\nRequired course for epidemiology PhD students. Causal inference for\ntime-varying exposures: g-formula, inverse-probability weighting,\nmarginal structural models, static and dynamic treatment regimes.\nResponsible for leading 90 min lab section and grading homeworks and\ntests.\nSlides and\ncode\nfor lab on parametric g-formula.\nPHS2000 - Quantitative\nreseach methods\nInstructors: Tyler Vanderweele, Michael Hughes, Issa Dahabreh, and\nJarvis Chen\nTerms: Fall 2019, Spring 2020, Fall 2021\nYear-long required methods course for first-year PhD students.\nRegression models, sampling, longitudinal and multilevel analysis,\ntime-varying confounding, mediation and interaction, econometric\nmethods, and missing data. Responsible for leading 90 min lab section,\ndeveloping homework assignments and tests, and drafting course\nmaterials.\nSlides for\nbootcamp review on inference.\nSlides\nand code\nfor bootcamp review on linear regression.\nSlides and code for lab on survival\nanalysis.\nHandout\nand code\nfor lab on sensitivity analysis.\nHandout\nand code for lab\non causal interaction and effect modification.\nHandout and\ncode for lab on\nmediation.\nHandout and code for lab on the\nbootstrap.\n* Distinction in Teaching Award\n\n\n\n",
-      "last_modified": "2022-04-06T09:28:18-04:00"
+      "last_modified": "2022-04-06T09:47:37-04:00"
     }
   ],
   "collections": ["posts/posts.json"]
