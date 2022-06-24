@@ -8,18 +8,17 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ### Work in Progress
-
-- **Boyer, C.**, Paluck, E. L., Annan, J., Nevatia, T., Cooper, J., Namubiru, J, Heise, L., & Lehrer, R. (2021) "Religious counsel can motivate men to cede power and reduce intimate partner violence: experimental evidence from Uganda". *Revise & Resubmit at PNAS*. [pre-analysis plan](https://www.socialscienceregistry.org/trials/3994/history/43131)
-- **Boyer, C.**, Bates-Jefferys, E., Fink, G. & Annan, J. (2021) "Texting with men to reduce violence: a cluster-randomized trial of the Modern Man Challenge intervention in Monrovia, Liberia". *Working paper*.
+- **Boyer, C.**, Bates-Jefferys, E., Fink, G. & Annan, J. (2022) "Texting with men to reduce violence: a cluster-randomized trial of the Modern Man Challenge intervention in Monrovia, Liberia". *Working paper*.
 - **Boyer, C.**, Chatterji, S., Cooper, J., & Heise, L. (2022). "Outcome coding choice in randomized trials of programs to reduce violence". *ArXiv:2204.12385 [Stat]*. http://arxiv.org/abs/2204.12385
-- **Boyer, C.**, Beam, A., Robins, J, & Danaei, G. (2021) "Factual and counterfactual risk prediction using the parametric g-formula". *Working paper*.
-- **Boyer, C.**, Beam, A., Robins, J, & Danaei, G. (2021) "Predicting the treatment-naive risk". *Working paper*.
+- **Boyer, C.**, Beam, A., Robins, J, & Danaei, G. (2022) "Factual and counterfactual risk prediction using the parametric g-formula". *Working paper*.
+- **Boyer, C.**, Beam, A., Robins, J, & Danaei, G. (2022) "Predicting the treatment-naive risk". *Working paper*.
 - **Boyer, C.**, Rumpler, E., Kissler, S., & Lipsitch., M. (2022) "Infectious disease dynamics and restrictions on social gathering size". *medRxiv* 2022.01.07.21268585 https://www.medrxiv.org/content/10.1101/2022.01.07.21268585v1
 
 ### Peer-reviewed Publications
+- **Boyer, C.**, Paluck, E. L., Annan, J., Nevatia, T., Cooper, J., Namubiru, J, Heise, L., & Lehrer, R. (2022) "Religious counsel can motivate men to cede power and reduce intimate partner violence: experimental evidence from Uganda". *Forthcoming at PNAS*. [pre-analysis plan](https://www.socialscienceregistry.org/trials/3994/history/43131)
+
 - NCD Risk Factor Collaboration (NCD-RisC). (2021) "Worldwide trends in hypertension prevalence and progress in treatment and control from 1990 to 2019: a pooled analysis of 1201 population-representative studies with 104 million participants". *The Lancet*. 398(10304), 957–980. DOI: [10.1016/S0140-6736(21)01330-1](https://doi.org/10.1016/S0140-6736%2821%2901330-1)
 
-- Pinchoff, J., **Boyer, C.**, Chowdhuri, R. N., Smith, G., Chintu, N., & Ngo, T. D. (2019). "The evaluation of the Woman’s Condom marketing approach: What value did peer-led interpersonal communication add to the promotion of a new female condom in urban Lusaka?" *PLoS ONE*, 14(12), e0225832. DOI: [10.1371/journal.pone.0225832](https://doi.org/10.1371/journal.pone.0225832)
 
 
 

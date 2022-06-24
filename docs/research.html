@@ -50,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -73,9 +74,9 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
 code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
@@ -767,10 +768,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     position: relative;
     margin-bottom: 2.5em;
     margin-top: 1.5em;
-  }
-
-  .figure img {
-    width: 100%;
   }
 
   .figure .caption {
@@ -1602,6 +1599,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
+        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
+          var fn = $(this).children()[0]
+          $(this).html(fn.shadowRoot.querySelector("sup"))
+          $(this).id = fn.id
+          fn.remove()
+        }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
           return "<p>" + $('#ref-' + ref).html() + "</p>";
@@ -1616,6 +1619,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           placement: 'bottom-start'
         });
       });
+
+      // fix footnotes in tables (#411)
+      // replacing broken distill.pub feature
+      $('table d-footnote').each(function() {
+        // we replace internal showAtNode methode which is triggered when hovering a footnote
+        this.hoverBox.showAtNode = function(node) {
+          // ported from https://github.com/distillpub/template/pull/105/files
+          calcOffset = function(elem) {
+              let x = elem.offsetLeft;
+              let y = elem.offsetTop;
+              // Traverse upwards until an `absolute` element is found or `elem`
+              // becomes null.
+              while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                  x += elem.offsetLeft;
+                  y += elem.offsetTop;
+              }
+
+              return { left: x, top: y };
+          }
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+          const bbox = node.getBoundingClientRect();
+          const offset = calcOffset(node);
+          this.show([offset.left + bbox.width, offset.top + bbox.height]);
+        }
+      })
 
       // clear polling timer
       clearInterval(tid);
@@ -1715,6 +1743,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // mark non-body figures created by knitr chunks as 100% width
     $('.layout-chunk').each(function(i, val) {
       var figures = $(this).find('img, .html-widget');
+      // ignore leaflet img layers (#106)
+      figures = figures.filter(':not(img[class*="leaflet"])')
       if ($(this).attr('data-layout') !== "l-body") {
         figures.css('width', '100%');
       } else {
@@ -1737,7 +1767,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // get rid of index.html references in header
     if (window.location.protocol !== "file:") {
       $('.distill-site-header a[href]').each(function(i,val) {
-        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+        $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
       });
     }
 
@@ -2094,7 +2124,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     color: var(--hover-color, white);
   }</style>
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2172,15 +2202,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-article">
 <h3 id="work-in-progress">Work in Progress</h3>
 <ul>
-<li><strong>Boyer, C.</strong>, Paluck, E. L., Annan, J., Nevatia, T.,
-Cooper, J., Namubiru, J, Heise, L., &amp; Lehrer, R. (2021) “Religious
-counsel can motivate men to cede power and reduce intimate partner
-violence: experimental evidence from Uganda”. <em>Revise &amp; Resubmit
-at PNAS</em>. <a
-href="https://www.socialscienceregistry.org/trials/3994/history/43131">pre-analysis
-plan</a></li>
 <li><strong>Boyer, C.</strong>, Bates-Jefferys, E., Fink, G. &amp;
-Annan, J. (2021) “Texting with men to reduce violence: a
+Annan, J. (2022) “Texting with men to reduce violence: a
 cluster-randomized trial of the Modern Man Challenge intervention in
 Monrovia, Liberia”. <em>Working paper</em>.</li>
 <li><strong>Boyer, C.</strong>, Chatterji, S., Cooper, J., &amp; Heise,
@@ -2189,10 +2212,10 @@ reduce violence”. <em>ArXiv:2204.12385 [Stat]</em>. <a
 href="http://arxiv.org/abs/2204.12385"
 class="uri">http://arxiv.org/abs/2204.12385</a></li>
 <li><strong>Boyer, C.</strong>, Beam, A., Robins, J, &amp; Danaei, G.
-(2021) “Factual and counterfactual risk prediction using the parametric
+(2022) “Factual and counterfactual risk prediction using the parametric
 g-formula”. <em>Working paper</em>.</li>
 <li><strong>Boyer, C.</strong>, Beam, A., Robins, J, &amp; Danaei, G.
-(2021) “Predicting the treatment-naive risk”. <em>Working
+(2022) “Predicting the treatment-naive risk”. <em>Working
 paper</em>.</li>
 <li><strong>Boyer, C.</strong>, Rumpler, E., Kissler, S., &amp;
 Lipsitch., M. (2022) “Infectious disease dynamics and restrictions on
@@ -2202,18 +2225,19 @@ class="uri">https://www.medrxiv.org/content/10.1101/2022.01.07.21268585v1</a></l
 </ul>
 <h3 id="peer-reviewed-publications">Peer-reviewed Publications</h3>
 <ul>
+<li><p><strong>Boyer, C.</strong>, Paluck, E. L., Annan, J., Nevatia,
+T., Cooper, J., Namubiru, J, Heise, L., &amp; Lehrer, R. (2022)
+“Religious counsel can motivate men to cede power and reduce intimate
+partner violence: experimental evidence from Uganda”. <em>Forthcoming at
+PNAS</em>. <a
+href="https://www.socialscienceregistry.org/trials/3994/history/43131">pre-analysis
+plan</a></p></li>
 <li><p>NCD Risk Factor Collaboration (NCD-RisC). (2021) “Worldwide
 trends in hypertension prevalence and progress in treatment and control
 from 1990 to 2019: a pooled analysis of 1201 population-representative
 studies with 104 million participants”. <em>The Lancet</em>. 398(10304),
 957–980. DOI: <a
 href="https://doi.org/10.1016/S0140-6736%2821%2901330-1">10.1016/S0140-6736(21)01330-1</a></p></li>
-<li><p>Pinchoff, J., <strong>Boyer, C.</strong>, Chowdhuri, R. N.,
-Smith, G., Chintu, N., &amp; Ngo, T. D. (2019). “The evaluation of the
-Woman’s Condom marketing approach: What value did peer-led interpersonal
-communication add to the promotion of a new female condom in urban
-Lusaka?” <em>PLoS ONE</em>, 14(12), e0225832. DOI: <a
-href="https://doi.org/10.1371/journal.pone.0225832">10.1371/journal.pone.0225832</a></p></li>
 </ul>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
