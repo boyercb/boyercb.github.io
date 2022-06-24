@@ -18,6 +18,8 @@ Required course for epidemiology PhD students. Causal inference for time-varying
 
 [Slides](files/teaching/lab3_parametric_g_formula.pdf) and [code](files/teaching/lab3_parametric_g_formula_solutions.R) for lab on parametric g-formula.
 
+\* Department of Epidemiology Excellence in Teaching Award 2021
+
 ### PHS2000 - Quantitative reseach methods 
 
 Instructors: Tyler Vanderweele, Michael Hughes, Issa Dahabreh, and Jarvis Chen
@@ -40,4 +42,4 @@ Year-long required methods course for first-year PhD students. Regression models
 
 [Handout](files/teaching/lab6_bootstrap.pdf) and [code](files/teaching/lab6_bootstrap_code.zip) for lab on the bootstrap.
 
-\* Distinction in Teaching Award 
+\* GSAS Distinction in Teaching Award 2019, 2020, and 2021
