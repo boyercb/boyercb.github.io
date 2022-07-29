@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = FALSE)
 - **Boyer, C.**, Chatterji, S., Cooper, J., & Heise, L. (2022). "Outcome coding choice in randomized trials of programs to reduce violence". *ArXiv:2204.12385 [Stat]*. http://arxiv.org/abs/2204.12385
 - **Boyer, C.**, Beam, A., Robins, J, & Danaei, G. (2022) "Factual and counterfactual risk prediction using the parametric g-formula". *Working paper*.
 - **Boyer, C.**, Beam, A., Robins, J, & Danaei, G. (2022) "Predicting the treatment-naive risk". *Working paper*.
-- **Boyer, C.**, Rumpler, E., Kissler, S., & Lipsitch., M. (2022) "Infectious disease dynamics and restrictions on social gathering size". *medRxiv* 2022.01.07.21268585 https://www.medrxiv.org/content/10.1101/2022.01.07.21268585v1
+- **Boyer, C.**, Rumpler, E., Kissler, S., & Lipsitch., M. (2022) "Infectious disease dynamics and restrictions on social gathering size". *medRxiv* 2022.01.07.21268585 https://www.medrxiv.org/content/10.1101/2022.01.07.21268585v2
 
 ### Peer-reviewed Publications
 - **Boyer, C.**, Paluck, E. L., Annan, J., Nevatia, T., Cooper, J., Namubiru, J, Heise, L., & Lehrer, R. (2022) "Religious counsel can motivate men to cede power and reduce intimate partner violence: experimental evidence from Uganda". *Forthcoming at PNAS*. [pre-analysis plan](https://www.socialscienceregistry.org/trials/3994/history/43131)
