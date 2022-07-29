@@ -2,7 +2,7 @@
 title: "About"
 ---
 
-![    ](images/IMG_1652_cropped.jpg)
+![    ](images/DSC00669.JPG)
 
 I am a PhD candidate in the Department of Epidemiology at the Harvard T.H. Chan
 School of Public Health. My work spans several topics in epidemiology and the 
@@ -16,9 +16,9 @@ during the COVID-19 pandemic.
 - Developing methods for factual and counterfactual risk prediction.
 - Descriptive epidemiology of non-communicable diseases with NCD-RisC.
 
-In this, I am aided by a fantastic, multi-displinary set of collaborators and
+In this, I am aided by a fantastic, multi-disciplinary set of collaborators and
 mentors who keep me sane and are an endless source of good ideas. When not
-writing or coding, I enjoy baking and spending time with my wife, Jama, and our
+writing or coding, I enjoy baking and spending time with my wife, Jama and our
 cantankerous feline, Ursula 😼.
 
 # Education
