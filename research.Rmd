@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = FALSE)
 - **Boyer, C.**, Rumpler, E., Kissler, S., & Lipsitch., M. (2022) "Infectious disease dynamics and restrictions on social gathering size". *medRxiv* 2022.01.07.21268585 https://www.medrxiv.org/content/10.1101/2022.01.07.21268585v2
 
 ### Peer-reviewed Publications
-- **Boyer, C.**, Paluck, E. L., Annan, J., Nevatia, T., Cooper, J., Namubiru, J, Heise, L., & Lehrer, R. (2022) "Religious counsel can motivate men to cede power and reduce intimate partner violence: experimental evidence from Uganda". *PNAS*. 119(31), e2200262119. https://doi.org/10.1073/pnas.2200262119 
+- **Boyer, C.**, Paluck, E. L., Annan, J., Nevatia, T., Cooper, J., Namubiru, J, Heise, L., & Lehrer, R. (2022) "Religious leaders can motivate men to cede power and reduce intimate partner violence: experimental evidence from Uganda". *PNAS*. 119(31), e2200262119. https://doi.org/10.1073/pnas.2200262119 
 [(pre-analysis plan)](https://www.socialscienceregistry.org/trials/3994/history/43131) [(data & code)](https://doi.org/10.7910/DVN/9TEAIV)
 
 - NCD Risk Factor Collaboration (NCD-RisC). (2021) "Worldwide trends in hypertension prevalence and progress in treatment and control from 1990 to 2019: a pooled analysis of 1201 population-representative studies with 104 million participants". *The Lancet*. 398(10304), 957–980. https://doi.org/10.1016/S0140-6736(21)01330-1
