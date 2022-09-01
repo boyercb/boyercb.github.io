@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = FALSE)
 [(data & code)](https://doi.org/10.7910/DVN/9TEAIV)
 </aside>
 
-- **Boyer, C.**, Rumpler, E., Kissler, S. M., & Lipsitch, M. (2022). "Infectious disease dynamics and restrictions on social gathering size". *Epidemics*, 100620. https://doi.org/10.1016/j.epidem.2022.100620
+- **Boyer, C.**, Rumpler, E., Kissler, S. M., & Lipsitch, M. (2022). "Infectious disease dynamics and restrictions on social gathering size". *Epidemics*, 40, 100620. https://doi.org/10.1016/j.epidem.2022.100620
 
 <aside>
 [(pre-print)](https://www.medrxiv.org/content/10.1101/2022.01.07.21268585v2)
