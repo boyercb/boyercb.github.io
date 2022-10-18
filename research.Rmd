@@ -11,17 +11,17 @@ knitr::opts_chunk$set(echo = FALSE)
 - **Boyer, C.**, Paluck, E. L., Annan, J., Nevatia, T., Cooper, J., Namubiru, J, Heise, L., & Lehrer, R. (2022) "Religious leaders can motivate men to cede power and reduce intimate partner violence: experimental evidence from Uganda". *PNAS*. 119(31), e2200262119. https://doi.org/10.1073/pnas.2200262119 
 
 <aside>
-[(pre-analysis plan)](https://www.socialscienceregistry.org/trials/3994/history/43131) 
+[(📝 pre-analysis plan)](https://www.socialscienceregistry.org/trials/3994/history/43131) 
 
-[(data & code)](https://doi.org/10.7910/DVN/9TEAIV)
+[(💾 data & code)](https://doi.org/10.7910/DVN/9TEAIV)
 </aside>
 
 - **Boyer, C.**, Rumpler, E., Kissler, S. M., & Lipsitch, M. (2022). "Infectious disease dynamics and restrictions on social gathering size". *Epidemics*, 40, 100620. https://doi.org/10.1016/j.epidem.2022.100620
 
 <aside>
-[(pre-print)](https://www.medrxiv.org/content/10.1101/2022.01.07.21268585v2)
+[(🖨 pre-print)](https://www.medrxiv.org/content/10.1101/2022.01.07.21268585v2)
 
-[(data & code)](https://github.com/boyercb/covid-gathering-size)
+[(💾 data & code)](https://github.com/boyercb/covid-gathering-size)
 </aside>
 
 - NCD Risk Factor Collaboration (NCD-RisC). (2021) "Worldwide trends in hypertension prevalence and progress in treatment and control from 1990 to 2019: a pooled analysis of 1201 population-representative studies with 104 million participants". *The Lancet*. 398(10304), 957–980. https://doi.org/10.1016/S0140-6736(21)01330-1
@@ -32,6 +32,11 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ### Work in Progress
 - **Boyer, C.** & Field, E. (2022) "*Hablemos entre patas*: a randomized-controlled trial of facilitated men's groups using WhatsApp to reduce intimate partner violence". *Data collection ongoing*.
+
+<aside>
+[(📝 pre-analysis plan)](https://www.socialscienceregistry.org/trials/10043) 
+</aside>
+
 - **Boyer, C.**, Bates-Jefferys, E., Fink, G. & Annan, J. (2022) "Texting with men to reduce violence: a cluster-randomized trial of the Modern Man Challenge intervention in Monrovia, Liberia". *Working paper*.
 - **Boyer, C.**, Beam, A., Robins, J, & Danaei, G. (2022) "Factual and counterfactual risk prediction using the parametric g-formula". *Dissertation paper*.
 - **Boyer, C.**, Beam, A., Robins, J, & Danaei, G. (2022) "Target trials for prediction: emulating a trial to estimate the treatment-naive risk". *Dissertation paper*.
