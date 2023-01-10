@@ -4,7 +4,7 @@ title: "About"
 
 ![    ](images/DSC00669.JPG)
 
-I am a PhD candidate in the Department of Epidemiology at the Harvard T.H. Chan
+I am a postdoctoral research fellow at the Harvard T.H. Chan
 School of Public Health. My work spans several topics in epidemiology and the 
 social sciences, but it is united by an interest in careful design and causal
 inference. Currently, this includes:
@@ -23,13 +23,14 @@ cantankerous feline, Ursula 😼.
 
 # Education
 
-- PhD Candidate, Epidemiology, Harvard University, 2022 (expected).
-- MS Biostatistics, Harvard University, 2022 (expected).
+- PhD Candidate, Epidemiology, Harvard University, 2023.
+- MS Biostatistics, Harvard University, 2023.
 - MPH Epidemiology, Columbia University, 2015.
 - BS Mechanical Engineering, Wright State University, 2010.
 
 # Experience
 
+- Research Fellow. Harvard University, 2023 - present
 - Team Lead. Innovations for Poverty Action, 2015 - 2018.
 - Research Associate. Columbia University, 2013 - 2015.
 - Science Teacher. Peace Corps (Mozambique), 2010 - 2012.
