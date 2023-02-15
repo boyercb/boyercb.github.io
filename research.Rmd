@@ -28,18 +28,19 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ### Pre-prints
 - **Boyer, C.**, Chatterji, S., Cooper, J., & Heise, L. (2022). "Outcome coding choice in randomized trials of programs to reduce violence". *ArXiv:2204.12385 [Stat]*. http://arxiv.org/abs/2204.12385
-
+- Chatterji, S., **Boyer, C.**, Sharma, V., Abramsky, T., Levtov, R., Doyle, K., ... & Heise, L. (2023). Optimising the construction of outcome measures for impact evaluations of intimate partner violence (IPV) prevention interventions. *medRxiv, 2023-02.* https://www.medrxiv.org/content/10.1101/2023.02.07.23285510.abstract
 
 ### Work in Progress
-- **Boyer, C.** & Field, E. (2022) "*Hablemos entre patas*: a randomized-controlled trial of facilitated men's groups using WhatsApp to reduce intimate partner violence". *Data collection ongoing*.
+- **Boyer, C.** & Field, E. (2023) "*Hablemos entre patas*: a randomized-controlled trial of facilitated men's groups using WhatsApp to reduce intimate partner violence". *Data collection ongoing*.
 
 <aside>
 📝 [pre-analysis plan](https://www.socialscienceregistry.org/trials/10043)
 </aside>
 
-- **Boyer, C.**, Bates-Jefferys, E., Fink, G. & Annan, J. (2022) "Texting with men to reduce violence: a cluster-randomized trial of the Modern Man Challenge intervention in Monrovia, Liberia". *Working paper*.
-- **Boyer, C.**, Beam, A., Robins, J, & Danaei, G. (2022) "Factual and counterfactual risk prediction using the parametric g-formula". *Dissertation paper*.
-- **Boyer, C.**, Beam, A., Robins, J, & Danaei, G. (2022) "Target trials for prediction: emulating a trial to estimate the treatment-naive risk". *Dissertation paper*.
+- **Boyer, C.**, Paluck, E. L., Annan, J., Nevatia, T., Cooper, J., Namubiru, J, Heise, L., & Lehrer, R. (2023) "Does asking about violence increase reporting at subsequent interviews? Evidence from a randomized trial in Uganda". *Under review*
+- **Boyer, C.**, Beam, A., Robins, J, & Danaei, G. (2023) "Factual and counterfactual risk prediction using the parametric g-formula". *Dissertation paper*.
+- **Boyer, C.**, Beam, A., Robins, J, & Danaei, G. (2023) "Target trials for prediction: emulating a trial to estimate the treatment-naive risk". *Dissertation paper*.
+- **Boyer, C.**, Beam, A., Robins, J, & Danaei, G. (2023) "Validating counterfactual predictions". *Dissertation paper*.
 
 
 
