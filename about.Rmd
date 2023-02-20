@@ -5,21 +5,16 @@ title: "About"
 ![    ](images/DSC00669.JPG)
 
 I am a postdoctoral research fellow at the Harvard T.H. Chan
-School of Public Health. My work spans several topics in epidemiology and the 
-social sciences, but it is united by an interest in careful design and causal
-inference. Currently, this includes:
+School of Public Health. My work spans several topics in epidemiology and the  social sciences, but it is united by an interest in careful design and causal inference. Currently, this includes:
 
 - Running randomized controlled trials in Uganda and Peru testing social 
 theories about how to reduce male violence.
-- Theorizing about the effects of nonpharmaceutical interventions
-during the COVID-19 pandemic. 
 - Developing methods for factual and counterfactual risk prediction.
-- Descriptive epidemiology of non-communicable diseases with NCD-RisC.
+- Emulating postexposure vaccination trials from observational data.
+- Bayesian hierarchical modeling of the viral kinetics of SARS-CoV-2.
+- Descriptive epidemiology of global treatment patterns in statin use with NCD-RisC.
 
-In this, I am aided by a fantastic, multi-disciplinary set of collaborators and
-mentors who keep me sane and are an endless source of good ideas. When not
-writing or coding, I enjoy baking and spending time with my wife, Jama and our
-cantankerous feline, Ursula 😼.
+In this, I am aided by a fantastic, multi-disciplinary set of collaborators and mentors who keep me sane and are an endless source of good ideas. When not writing or coding, I enjoy baking and spending time with my wife, Jama, our son, Bruno, and our cantankerous feline, Ursula 😼.
 
 # Education
 
