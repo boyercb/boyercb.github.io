@@ -43,3 +43,11 @@ Year-long required methods course for first-year PhD students. Regression models
 - [Handout](files/teaching/lab6_bootstrap.pdf) and [code](files/teaching/lab6_bootstrap_code.zip) for lab on the bootstrap.
 
 🏆 GSAS Distinction in Teaching Award 2019, 2020, and 2021
+
+### EPI260 - Mathematical Modeling of Infectious Diseases
+
+Instructor: Marc Lipsitch
+
+Terms: Spring 2023
+
+Dynamical models to study the transmission dynamics of infectious diseases. Design and construction of appropriate differential equation models, equilibrium and stability analysis, parameter estimation from epidemiological data, determination and interpretation of the basic reproductive number of an infection, stochastic and deterministic models, heterogeneity, techniques for sensitivity analysis, and critique of model assumptions.
