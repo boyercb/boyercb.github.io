@@ -40,7 +40,7 @@ knitr::opts_chunk$set(echo = FALSE)
 </aside>
 
 ### Work in Progress
-- **Boyer, C.** & Field, E. (2023) "*Hablemos entre patas*: a randomized-controlled trial of facilitated men's groups using WhatsApp to reduce intimate pa️rtner violence". *Data collection ongoing*.
+- **Boyer, C.** & Field, E. (2023) "*Hablemos entre patas*: a randomized-controlled trial of facilitated men's groups using WhatsApp to reduce intimate partner violence". *Manuscript in preparation*.
 
 <aside>
 📝 [pre-analysis plan](https://www.socialscienceregistry.org/trials/10043)
