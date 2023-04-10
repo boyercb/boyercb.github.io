@@ -24,11 +24,18 @@ knitr::opts_chunk$set(echo = FALSE)
 💾 [data & code](https://github.com/boyercb/covid-gathering-size)
 </aside>
 
+- Chatterji, S., **Boyer, C.**, Sharma, V., Abramsky, T., Levtov, R., Doyle, K., Harvey, S., & Heise, L. (2023). "Optimizing the Construction of Outcome Measures for Impact Evaluations of Intimate Partner Violence Prevention Interventions." *Journal of Interpersonal Violence*, 0(0). https://doi.org/10.1177/08862605231162887
+
+<aside>
+🖨 [pre-print](https://www.medrxiv.org/content/10.1101/2023.02.07.23285510.abstract)
+
+</aside>
+
 - NCD Risk Factor Collaboration (NCD-RisC). (2021) "Worldwide trends in hypertension prevalence and progress in treatment and control from 1990 to 2019: a pooled analysis of 1201 population-representative studies with 104 million participants". *The Lancet*. 398(10304), 957–980. https://doi.org/10.1016/S0140-6736(21)01330-1
+
 
 ### Pre-prints
 - **Boyer, C.**, Chatterji, S., Cooper, J., & Heise, L. (2022). "Outcome coding choice in randomized trials of programs to reduce violence". *ArXiv:2204.12385 [Stat]*. http://arxiv.org/abs/2204.12385
-- Chatterji, S., **Boyer, C.**, Sharma, V., Abramsky, T., ..., & Heise, L. (2023). "Optimising the construction of outcome measures for impact evaluations of intimate partner violence (IPV) prevention interventions". *medRxiv, 2023-02.* https://www.medrxiv.org/content/10.1101/2023.02.07.23285510.abstract
 
 ### Dissertation
 - **Boyer, C.**. (2023) "New approaches to factual and counterfactual prediction modeling". *Doctoral dissertation*, Harvard University Graduate School of Arts and Sciences. 
