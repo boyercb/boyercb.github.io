@@ -37,6 +37,9 @@ knitr::opts_chunk$set(echo = FALSE)
 ### Pre-prints
 - **Boyer, C.**, Chatterji, S., Cooper, J., & Heise, L. (2022). "Outcome coding choice in randomized trials of programs to reduce violence". *ArXiv:2204.12385 [Stat]*. http://arxiv.org/abs/2204.12385
 
+- **Boyer, C.** & Lipsitch, M. (2023). "Defining and emulating target trials of the effects of postexposure vaccination using observational data". *medRxiv.* https://doi.org/10.1101/2023.05.03.23289471
+
+
 ### Dissertation
 - **Boyer, C.**. (2023) "New approaches to factual and counterfactual prediction modeling". *Doctoral dissertation*, Harvard University Graduate School of Arts and Sciences. 
 
