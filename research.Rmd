@@ -41,7 +41,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 ### Dissertation
-- **Boyer, C.**. (2023) "New approaches to factual and counterfactual prediction modeling". *Doctoral dissertation*, Harvard University Graduate School of Arts and Sciences. 
+- **Boyer, C.** (2023) "New approaches to factual and counterfactual prediction modeling". *Doctoral dissertation*, Harvard University Graduate School of Arts and Sciences. 
 
 <aside>
 🖨 [archive](https://dash.harvard.edu/bitstream/handle/1/37374603/thesis.pdf)
