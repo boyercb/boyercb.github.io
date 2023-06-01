@@ -19,7 +19,7 @@ navbar:
       href: teaching.html
     - text: "Software"
       href: software.html
-    - text: "CV"
+    - icon: ai ai-cv fa-lg
       href: files/cv.pdf
     - icon: fa fa-github
       href: https://github.com/boyercb/
