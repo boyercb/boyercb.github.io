@@ -35,13 +35,13 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 ### Pre-prints
-- **Boyer, C.**, Dahabreh, I. J., & Steingrimsson, J. A. (2023). Assessing model performance for counterfactual predictions (arXiv:2308.13026). arXiv. https://doi.org/10.48550/arXiv.2308.13026
+- **Boyer, C.**, Dahabreh, I. J., & Steingrimsson, J. A. (2023). "Assessing model performance for counterfactual predictions". *arXiv.* https://doi.org/10.48550/arXiv.2308.13026
 
 - **Boyer, C.** & Lipsitch, M. (2023). "Defining and emulating target trials of the effects of postexposure vaccination using observational data". *medRxiv.* https://doi.org/10.1101/2023.05.03.23289471
 
+- Joshi, K., Kahn, R., **Boyer, C.**, & Lipsitch, M. (2023). "Some principles for using epidemiologic study results to parameterize transmission models". *medRxiv.*  https://doi.org/10.1101/2023.10.03.23296455
+
 - **Boyer, C.**, Chatterji, S., Cooper, J., & Heise, L. (2022). "Outcome coding choice in randomized trials of programs to reduce violence". *ArXiv:2204.12385 [Stat]*. http://arxiv.org/abs/2204.12385
-
-
 
 
 ### Dissertation
