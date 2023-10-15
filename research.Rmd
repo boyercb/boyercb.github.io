@@ -61,6 +61,9 @@ knitr::opts_chunk$set(echo = FALSE)
 </aside>
 
 - **Boyer, C.**, Paluck, E. L., Annan, J., Nevatia, T., Cooper, J., Namubiru, J, Heise, L., & Lehrer, R. (2023) "Does asking about violence increase reporting at subsequent interviews? Evidence from a randomized trial in Uganda". *Under review*
+
+- NCD Risk Factor Collaboration (NCD-RisC). (2023) ``Long-term and recent trends in serum cholesterol treatment and control in 14 high-income countries: an analysis of 125 nationally representative surveys''.
+
 - **Boyer, C.**, Beam, A., Robins, J, & Danaei, G. (2023) "Factual and counterfactual risk prediction using the parametric g-formula". *Dissertation paper*.
 - **Boyer, C.**, Beam, A., Robins, J, & Danaei, G. (2023) "Target trials for prediction: emulating a trial to estimate the treatment-naive risk". *Dissertation paper*.
 
