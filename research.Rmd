@@ -31,7 +31,11 @@ knitr::opts_chunk$set(echo = FALSE)
 
 </aside>
 
+
+- Rosen, J. B., Arciuolo, R. J., Pathela, P., **Boyer, C.**, Baumgartner, J., Latash, J., Malec, L., Lee, E. H., Reddy, V., King, R., Edward Real, J., Lipsitch, M., & Zucker, J. R. (2024). JYNNEOS™ effectiveness as post-exposure prophylaxis against mpox: Challenges using real-world outbreak data. *Vaccine*. https://doi.org/10.1016/j.vaccine.2023.12.066
+
 - NCD Risk Factor Collaboration (NCD-RisC). (2021) "Worldwide trends in hypertension prevalence and progress in treatment and control from 1990 to 2019: a pooled analysis of 1201 population-representative studies with 104 million participants". *The Lancet*. 398(10304), 957–980. https://doi.org/10.1016/S0140-6736(21)01330-1
+
 
 
 ### Pre-prints
@@ -62,9 +66,10 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - **Boyer, C.**, Paluck, E. L., Annan, J., Nevatia, T., Cooper, J., Namubiru, J, Heise, L., & Lehrer, R. (2023) "Does asking about violence increase reporting at subsequent interviews? Evidence from a randomized trial in Uganda". *Under review*
 
-- NCD Risk Factor Collaboration (NCD-RisC). (2023) ``Long-term and recent trends in serum cholesterol treatment and control in 14 high-income countries: an analysis of 125 nationally representative surveys''.
+- NCD Risk Factor Collaboration (NCD-RisC). (2023) "Long-term and recent trends in serum cholesterol treatment and control in 14 high-income countries: an analysis of 125 nationally representative surveys".
 
 - **Boyer, C.**, Beam, A., Robins, J, & Danaei, G. (2023) "Factual and counterfactual risk prediction using the parametric g-formula". *Dissertation paper*.
+
 - **Boyer, C.**, Beam, A., Robins, J, & Danaei, G. (2023) "Target trials for prediction: emulating a trial to estimate the treatment-naive risk". *Dissertation paper*.
 
 
