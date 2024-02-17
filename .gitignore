@@ -1,4 +1,4 @@
-_site
+
 .sass-cache
 .jekyll-metadata
 .npm-debug.log
@@ -51,3 +51,5 @@ vignettes/*.pdf
 
 .DS_Store
 
+
+/.quarto/
