@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Christopher B. Boyer",
+    "section": "",
+    "text": "I am currently a postdoctoral research fellow at the Harvard T.H. Chan School of Public Health. I am an epidemiologist and biostatistician by training with expertise in infectious disease, violence, and causal inference. My recent projects include:\n\nRunning randomized trials in Uganda and Peru testing social theories about how to reduce male violence.\nImproving postmarket evaluations of vaccine effectiveness from observational data.\nDeveloping Bayesian generative models of within-host viral and immune kinetics for SARS-CoV-2.\nDeveloping methods for validating counterfactual predictions.\nDescriptive epidemiology of global treatment patterns for cardiovascular disease with NCD-RisC.\n\n\nEducation\n\nPhD, Epidemiology\n\nHarvard University, 2023.\n\nMPH, Epidemiology\n\nColumbia University, 2015.\n\nBS, Mechanical Engineering\n\nWright State University, 2010."
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Post With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nFeb 16, 2024\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 13, 2024\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Christopher B. Boyer",
+    "section": "",
+    "text": "I am currently a postdoctoral research fellow at the Harvard T.H. Chan School of Public Health. I am an epidemiologist and biostatistician by training with expertise in infectious disease, violence, and causal inference. My recent projects include:\n\nRunning randomized trials in Uganda and Peru testing social theories about how to reduce male violence.\nImproving postmarket evaluations of vaccine effectiveness from observational data.\nDeveloping Bayesian generative models of within-host viral and immune kinetics for SARS-CoV-2.\nDeveloping methods for validating counterfactual predictions.\nDescriptive epidemiology of global treatment patterns for cardiovascular disease with NCD-RisC.\n\n\nEducation\n\nPhD, Epidemiology\n\nHarvard University, 2023.\n\nMPH, Epidemiology\n\nColumbia University, 2015.\n\nBS, Mechanical Engineering\n\nWright State University, 2010."
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "teaching.html",
+    "href": "teaching.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "Below is a list of courses for which I’ve served as a teaching fellow.\n\nEPI207 - Advanced Epidemiologic Methods\nInstructor: James Robins\nTerms: Fall 2020, Fall 2021 (Lead)\nRequired course for epidemiology PhD students. Causal inference for time-varying exposures: g-formula, inverse-probability weighting, marginal structural models, static and dynamic treatment regimes. Responsible for leading 90 min lab section and grading homeworks and tests.\n\nSlides and code for lab on parametric g-formula.\n\n🏆 Department of Epidemiology Excellence in Teaching Award 2021\n\n\nPHS2000 - Quantitative reseach methods\nInstructors: Tyler Vanderweele, Michael Hughes, Issa Dahabreh, and Jarvis Chen\nTerms: Fall 2019, Spring 2020, Fall 2021\nYear-long required methods course for first-year PhD students. Regression models, sampling, longitudinal and multilevel analysis, time-varying confounding, mediation and interaction, econometric methods, and missing data. Responsible for leading 90 min lab section, developing homework assignments and tests, and drafting course materials.\n\nSlides for bootcamp review on inference.\nSlides and code for bootcamp review on linear regression.\nSlides and code for lab on survival analysis.\nHandout and code for lab on sensitivity analysis.\nHandout and code for lab on causal interaction and effect modification.\nHandout and code for lab on mediation.\nHandout and code for lab on the bootstrap.\n\n🏆 GSAS Distinction in Teaching Award 2019, 2020, and 2021\n\n\nEPI260 - Mathematical Modeling of Infectious Diseases\nInstructor: Marc Lipsitch\nTerms: Spring 2023\nDynamical models to study the transmission dynamics of infectious diseases. Design and construction of appropriate differential equation models, equilibrium and stability analysis, parameter estimation from epidemiological data, determination and interpretation of the basic reproductive number of an infection, stochastic and deterministic models, heterogeneity, techniques for sensitivity analysis, and critique of model assumptions."
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research",
+    "section": "",
+    "text": "Selected Publications\n\nBoyer, C., Paluck, E. L., Annan, J., Nevatia, T., Cooper, J., Namubiru, J, Heise, L., & Lehrer, R. (2022) “Religious leaders can motivate men to cede power and reduce intimate partner violence: experimental evidence from Uganda”. PNAS. 119(31), e2200262119. https://doi.org/10.1073/pnas.2200262119\n\n\n\n pre-analysis plan\n repository\n pdf\n\nBoyer, C., Rumpler, E., Kissler, S. M., & Lipsitch, M. (2022). “Infectious disease dynamics and restrictions on social gathering size”. Epidemics, 40, 100620. https://doi.org/10.1016/j.epidem.2022.100620\n\n\n\n pre-print\n repository\n pdf\n\nChatterji, S., Boyer, C., Sharma, V., Abramsky, T., Levtov, R., Doyle, K., Harvey, S., & Heise, L. (2023). “Optimizing the Construction of Outcome Measures for Impact Evaluations of Intimate Partner Violence Prevention Interventions.” Journal of Interpersonal Violence, 0(0). https://doi.org/10.1177/08862605231162887\n\n\n\n pre-print\n pdf\n\nRosen, J. B., Arciuolo, R. J., Pathela, P., Boyer, C., Baumgartner, J., Latash, J., Malec, L., Lee, E. H., Reddy, V., King, R., Edward Real, J., Lipsitch, M., & Zucker, J. R. (2024). JYNNEOS™ effectiveness as post-exposure prophylaxis against mpox: Challenges using real-world outbreak data. Vaccine. https://doi.org/10.1016/j.vaccine.2023.12.066\n\n\n\n pdf\n\nNCD Risk Factor Collaboration (NCD-RisC). (2021) “Worldwide trends in hypertension prevalence and progress in treatment and control from 1990 to 2019: a pooled analysis of 1201 population-representative studies with 104 million participants”. The Lancet. 398(10304), 957–980. https://doi.org/10.1016/S0140-6736(21)01330-1\n\n\n\n pdf\n\n\nPre-prints\n\nBoyer, C., Dahabreh, I. J., & Steingrimsson, J. A. (2023). “Assessing model performance for counterfactual predictions”. arXiv. https://doi.org/10.48550/arXiv.2308.13026\nBoyer, C. & Lipsitch, M. (2023). “Defining and emulating target trials of the effects of postexposure vaccination using observational data”. medRxiv. https://doi.org/10.1101/2023.05.03.23289471\nJoshi, K., Kahn, R., Boyer, C., & Lipsitch, M. (2023). “Some principles for using epidemiologic study results to parameterize transmission models”. medRxiv. https://doi.org/10.1101/2023.10.03.23296455\nBoyer, C., Chatterji, S., Cooper, J., & Heise, L. (2022). “Outcome coding choice in randomized trials of programs to reduce violence”. arXiv. https://doi.org/10.48550/arXiv.2204.12385\n\n\n\nDissertation\n\nBoyer, C. (2023) “New approaches to factual and counterfactual prediction modeling”. Doctoral dissertation, Harvard University Graduate School of Arts and Sciences.\n\n\n\n\n\n pdf\n slides"
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "software.html",
+    "href": "software.html",
+    "title": "Software",
+    "section": "",
+    "text": "Below is a list of software that I’ve developed or contributed to:\n\nR\n\ngloborisk. An R package for calculating risks of CVD using Globorisk.\ngmethods. An R package for estimating causal effects using Robins’ “g-methods”, i.e. the g-formula, g-estimation, and inverse probability weighting. (In development)\n\n\n\nStata\n\nipacheck. A Stata package for running high-frequency checks on survey data for field experiments. With Rosemarie Sandino, Ishmail Baako, Caton Brewster, and Isabel Oñate.\nbcstats. A Stata program for analyzing back check (field audit) data and comparing it to the original survey data. With Matthew White.\nsurveycto_api. A Stata program to automate downloading data from SurveyCTO server using the API.\nphotobook. A Stata program to create a nicely formatted photobook from a list of image files."
+  }
+]
