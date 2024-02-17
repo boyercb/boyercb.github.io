@@ -1,0 +1,40 @@
+---
+title: "Christopher B. Boyer"
+image: headshot.jpg
+format:
+  html: 
+    toc: false
+    page-layout: full
+about:
+  template: trestles
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/chrisbboyer
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/christopherbboyer/
+    - text: "{{< iconify academicons google-scholar >}} Google Scholar"
+      href: https://scholar.google.com/citations?user=MRTAUFwAAAAJ&hl=en
+    - icon: github
+      text: Github
+      href: https://github.com/boyercb
+
+---
+
+I am currently a postdoctoral research fellow at the Harvard T.H. Chan School of Public Health. I am an epidemiologist and biostatistician by training with expertise in infectious disease, violence, and causal inference. My recent projects include:
+
+- Running randomized trials in Uganda and Peru testing social theories about how to reduce male violence.
+- Improving postmarket evaluations of vaccine effectiveness from observational data.
+- Developing Bayesian generative models of within-host viral and immune kinetics for SARS-CoV-2.
+- Developing methods for validating counterfactual predictions.
+- Descriptive epidemiology of global treatment patterns for cardiovascular disease with NCD-RisC.
+
+# Education
+
+- **PhD**, Epidemiology
+  - Harvard University, 2023.
+- **MPH**, Epidemiology
+  - Columbia University, 2015.
+- **BS**, Mechanical Engineering
+  - Wright State University, 2010.

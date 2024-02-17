@@ -7,6 +7,8 @@ node_modules
 .travis.yml
 .editorconfig
 
+__archive/
+
 # History files
 .Rhistory
 .Rapp.history

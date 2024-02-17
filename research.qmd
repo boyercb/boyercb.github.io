@@ -1,0 +1,69 @@
+---
+title: "Research"
+format:
+  html: 
+    toc: false
+---
+
+### Selected Publications
+- **Boyer, C.**, Paluck, E. L., Annan, J., Nevatia, T., Cooper, J., Namubiru, J, Heise, L., & Lehrer, R. (2022) "Religious leaders can motivate men to cede power and reduce intimate partner violence: experimental evidence from Uganda". *PNAS*. 119(31), e2200262119. [https://doi.org/10.1073/pnas.2200262119](https://doi.org/10.1073/pnas.2200262119)
+
+::: {.column-margin}
+{{< iconify carbon plan >}} [pre-analysis plan](https://www.socialscienceregistry.org/trials/3994/history/43131) 
+
+{{< iconify fa6-brands github >}} [repository](https://doi.org/10.7910/DVN/9TEAIV)
+
+{{< iconify fa-regular file-pdf >}} [pdf](files/Boyer%20et%20al.%20-%202022%20-%20Religious%20leaders%20can%20motivate%20men%20to%20cede%20power%20a.pdf)
+:::
+
+- **Boyer, C.**, Rumpler, E., Kissler, S. M., & Lipsitch, M. (2022). "Infectious disease dynamics and restrictions on social gathering size". *Epidemics*, 40, 100620. [https://doi.org/10.1016/j.epidem.2022.100620](https://doi.org/10.1016/j.epidem.2022.100620)
+
+::: {.column-margin}
+{{< iconify fa pencil >}} [pre-print](https://www.medrxiv.org/content/10.1101/2022.01.07.21268585v2)
+
+{{< iconify fa6-brands github >}} [repository](https://github.com/boyercb/covid-gathering-size)
+
+{{< iconify fa-regular file-pdf >}} [pdf](files/Boyer%20et%20al.%20-%202022%20-%20Infectious%20disease%20dynamics%20and%20restrictions%20on%20so.pdf)
+:::
+
+- Chatterji, S., **Boyer, C.**, Sharma, V., Abramsky, T., Levtov, R., Doyle, K., Harvey, S., & Heise, L. (2023). "Optimizing the Construction of Outcome Measures for Impact Evaluations of Intimate Partner Violence Prevention Interventions." *Journal of Interpersonal Violence*, 0(0). [https://doi.org/10.1177/08862605231162887](https://doi.org/10.1177/08862605231162887)
+
+::: {.column-margin}
+{{< iconify fa pencil >}} [pre-print](https://www.medrxiv.org/content/10.1101/2023.02.07.23285510.abstract)
+
+{{< iconify fa-regular file-pdf >}} [pdf](files/Chatterji%20et%20al.%20-%202023%20-%20Optimizing%20the%20Construction%20of%20Outcome%20Measures%20fo.pdf)
+:::
+
+
+- Rosen, J. B., Arciuolo, R. J., Pathela, P., **Boyer, C.**, Baumgartner, J., Latash, J., Malec, L., Lee, E. H., Reddy, V., King, R., Edward Real, J., Lipsitch, M., & Zucker, J. R. (2024). JYNNEOS™ effectiveness as post-exposure prophylaxis against mpox: Challenges using real-world outbreak data. *Vaccine*. [https://doi.org/10.1016/j.vaccine.2023.12.066](https://doi.org/10.1016/j.vaccine.2023.12.066)
+
+::: {.column-margin}
+{{< iconify fa-regular file-pdf >}} [pdf](files/Rosen%20et%20al.%20-%202024%20-%20JYNNEOS%E2%84%A2%20effectiveness%20as%20post-exposure%20prophylaxi.pdf)
+:::
+
+- NCD Risk Factor Collaboration (NCD-RisC). (2021) "Worldwide trends in hypertension prevalence and progress in treatment and control from 1990 to 2019: a pooled analysis of 1201 population-representative studies with 104 million participants". *The Lancet*. 398(10304), 957–980. [https://doi.org/10.1016/S0140-6736(21)01330-1](https://doi.org/10.1016/S0140-6736(21)01330-1)
+
+::: {.column-margin}
+{{< iconify fa-regular file-pdf >}} [pdf](files/Zhou%20et%20al.%20-%202021%20-%20Worldwide%20trends%20in%20hypertension%20prevalence%20and%20pr.pdf)
+:::
+
+### Pre-prints
+- **Boyer, C.**, Dahabreh, I. J., & Steingrimsson, J. A. (2023). "Assessing model performance for counterfactual predictions". *arXiv.* [https://doi.org/10.48550/arXiv.2308.13026](https://doi.org/10.48550/arXiv.2308.13026)
+
+- **Boyer, C.** & Lipsitch, M. (2023). "Defining and emulating target trials of the effects of postexposure vaccination using observational data". *medRxiv.* [https://doi.org/10.1101/2023.05.03.23289471](https://doi.org/10.1101/2023.05.03.23289471)
+
+- Joshi, K., Kahn, R., **Boyer, C.**, & Lipsitch, M. (2023). "Some principles for using epidemiologic study results to parameterize transmission models". *medRxiv.*  [https://doi.org/10.1101/2023.10.03.23296455](https://doi.org/10.1101/2023.10.03.23296455)
+
+- **Boyer, C.**, Chatterji, S., Cooper, J., & Heise, L. (2022). "Outcome coding choice in randomized trials of programs to reduce violence". *arXiv.* [https://doi.org/10.48550/arXiv.2204.12385](
+https://doi.org/10.48550/arXiv.2204.12385)
+
+
+### Dissertation
+- **Boyer, C.** (2023) "New approaches to factual and counterfactual prediction modeling". *Doctoral dissertation*, Harvard University Graduate School of Arts and Sciences. 
+
+::: {.column-margin}
+{{< iconify fa-regular file-pdf >}} [pdf](https://dash.harvard.edu/bitstream/handle/1/37374603/thesis.pdf)
+
+{{< iconify file-icons keynote >}} [slides](files/defense.pdf)
+:::
+
