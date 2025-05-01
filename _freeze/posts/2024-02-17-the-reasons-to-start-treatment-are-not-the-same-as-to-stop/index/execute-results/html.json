@@ -1,0 +1,17 @@
+{
+  "hash": "747655e4702b19c6c0859b5e20db6972",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"The reasons people start treatment are not the same as the reasons they stop\"\nsubtitle: | \n    And what this implies for causal inference for sustained treatment strategies.\ndate: \"2024-02-16\"\ncategories: [causal inference, code, g-formula]\n---\n\n\n\n\nResearchers are often interested in estimating the effects of sustained use of a treatment on a health outcome.\n\n\\begin{align}\nL_0 \\sim\nA_0 \\sim\nL_1 \\sim\nA_1 \\sim\nY\n\\end{align}\n\n\n::: {.cell layout-align=\"center\"}\n::: {.cell-output-display}\n![A directed acyclic graph for a single, time-fixed treatment. ](index_files/figure-html/dag-1.png){fig-align='center' width=100%}\n:::\n:::",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

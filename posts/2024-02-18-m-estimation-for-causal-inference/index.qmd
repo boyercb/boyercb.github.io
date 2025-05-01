@@ -1,0 +1,262 @@
+---
+title: "M-estimation for causal inference in R"
+subtitle: | 
+    TLDR: Why a good sandwich can solve so many of life's problems.
+date: "2024-02-16"
+categories: [causal inference, m-estimation, code]
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(kableExtra)
+
+```
+
+In this post 
+
+# A simple causal example
+To fix concepts, let's start with a simple example where we're interested in estimating the effect of a single binary time-fixed treatment, $A$, on outcome $Y$. Define $Y^a$ as the potential outcome under a hypothetical intervention which sets $A$ to $a$. Our interest is in causal contrasts such as the average treatment effect, i.e.
+$$ 
+\psi \equiv E(Y^{a=1} - Y^{a=0}).
+$$
+Because the focus of this post is on estimation, let's assume the ideal observational setting in which measured covariates, $L$, are sufficient to control confounding. Under standard identifiability conditions, namely:
+
+1. Exchangeability: $Y^{a} \perp\!\!\!\perp A \mid L$
+2. Consistency: $Y^{a} = Y \text{  if } A = a$
+3. Positivity: $1 > \Pr(A = a \mid L = l) > 0$
+
+it can be shown that $\psi$ is identified by 
+$$
+\psi_{om} \equiv E\{E(Y | A = 1, L)\} - E\{E(Y | A = 0, L)\},
+$$
+and, equivalently, by
+$$
+\psi_{ipw} \equiv E\left\{\frac{I(A = 1)}{\Pr(A = 1 \mid L)} Y\right\} - E\left\{\frac{I(A = 0)}{\Pr(A = 0 \mid L)} Y\right\}.
+$$
+
+To simplify, define $\mu_a(L) = E(Y | A = a, L)$ and $e(L) = \Pr(A = 1 | L)$. Each expression suggests a corresponding plug-in estimator, i.e.
+$$
+\hat{\psi}_{om} \equiv \dfrac{1}{n} \sum_{i=1}^n \hat{\mu}_1(L_i) - \hat{\mu}_0(L_i),
+$$
+and
+$$
+\hat{\psi}_{ipw} = \dfrac{1}{n} \sum_{i=1}^n \dfrac{A_i}{\hat{e}(L_i)}Y_i  - \sum_{i=1}^n \dfrac{1 - A_i}{1 - \hat{e}(L_i)}Y_i,
+$$
+where the first is termed the outcome model or regression estimator because it relies on a model for $E(Y | A = a, L)$ and the second is the inverse probability weighting estimator because it relies on a model for $\Pr(A = 1 | L)$. 
+
+Hernan and Robins describe, in detail, the necessary analysis steps to obtain estimates $\hat{\psi}_{om}$ and $\hat{\psi}_{ipw}$. Briefly, the outcome regression estimator is obtained by  
+
+1. Regressing the outcome, $Y$, on covariates, $L$, either a) separately within the subset with $A = 1$ and $A = 0$, or b) by pooling into one model of $Y$ on $L$ and $A$. 
+2. Create two copies of the dataset and artificially set $A = 1$ for all individuals in one and set $A = 0$ for all individuals in the other.
+3. Obtain predicted values $\hat{\mu}_1(L_i)$ and $\hat{\mu}_0(L_i)$ by applying the model in step 1 to the observed values of $L_i$ in each dataset.
+4. Take the mean of these predicted values and subtract them to obtain $\hat{\psi}_{om}$.
+
+and the inverse probability weighting estimator may be obtained by
+
+1. Regressing the treatment, $A$, on covariates, $L$, using, for instance, a logistic model. 
+2. Obtain propensity scores $\hat{e}(L_i)$ from predicted values of logistic model.
+3. For each individual form weights based on the inverse probability of the treatment they received
+$$
+W_i = \dfrac{A_i}{\hat{e}(L_i)}
+$$
+4. Calculate the weighted mean and take the difference.
+
+# The problem
+Implementing 
+
+```{r}
+
+```
+In their book, Hernan and Robins suggest variance estimates can be obtained via the bootstrap. However, there are at least two issues. First the bootstrap may be computationally intensive especially as problems become more complex (e.g. once we consider time-varying treatments).
+
+# The basics of M-estimation
+The basic set up is as follows. Let $\theta$ be a finite dimensional parameter vector. An M-estimator, $\hat{\theta}$, for this vector is the solution to sample moment equation
+$$
+\sum_{i=1}^n \psi(O_i; \hat{\theta}) = 0
+$$
+where $\psi(O_i; \hat{\theta})$ is often referred to as an estimating function. Under standard regularity conditions, the asymptotic distribution of $\hat{\theta}$ is given by 
+$$
+\sqrt{n}(\theta - \hat{\theta}) \overset{d}{\longrightarrow} N(0, \mathbb V(\hat{\theta}))
+$$
+where the asymptotic variance, $\mathbb V_n(\hat{\theta})$, can be estimated from
+$$
+\mathbb V_n(\hat{\theta}) = \mathbb B_n(\hat{\theta})^{-1} \mathbb F_n(\hat{\theta})\{\mathbb B_n(\hat{\theta})^{-1}\}^T
+$$
+with 
+$$
+\mathbb B_n(\hat{\theta}) = \frac{1}{n} \sum_{i=1}^n \left\{-\dfrac{\partial\psi(O_i; \hat{\theta})}{\partial\theta}\right\}
+$$
+and 
+$$
+\mathbb F_n(\hat{\theta}) = \frac{1}{n} \sum_{i=1}^n \left\{\partial\psi(O_i; \hat{\theta})\partial\psi(O_i; \hat{\theta})^T\right\}
+$$
+In M-estimation parlance $\mathbb V_n(\hat{\theta})$ is referred to as the empirical sandwich variance estimator where $\mathbb B_n(\hat{\theta})$ is the "bread" and $\mathbb F_n(\hat{\theta})$ is the "meat". While analytical solutions can often be derived for the asymptotic variance for a given set of estimating functions, an advantage of M-estimation is that the variance can also be obtained numerically and therefore can be easily extended to any arbitrary set of estimating functions.
+
+The beauty of M-estimation is that many common estimation problems can be posed as an estimating function or sequence of estimating functions. Estimating functions can be ``stacked'' 
+
+1. Can I re-express my estimator as a set of stacked estimating equations?
+2. Do I meet the 
+
+# The `geex` package
+
+### Outcome regression
+We can convert $\hat{\psi}_{om}$ into the following set of stacked estimating equations
+$$
+\psi(O; \beta_0, \beta_1, \psi) = \begin{bmatrix}
+A \{Y - \mu_1(L;\beta_1)\} \\
+(1 -A) \{Y - \mu_0(L;\beta_0)\} \\
+\mu_1(L;\beta_1) - \mu_0(L;\beta_1) - \psi
+\end{bmatrix}
+$$
+where the first two are the score equations for the models $\mu_1(L;\beta_1)$ and $\mu_0(L;\beta_1)$ respectively and the last obtains the estimate of the difference in predicted values. 
+
+In the `geex` package the stacked estimating functions for outcome regression can be implemented as follows. 
+
+```{r}
+estfun_or <- function(data, models) {
+  # grab scores 
+  m0_scores <- grab_psiFUN(models$m0, data)
+  m1_scores <- grab_psiFUN(models$m1, data)
+
+  # design matrices
+  X0 <- grab_design_matrix(data, grab_fixed_formula(models$m0))
+  X1 <- grab_design_matrix(data, grab_fixed_formula(models$m1))
+
+  # parameter indexes
+  ii0 <- 1:ncol(X0)
+  ii1 <- (ncol(X0) + 1):(ncol(X0) + ncol(X1))
+
+  A <- data$A
+
+  # stacked equations
+  function(theta) {
+    c(m0_scores(theta[ii0]) * (A == 0), 
+      m1_scores(theta[ii1]) * (A == 1),
+      X1 %*% theta[ii1] - X0 %*% theta[ii0] - theta[length(theta)])
+  }
+}
+```
+
+### Inverse probability weighting
+Using some probability theory we can show that $\psi_{om}$ is equal to 
+$$
+\psi_{ipw} \equiv E\left\{\frac{I(A = 1)}{\Pr(A = 1 \mid L)} Y\right\} - E\left\{\frac{I(A = 0)}{\Pr(A = 0 \mid L)} Y\right\}
+$$
+and simple plug-in estimator
+
+$$
+\hat{\psi}_{ipw} = \sum_{i=1}^n \dfrac{A_i}{\hat{e}(L_i)}Y_i  - \sum_{i=1}^n \dfrac{1 - A_i}{1 - \hat{e}(L_i)}Y_i.
+$$
+
+The variance is complicated by the estimation of the nuisance terms $\hat{\mu}_1(L)$ and $\hat{\mu}_0(L)$. 
+
+$$
+\psi(O; \alpha, \psi) = \begin{bmatrix}
+\{A - e(L;\alpha)\} L \\
+\dfrac{A}{\hat{e}(L;\alpha)}Y  - \dfrac{1 - A}{1 - \hat{e}(L;\alpha)}Y - \psi
+\end{bmatrix}
+$$
+
+```{r}
+estfun_ipw <- function(data, models) {
+  # grab scores 
+  e_scores <- grab_psiFUN(models$e, data)
+
+  # design matrix
+  X <- grab_design_matrix(data, grab_fixed_formula(models$e))
+
+  # parameter indexes
+  ii <- 1:ncol(X)
+
+  A <- data$A
+  Y <- data$Y
+
+  # stacked equations
+  function(theta) {
+    e <- plogis(X %*% theta[ii])
+    c(e_scores(theta[ii]), 
+      (A * Y / e) - ((1 - A) * Y / (1 - e)) - theta[length(theta)])
+  }
+}
+```
+
+### G-estimation
+
+
+$$
+\begin{aligned}
+E\{Y - E(Y \mid A = a, X)\} = 0 \\
+E[\{A - E(A | X)\}\{Y - \psi A\}] = 0
+\end{aligned}
+$$ 
+
+# Putting it all together
+```{r}
+
+library(geex)
+
+gendata <- function(n) {
+  L <- MASS::mvrnorm(
+    n = n,
+    mu = rep(0, 3),
+    Sigma = matrix(
+      data = c(1, 0.3, 0.3,
+               0.3, 1, 0.3,
+               0.3, 0.3, 1), 
+      nrow = 3,
+      ncol = 3,
+      byrow = TRUE)
+  )   
+  A <- rbinom(n, 1, plogis(-2 + L[, 1] + sqrt(exp(L[, 2]))+ L[, 3]^2))
+  Y <- rnorm(n, -A + 0.5 * (L[, 1] + L[, 2] + L[, 3] + L[, 1] * L[, 3]))
+  
+  colnames(L) <- paste0("L", 1:3)
+  mat <- data.frame(L, A, Y)
+  return(mat)
+}
+
+estfun <- function(data, models) {
+  m0 <- grab_psiFUN(models$m0, data)
+  m1 <- grab_psiFUN(models$m1, data)
+  X0 <- grab_design_matrix(data, rhs_formula = grab_fixed_formula(models$m0))
+  X1 <- grab_design_matrix(data, rhs_formula = grab_fixed_formula(models$m1))
+  ii0 <- 1:ncol(X0)
+  ii1 <- (ncol(X0) + 1):(ncol(X0) + ncol(X1))
+  
+  A <- data$A
+  function(theta) {
+    c(m0(theta[ii0]) * (A == 0), 
+      m1(theta[ii1]) * (A == 1),
+      X1 %*% theta[ii1] - X0 %*% theta[ii0] - theta[length(theta)] )
+  }
+}
+
+d <- gendata(1000)
+
+models <- list(
+  m0 = glm(formula = Y ~ L1 + L2 + L3 + L1:L3, 
+           family = gaussian,
+           subset = A == 0,
+           data = d),
+  m1 = glm(formula = Y ~ L1 + L2 + L3 + L1:L3, 
+           family = gaussian,
+           subset = A == 1,
+           data = d)
+)
+
+nparms <- sum(sapply(models, function(x) length(coef(x)))) + 1
+
+res <- m_estimate(
+  estFUN = estfun,
+  data = d,
+  root_control = setup_root_control(start = rep(0, nparms)),
+  outer_args = list(models = models)
+)
+
+c(
+  roots(res)[11],
+  roots(res)[11] - 1.96 * sqrt(vcov(res)[11,11]),
+  roots(res)[11] + 1.96 * sqrt(vcov(res)[11,11])
+)
+
+```

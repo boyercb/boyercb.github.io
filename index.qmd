@@ -8,9 +8,8 @@ format:
 about:
   template: trestles
   links:
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com/chrisbboyer
+    - text: "{{< iconify fa6-brands:bluesky >}} Bluesky"
+      href: https://bsky.app/profile/cboyer.bsky.social
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/christopherbboyer/
@@ -22,13 +21,9 @@ about:
 
 ---
 
-I am currently a postdoctoral research fellow at the Harvard T.H. Chan School of Public Health. I am an epidemiologist and biostatistician by training with expertise in infectious disease, violence, and causal inference. My recent projects include:
+I am currently an Assistant Professor at the Cleveland Clinic Lerner College of Medicine of Case Western Reserve University and a staff Biostatistician at the Lerner Research Institute at the Cleveland Clinic. 
 
-- Running randomized trials in Uganda and Peru testing social theories about how to reduce male violence.
-- Improving postmarket evaluations of vaccine effectiveness from observational data.
-- Developing Bayesian generative models of within-host viral and immune kinetics for SARS-CoV-2.
-- Developing methods for validating counterfactual predictions.
-- Descriptive epidemiology of global treatment patterns for cardiovascular disease with NCD-RisC.
+My research focuses on methods for improving causal estimation and inference in observational and randomized studies. In the past, this has included work counterfactual prediction, postmarket vaccine evaluation, target trial emulation, and interference/spillover and placebo effects in randomized trials. At the Clinic, I collaborate with investigators at the Center for Value Based Care Research leveraging electronic medical records databases to evaluate comparative effectiveness of primary care and hospital-based interventions and as a platform for novel trial design to improve medical decision-making at the point of care.
 
 # Education
 

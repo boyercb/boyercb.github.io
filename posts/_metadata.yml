@@ -6,3 +6,28 @@ freeze: true
 
 # Enable banner style title blocks
 title-block-banner: true
+
+# Enable CC license appendix
+license: "CC BY"
+
+# Default for table of contents
+toc: true
+toc-title: Table of contents
+toc-location: left
+
+# Default knitr options
+execute:
+  echo: true
+  message: true
+  warning: true
+
+# Default author
+author:
+  - name: Christopher Boyer
+    url: https://christopherbboyer.com
+    affiliation: Harvard TH Chan School of Public Health
+    affiliation-url: https://hsph.harvard.edu
+    orcid: 0000-0002-1101-2045
+
+# Default fields for citation
+citation: true
