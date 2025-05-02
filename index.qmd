@@ -8,7 +8,7 @@ format:
 about:
   template: trestles
   links:
-    - text: "{{< iconify fa6-brands:bluesky >}} Bluesky"
+    - text: "{{< iconify ri bluesky-fill >}} Bluesky"
       href: https://bsky.app/profile/cboyer.bsky.social
     - icon: linkedin
       text: LinkedIn
