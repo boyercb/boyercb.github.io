@@ -1,0 +1,14 @@
+---
+title: "Talks"
+format:
+  html:
+    toc: false
+    page-layout: full
+listing:
+  contents: talks.yaml
+  sort-ui: false
+  filter-ui: false
+  sort: "date desc"
+  fields: [image, date, title, description]
+  type: grid
+---

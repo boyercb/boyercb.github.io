@@ -8,6 +8,7 @@ website:
     right:
       - blog.qmd
       - research.qmd
+      - talks.qmd
       - teaching.qmd
       - software.qmd
       - icon: github

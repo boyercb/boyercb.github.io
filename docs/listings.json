@@ -3,11 +3,13 @@
     "listing": "/blog.html",
     "items": [
       "/posts/2024-02-26-bayesian-measurement-error-models/index.html",
-      "/posts/post-with-code/index.html",
       "/posts/2024-02-17-the-many-faces-of-the-g-formula/index.html",
       "/posts/2024-02-17-the-reasons-to-start-treatment-are-not-the-same-as-to-stop/index.html",
-      "/posts/2024-02-18-m-estimation-for-causal-inference/index.html",
-      "/posts/welcome/index.html"
+      "/posts/2024-02-18-m-estimation-for-causal-inference/index.html"
     ]
+  },
+  {
+    "listing": "/talks.html",
+    "items": []
   }
 ]

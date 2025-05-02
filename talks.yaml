@@ -1,0 +1,19 @@
+-  title: "Estimation and evaluation of counterfactual prediction models"
+   description: |
+     Joint Biostatistics Symposium, Case Western Reserve University
+   author:
+     - name: Christopher B. Boyer
+   date: '2025-04-07'
+   subtitle: Joint Biostatistics Symposium, Case Western Reserve University
+   image: talks/2025-04-07/snapshot.png
+   path: talks/2025-04-07/slides.pdf
+-  title: "Identifying vaccine effectiveness in a TND under an equi-confounding assumption"
+   description: |
+     SER 2024
+   author:
+     - name: Christopher B. Boyer
+   date: '2024-06-13'
+   subtitle: Society for Epidemiologic Research 2024, Austin, TX 
+   image: talks/2024-06-13/snapshot.png
+   path: talks/2024-06-13/slides.pdf
+
