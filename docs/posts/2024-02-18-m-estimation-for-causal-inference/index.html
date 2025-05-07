@@ -215,8 +215,8 @@ window.Quarto = {
     </div>
     <div class="quarto-title-meta-contents">
           <p class="affiliation">
-              <a href="https://hsph.harvard.edu">
-              Harvard TH Chan School of Public Health
+              <a href="https://case.edu/medicine/">
+              Cleveland Clinic Lerner College of Medicine of Case Western Reserve University
               </a>
             </p>
         </div>
@@ -253,6 +253,13 @@ window.Quarto = {
   <li><a href="#g-estimation" id="toc-g-estimation" class="nav-link" data-scroll-target="#g-estimation">G-estimation</a></li>
   </ul></li>
   <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together">Putting it all together</a></li>
+  <li><a href="#unifying-these-approaches-with-m-estimation" id="toc-unifying-these-approaches-with-m-estimation" class="nav-link" data-scroll-target="#unifying-these-approaches-with-m-estimation">Unifying these approaches with M-estimation</a>
+  <ul class="collapse">
+  <li><a href="#outcome-regression-as-m-estimator" id="toc-outcome-regression-as-m-estimator" class="nav-link" data-scroll-target="#outcome-regression-as-m-estimator">Outcome regression as M-estimator</a></li>
+  <li><a href="#ipw-as-m-estimator" id="toc-ipw-as-m-estimator" class="nav-link" data-scroll-target="#ipw-as-m-estimator">IPW as M-estimator</a></li>
+  </ul></li>
+  <li><a href="#estimation-in-r-with-geex" id="toc-estimation-in-r-with-geex" class="nav-link" data-scroll-target="#estimation-in-r-with-geex">Estimation in R with <code>geex</code></a></li>
+  <li><a href="#wrap-up" id="toc-wrap-up" class="nav-link" data-scroll-target="#wrap-up">Wrap-up</a></li>
   </ul>
 </nav>
 </nav>
@@ -382,7 +389,7 @@ A \{Y - \mu_1(L;\beta_1)\} \\
 \end{bmatrix}
 \]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>estfun_or <span class="ot">&lt;-</span> <span class="cf">function</span>(data, models) {</span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>estfun_ipw <span class="ot">&lt;-</span> <span class="cf">function</span>(data, models) {</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># grab scores </span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  e_scores <span class="ot">&lt;-</span> <span class="fu">grab_psiFUN</span>(models<span class="sc">$</span>e, data)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -491,9 +498,72 @@ Attaching package: 'geex'</code></pre>
 <span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">roots</span>(res)[<span class="dv">11</span>] <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="fu">vcov</span>(res)[<span class="dv">11</span>,<span class="dv">11</span>])</span>
 <span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.9601858 -1.1033235 -0.8170480</code></pre>
+<pre><code>[1] -1.0167416 -1.1525034 -0.8809799</code></pre>
 </div>
 </div>
+</section>
+<section id="unifying-these-approaches-with-m-estimation" class="level1">
+<h1>Unifying these approaches with M-estimation</h1>
+<p>Rather than computing plug-in estimators from predicted values, we can view these estimation problems as solving <strong>estimating equations</strong>. This approach—known as M-estimation—is especially useful because it provides a principled way to compute standard errors using the <strong>sandwich variance formula</strong> and forms the basis for more advanced estimators like doubly robust estimators or TMLE.</p>
+<p>To formalize, we write the estimand <span class="math inline">\(\psi\)</span> as the solution to an estimating equation: <span class="math display">\[
+\frac{1}{n} \sum_{i=1}^n m(O_i; \psi, \eta) = 0
+\]</span> where <span class="math inline">\(O_i = (Y_i, A_i, L_i)\)</span> is observed data, <span class="math inline">\(\psi\)</span> is the target parameter, and <span class="math inline">\(\eta\)</span> includes any nuisance parameters.</p>
+<p>Let’s walk through how both <span class="math inline">\(\hat\psi_{om}\)</span> and <span class="math inline">\(\hat\psi_{ipw}\)</span> can be obtained this way.</p>
+<section id="outcome-regression-as-m-estimator" class="level2">
+<h2 class="anchored" data-anchor-id="outcome-regression-as-m-estimator">Outcome regression as M-estimator</h2>
+<p>Let <span class="math inline">\(\hat{\mu}_a(L)\)</span> be a model for <span class="math inline">\(E(Y \mid A=a, L)\)</span>. Then define:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>m_om <span class="ot">&lt;-</span> <span class="cf">function</span>(data, psi, nuisance) {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  mu1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(nuisance<span class="sc">$</span>model1, <span class="at">newdata =</span> <span class="fu">transform</span>(data, <span class="at">A =</span> <span class="dv">1</span>))</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  mu0 <span class="ot">&lt;-</span> <span class="fu">predict</span>(nuisance<span class="sc">$</span>model0, <span class="at">newdata =</span> <span class="fu">transform</span>(data, <span class="at">A =</span> <span class="dv">0</span>))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  mu1 <span class="sc">-</span> mu0 <span class="sc">-</span> psi</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We solve for <span class="math inline">\(\psi\)</span> such that the average of this score is zero.</p>
+</section>
+<section id="ipw-as-m-estimator" class="level2">
+<h2 class="anchored" data-anchor-id="ipw-as-m-estimator">IPW as M-estimator</h2>
+<p>Let <span class="math inline">\(\hat{e}(L)\)</span> be the propensity model. Then the estimating function is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>m_ipw <span class="ot">&lt;-</span> <span class="cf">function</span>(data, psi, nuisance) {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  A <span class="ot">&lt;-</span> data<span class="sc">$</span>A</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  Y <span class="ot">&lt;-</span> data<span class="sc">$</span>Y</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  ps <span class="ot">&lt;-</span> nuisance<span class="sc">$</span>ps</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  A <span class="sc">*</span> Y <span class="sc">/</span> ps <span class="sc">-</span> (<span class="dv">1</span> <span class="sc">-</span> A) <span class="sc">*</span> Y <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> ps) <span class="sc">-</span> psi</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Again, solve for <span class="math inline">\(\psi\)</span> so the sample mean of <code>m_ipw</code> is zero.</p>
+</section>
+</section>
+<section id="estimation-in-r-with-geex" class="level1">
+<h1>Estimation in R with <code>geex</code></h1>
+<p>The <code>geex</code> package provides a convenient framework for implementing M-estimation and computing standard errors via the sandwich formula.</p>
+<p>Here’s how we might implement the IPW estimator using <code>geex</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geex)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>ipw_estimator <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  estfun <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    A <span class="ot">&lt;-</span> data<span class="sc">$</span>A</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    Y <span class="ot">&lt;-</span> data<span class="sc">$</span>Y</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    ps_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(A <span class="sc">~</span> L, <span class="at">family =</span> binomial, <span class="at">data =</span> data)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    ps <span class="ot">&lt;-</span> <span class="fu">predict</span>(ps_model, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">function</span>(theta) {</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>      A <span class="sc">*</span> Y <span class="sc">/</span> ps <span class="sc">-</span> (<span class="dv">1</span> <span class="sc">-</span> A) <span class="sc">*</span> Y <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> ps) <span class="sc">-</span> theta</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">m_estimate</span>(</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">estFUN =</span> estfun,</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> data,</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">root_control =</span> <span class="fu">setup_root_control</span>(<span class="at">start =</span> <span class="dv">0</span>)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="wrap-up" class="level1">
+<h1>Wrap-up</h1>
+<p>M-estimation provides a flexible, principled approach to estimation in causal inference that unifies many standard methods under a common framework. By framing estimators as solutions to estimating equations, we can take advantage of general results for asymptotic inference, including robust (sandwich) standard errors.</p>
+<p>In upcoming posts, I’ll show how this M-estimation framework generalizes to doubly robust estimators and targeted learning.</p>
 
 
 </section>
