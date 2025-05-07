@@ -260,3 +260,72 @@ c(
 )
 
 ```
+# Unifying these approaches with M-estimation
+
+Rather than computing plug-in estimators from predicted values, we can view these estimation problems as solving **estimating equations**. This approach—known as M-estimation—is especially useful because it provides a principled way to compute standard errors using the **sandwich variance formula** and forms the basis for more advanced estimators like doubly robust estimators or TMLE.
+
+To formalize, we write the estimand $\psi$ as the solution to an estimating equation:
+$$
+\frac{1}{n} \sum_{i=1}^n m(O_i; \psi, \eta) = 0
+$$
+where $O_i = (Y_i, A_i, L_i)$ is observed data, $\psi$ is the target parameter, and $\eta$ includes any nuisance parameters.
+
+Let’s walk through how both $\hat\psi_{om}$ and $\hat\psi_{ipw}$ can be obtained this way.
+
+## Outcome regression as M-estimator
+
+Let $\hat{\mu}_a(L)$ be a model for $E(Y \mid A=a, L)$. Then define:
+```{r}
+m_om <- function(data, psi, nuisance) {
+  mu1 <- predict(nuisance$model1, newdata = transform(data, A = 1))
+  mu0 <- predict(nuisance$model0, newdata = transform(data, A = 0))
+  mu1 - mu0 - psi
+}
+```
+We solve for $\psi$ such that the average of this score is zero.
+
+## IPW as M-estimator
+
+Let $\hat{e}(L)$ be the propensity model. Then the estimating function is:
+```{r}
+m_ipw <- function(data, psi, nuisance) {
+  A <- data$A
+  Y <- data$Y
+  ps <- nuisance$ps
+  A * Y / ps - (1 - A) * Y / (1 - ps) - psi
+}
+```
+Again, solve for $\psi$ so the sample mean of `m_ipw` is zero.
+
+# Estimation in R with `geex`
+
+The `geex` package provides a convenient framework for implementing M-estimation and computing standard errors via the sandwich formula.
+
+Here's how we might implement the IPW estimator using `geex`:
+
+```{r}
+library(geex)
+
+ipw_estimator <- function(data) {
+  estfun <- function(data) {
+    A <- data$A
+    Y <- data$Y
+    ps_model <- glm(A ~ L, family = binomial, data = data)
+    ps <- predict(ps_model, type = "response")
+    function(theta) {
+      A * Y / ps - (1 - A) * Y / (1 - ps) - theta
+    }
+  }
+  m_estimate(
+    estFUN = estfun,
+    data = data,
+    root_control = setup_root_control(start = 0)
+  )
+}
+```
+
+# Wrap-up
+
+M-estimation provides a flexible, principled approach to estimation in causal inference that unifies many standard methods under a common framework. By framing estimators as solutions to estimating equations, we can take advantage of general results for asymptotic inference, including robust (sandwich) standard errors.
+
+In upcoming posts, I’ll show how this M-estimation framework generalizes to doubly robust estimators and targeted learning.

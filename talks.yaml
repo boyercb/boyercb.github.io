@@ -1,3 +1,12 @@
+-  title: "Emulating target trials of post-exposure vaccines using observational data"
+   description: |
+     ISPE Vaccine SIG 
+   author:
+     - name: Christopher B. Boyer
+   date: '2025-05-07'
+   subtitle: ISPE Vaccine SIG
+   image: talks/2025-05-07/snapshot.png
+   path: talks/2025-05-07/slides.pdf
 -  title: "Estimation and evaluation of counterfactual prediction models"
    description: |
      Joint Biostatistics Symposium, Case Western Reserve University
