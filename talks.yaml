@@ -1,3 +1,21 @@
+-  title: "Use of the test-negative design to estimate the protective effect of a scalar immune measure"
+   description: |
+     SER 2025 
+   author:
+     - name: Christopher B. Boyer
+   date: '2025-06-11'
+   subtitle: Society for Epidemiologic Research 2025, Boston, MA
+   image: talks/2025-06-11b/snapshot.png
+   path: talks/2025-06-11b/slides.pdf
+-  title: "Transporting the effect of an infectious disease intervention to a target population"
+   description: |
+     SER 2025 
+   author:
+     - name: Christopher B. Boyer
+   date: '2025-06-11'
+   subtitle: Society for Epidemiologic Research 2025, Boston, MA
+   image: talks/2025-06-11a/snapshot.png
+   path: talks/2025-06-11a/slides.pdf
 -  title: "Emulating target trials of post-exposure vaccines using observational data"
    description: |
      ISPE Vaccine SIG 
