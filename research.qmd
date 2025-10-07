@@ -20,7 +20,7 @@ format:
 1. **Boyer, C.**, Li, K.Q., Shi, X., & Tchetgen Tchetgen, T. J. (2025). "Identification and estimation of vaccine effectiveness in the test-negative design under equi-confounding". *Epidemiology*. In Press.
 </br> {{< iconify fa pencil >}} [pre-print](https://doi.org/10.48550/arXiv.2504.20360) / {{< iconify fa6-brands github >}} [repository](https://github.com/boyercb/parallel-tnd) 
 
-2. **Boyer, C.**, Dahabreh, I. J., & Steingrimsson, J. A. (2025). "Estimating and evaluating counterfactual prediction models". *Statistics in Medicine*. In Press.
+2. **Boyer, C.**, Dahabreh, I. J., & Steingrimsson, J. A. (2025). "Estimating and evaluating counterfactual prediction models". *Statistics in Medicine*. 44:e70287. [https://doi.org/10.1002/sim.70287](https://doi.org/10.1002/sim.70287)
 </br> {{< iconify fa pencil >}} [pre-print](https://doi.org/10.48550/arXiv.2308.13026) / {{< iconify fa6-brands github >}} [repository](https://github.com/boyercb/validating-counterfactual-predictions) 
 
 3. Gago, J., **Boyer, C.**, & Lipsitch, M. (2025). "How should we study the indirect effects of antimicrobial treatment strategies? A causal perspective". *Epidemiology*. In Press.
