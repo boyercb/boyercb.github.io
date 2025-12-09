@@ -1,6 +1,8 @@
 ---
 title: "Christopher B. Boyer"
 image: headshot.jpg
+description: "Assistant Professor at Cleveland Clinic specializing in causal inference and biostatistics."
+keywords: [Biostatistics, Causal Inference, Epidemiology, Cleveland Clinic, Research]
 format:
   html: 
     toc: false

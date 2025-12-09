@@ -4,6 +4,11 @@ project:
   
 website:
   title: "Christopher B. Boyer"
+  site-url: "https://boyercb.github.io"
+  description: "Personal website of Christopher B. Boyer, Assistant Professor at Cleveland Clinic specializing in causal inference and biostatistics."
+  open-graph: true
+  twitter-card: true
+  google-analytics: "G-1D051HLKQD"
   navbar:
     right:
       - blog.qmd
