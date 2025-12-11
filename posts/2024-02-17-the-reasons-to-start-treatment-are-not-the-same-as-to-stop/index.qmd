@@ -4,6 +4,7 @@ subtitle: |
     And what this implies for causal inference for sustained treatment strategies.
 date: "2024-02-16"
 categories: [causal inference, code, g-formula]
+draft: true
 ---
 
 ```{r setup, include=FALSE}

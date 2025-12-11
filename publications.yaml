@@ -1,0 +1,197 @@
+- title: Defining and Estimating Outcomes Directly Averted by a Vaccination Program when Rollout Occurs Over Time
+  author: Jia, K.M., <strong>Boyer, C.</strong>, Bilinski, A. & Lipsitch, M.
+  date: '2025'
+  categories:
+  - Pre-print
+  subtitle: arXiv
+  url_repo: https://github.com/katjia/vax_rollout_impact
+  path: https://doi.org/10.48550/arXiv.2509.05508
+- title: 'Guy Talk: Catalyzing Peer Effects on IPV through Virtual Support Groups for Men'
+  author: <strong>Boyer, C.</strong>, Field, E., Lehrer, R., Morrison, A., & Piras, C.
+  date: '2025'
+  categories:
+  - Pre-print
+  subtitle: Working Paper
+  doi: http://dx.doi.org/10.18235/0013783
+  path: https://publications.iadb.org/en/guy-talk-catalyzing-peer-effects-ipv-through-virtual-support-groups-men
+- title: 'Use of the test-negative design to estimate the protective effect of a scalar immune measure: A simulation analysis'
+  author: Zhang, Z., <strong>Boyer, C.</strong>, Lipsitch, M.
+  date: '2024'
+  categories:
+  - Pre-print
+  subtitle: medRxiv
+  path: https://doi.org/10.1101/2024.11.22.24317757
+- title: Some principles for using epidemiologic study results to parameterize transmission models
+  author: Joshi, K., Kahn, R., <strong>Boyer, C.</strong>, & Lipsitch, M.
+  date: '2023'
+  categories:
+  - Pre-print
+  subtitle: medRxiv
+  path: https://doi.org/10.1101/2023.10.03.23296455
+- title: Identification and estimation of vaccine effectiveness in the test-negative design under equi-confounding
+  author: <strong>Boyer, C.</strong>, Li, K.Q., Shi, X., & Tchetgen Tchetgen, T. J.
+  date: '2026'
+  categories:
+  - Methodological
+  subtitle: Epidemiology
+  volume: 37
+  issue: 1  
+  pages: 77-87
+  doi: https://doi.org/10.1097/EDE.0000000000001926
+  path: https://doi.org/10.1097/EDE.0000000000001926
+  url_preprint: https://doi.org/10.48550/arXiv.2504.20360
+  url_repo: https://github.com/boyercb/parallel-tnd
+- title: Estimating and evaluating counterfactual prediction models
+  author: <strong>Boyer, C.</strong>, Dahabreh, I. J., & Steingrimsson, J. A.
+  date: '2025'
+  categories:
+  - Methodological
+  subtitle: Statistics in Medicine
+  path: https://doi.org/10.1002/sim.70287
+  url_preprint: https://doi.org/10.48550/arXiv.2308.13026
+  url_repo: https://github.com/boyercb/validating-counterfactual-predictions
+  volume: 44
+  issue: 23-24
+  pages: e70287
+  doi: https://doi.org/10.1002/sim.70287
+- title: How should we study the indirect effects of antimicrobial treatment strategies? A causal perspective
+  author: Gago, J., <strong>Boyer, C.</strong>, & Lipsitch, M.
+  date: '2026'
+  categories:
+  - Methodological
+  subtitle: Epidemiology
+  volume: 37
+  issue: 1  
+  pages: 88-97
+  doi: https://doi.org/10.1097/EDE.0000000000001921
+  path: https://doi.org/10.1097/EDE.0000000000001921
+  url_preprint: https://doi.org/10.1101/2025.03.28.25324855
+- title: 'Counterfactual prediction from machine learning models: transportability and joint analysis for model development and evaluation using multi-source data'
+  author: Voter, S. C., Dahabreh, I. J., <strong>Boyer, C.</strong>, Rahbar, H., Kontos, D., & Steingrimsson, J. A.
+  date: '2025'
+  categories:
+  - Methodological
+  subtitle: Diagnostic and Prognostic Research
+  path: https://doi.org/10.1186/s41512-025-00201-y
+  url_repo: https://github.com/sarah-voter/counterfactual_prediction_machine_learning_paper_code
+  volume: 9
+  issue: 22
+  pages: ''
+  doi: https://doi.org/10.1186/s41512-025-00201-y
+- title: Causal Estimands for Analyses of Averted and Avertible Outcomes due to Infectious Disease Interventions
+  author: Jia, K. M., <strong>Boyer, C.</strong>, Wallinga, J., & Lipsitch, M.
+  date: '2025'
+  categories:
+  - Methodological
+  subtitle: Epidemiology
+  path: https://doi.org/10.1097/EDE.0000000000001839
+  url_preprint: https://www.medrxiv.org/content/10.1101/2022.01.07.21268585v2
+  url_repo: https://github.com/katjia/impact_estimands
+  volume: 36
+  issue: 3
+  pages: 363-373
+  doi: https://doi.org/10.1097/EDE.0000000000001839
+- title: Emulating target trials of postexposure vaccines using observational data
+  author: <strong>Boyer, C.</strong> & Lipsitch, M.
+  date: '2025'
+  categories:
+  - Methodological
+  subtitle: American Journal of Epidemiology
+  path: https://doi.org/10.1093/aje/kwae350
+  url_preprint: https://www.medrxiv.org/content/10.1101/2022.01.07.21268585v2
+  volume: 194
+  issue: 7
+  pages: 2037-2046
+  doi: https://doi.org/10.1093/aje/kwae350
+- title: Infectious disease dynamics and restrictions on social gathering size
+  author: <strong>Boyer, C.</strong>, Rumpler, E., Kissler, S. M., & Lipsitch, M.
+  date: '2022'
+  categories:
+  - Methodological
+  subtitle: Epidemics
+  path: https://doi.org/10.1016/j.epidem.2022.100620
+  url_preprint: https://www.medrxiv.org/content/10.1101/2022.01.07.21268585v2
+  url_repo: https://github.com/boyercb/covid-gathering-size
+  volume: 40
+  pages: 100620
+  doi: https://doi.org/10.1016/j.epidem.2022.100620
+- title: 'Religious leaders can motivate men to cede power and reduce intimate partner violence: experimental evidence from Uganda'
+  author: <strong>Boyer, C.</strong>, Paluck, E. L., Annan, J., Nevatia, T., Cooper, J., Namubiru, J, Heise, L., & Lehrer, R.
+  date: '2022'
+  categories:
+  - Randomized Trials
+  subtitle: PNAS
+  path: https://doi.org/10.1073/pnas.2200262119
+  url_pap: https://www.socialscienceregistry.org/trials/3994/history/43131
+  url_repo: https://doi.org/10.7910/DVN/9TEAIV
+  volume: 119
+  issue: 31
+  pages: e2200262119
+  doi: https://doi.org/10.1073/pnas.2200262119
+- title: 'The evaluation of the Womans Condom marketing approach: What value did peer-led interpersonal communication add to the promotion of a new female condom in urban Lusaka?'
+  author: Pinchoff, J., <strong>Boyer, C.</strong>, Nag Chowdhuri, R., Smith, G., Chintu, N., & Ngo, T. D.
+  date: '2019'
+  categories:
+  - Randomized Trials
+  subtitle: Plos one
+  path: https://doi.org/10.1371/journal.pone.0225832
+  volume: 14
+  issue: 12
+  pages: e0225832
+  doi: https://doi.org/10.1371/journal.pone.0225832
+- title: Changes in weight and glycemic control following obesity treatment with semaglutide or tirzepatide by discontinuation status
+  author: Gasoyan, H., Butsch, W. S., Schulte, R., Casacchia, N. J., Le, P., <strong>Boyer, C.</strong>, ... & Rothberg, M. B.
+  date: '2025'
+  categories:
+  - Applied/Collaborative
+  subtitle: Obesity
+  path: https://doi.org/10.1002/oby.24331
+  volume: 33
+  issue: 9
+  pages: 1657-1667
+  doi: https://doi.org/10.1002/oby.24331
+- title: 'JYNNEOS™ effectiveness as post-exposure prophylaxis against mpox: Challenges using real-world outbreak data'
+  author: Rosen, J. B., Arciuolo, R. J., Pathela, P., <strong>Boyer, C.</strong>, Baumgartner, J., Latash, J., Malec, L., Lee, E. H., Reddy, V., King, R., Edward Real, J., Lipsitch, M., & Zucker, J. R.
+  date: '2024'
+  categories:
+  - Applied/Collaborative
+  subtitle: Vaccine
+  path: https://doi.org/10.1016/j.vaccine.2023.12.066
+  url_pdf: files/Rosen%20et%20al.%20-%202024%20-%20JYNNEOS%E2%84%A2%20effectiveness%20as%20post-exposure%20prophylaxi.pdf
+  volume: 42
+  issue: 3
+  pages: 548-555
+  doi: https://doi.org/10.1016/j.vaccine.2023.12.066
+- title: Optimizing the Construction of Outcome Measures for Impact Evaluations of Intimate Partner Violence Prevention Interventions
+  author: Chatterji, S., <strong>Boyer, C.</strong>, Sharma, V., Abramsky, T., Levtov, R., Doyle, K., Harvey, S., & Heise, L.
+  date: '2023'
+  categories:
+  - Applied/Collaborative
+  subtitle: Journal of Interpersonal Violence
+  path: https://doi.org/10.1177/08862605231162887
+  url_preprint: https://www.medrxiv.org/content/10.1101/2023.02.07.23285510.abstract
+  volume: 38
+  issue: 15-16
+  pages: 9105-9131
+  doi: https://doi.org/10.1177/08862605231162887
+- title: 'Worldwide trends in hypertension prevalence and progress in treatment and control from 1990 to 2019: a pooled analysis of 1201 population-representative studies with 104 million participants'
+  author: NCD Risk Factor Collaboration (NCD-RisC).
+  date: '2021'
+  categories:
+  - Applied/Collaborative
+  subtitle: The Lancet
+  path: https://doi.org/10.1016/S0140-6736(21)01330-1
+  url_pdf: files/Zhou%20et%20al.%20-%202021%20-%20Worldwide%20trends%20in%20hypertension%20prevalence%20and%20pr.pdf
+  volume: 398
+  issue: 10304
+  pages: 957-980
+  doi: https://doi.org/10.1016/S0140-6736(21)01330-1
+- title: New approaches to factual and counterfactual prediction modeling
+  author: <strong>Boyer, C.</strong>
+  date: '2023'
+  categories:
+  - Dissertation
+  subtitle: Doctoral dissertation, Harvard University Graduate School of Arts and Sciences
+  path: https://dash.harvard.edu/bitstream/handle/1/37374603/thesis.pdf
+  url_pdf: https://dash.harvard.edu/bitstream/handle/1/37374603/thesis.pdf
+  url_slides: https://dash.harvard.edu/bitstream/handle/1/37374603/thesis.pdf

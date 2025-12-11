@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -67,6 +69,147 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-pre-prints .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-date','listing-categories','listing-subtitle','listing-url_repo','listing-doi',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-categories","listing-subtitle","listing-url_repo","listing-doi"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-pre-prints'] = new List('listing-pre-prints', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-methodological .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-date','listing-categories','listing-subtitle','listing-volume','listing-issue','listing-pages','listing-doi','listing-url_preprint','listing-url_repo',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-categories","listing-subtitle","listing-volume","listing-issue","listing-pages","listing-doi","listing-url_preprint","listing-url_repo"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-methodological'] = new List('listing-methodological', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-randomized-trials .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-date','listing-categories','listing-subtitle','listing-url_pap','listing-url_repo','listing-volume','listing-issue','listing-pages','listing-doi',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-categories","listing-subtitle","listing-url_pap","listing-url_repo","listing-volume","listing-issue","listing-pages","listing-doi"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-randomized-trials'] = new List('listing-randomized-trials', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-applied .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-date','listing-categories','listing-subtitle','listing-volume','listing-issue','listing-pages','listing-doi','listing-url_pdf','listing-url_preprint',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-categories","listing-subtitle","listing-volume","listing-issue","listing-pages","listing-doi","listing-url_pdf","listing-url_preprint"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-applied'] = new List('listing-applied', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-dissertation .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-date','listing-categories','listing-subtitle','listing-url_pdf','listing-url_slides',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-categories","listing-subtitle","listing-url_pdf","listing-url_slides"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-dissertation'] = new List('listing-dissertation', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1D051HLKQD"></script>
 
 <script type="text/javascript">
@@ -76,7 +219,37 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-1D051HLKQD', { 'anonymize_ip': true});
 </script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="Publications – Christopher B. Boyer">
@@ -85,7 +258,7 @@ gtag('config', 'G-1D051HLKQD', { 'anonymize_ip': true});
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -139,12 +312,12 @@ gtag('config', 'G-1D051HLKQD', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -153,7 +326,7 @@ gtag('config', 'G-1D051HLKQD', { 'anonymize_ip': true});
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -167,54 +340,645 @@ gtag('config', 'G-1D051HLKQD', { 'anonymize_ip': true});
 
 <section id="pre-prints" class="level3">
 <h3 class="anchored" data-anchor-id="pre-prints">Pre-prints</h3>
-<ul>
-<li><p>Jia, K.M., <strong>Boyer, C.</strong>, Bilinski, A. &amp; Lipsitch, M. (2025). “Defining and Estimating Outcomes Directly Averted by a Vaccination Program when Rollout Occurs Over Time”. <em>arXiv</em>. <a href="https://doi.org/10.48550/arXiv.2509.05508">https://doi.org/10.48550/arXiv.2509.05508</a></p></li>
-<li><p><strong>Boyer, C.</strong>, Field, E., Lehrer, R., Morrison, A., &amp; Piras, C. (2025). “Guy Talk: Catalyzing Peer Effects on IPV through Virtual Support Groups for Men”. <a href="https://sites.duke.edu/ericafield/files/2025/03/wp_2025_03_Guy_Talk_Peru.pdf">https://sites.duke.edu/ericafield/files/2025/03/wp_2025_03_Guy_Talk_Peru.pdf</a></p></li>
-<li><p>Zhang, Z., <strong>Boyer, C.</strong>, Lipsitch, M. (2024). “Use of the test-negative design to estimate the protective effect of a scalar immune measure: A simulation analysis”. <em>medRxiv</em>. <a href="https://doi.org/10.1101/2024.11.22.24317757">https://doi.org/10.1101/2024.11.22.24317757</a></p></li>
-<li><p>Joshi, K., Kahn, R., <strong>Boyer, C.</strong>, &amp; Lipsitch, M. (2023). “Some principles for using epidemiologic study results to parameterize transmission models”. <em>medRxiv</em>. <a href="https://doi.org/10.1101/2023.10.03.23296455">https://doi.org/10.1101/2023.10.03.23296455</a></p></li>
-</ul>
+<div id="listing-pre-prints" class="quarto-listing quarto-listing-container-custom">
+<div class="publications">
+<ol class="publications-list" style="padding-left: 1.25rem; margin: 0;">
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Jia, K.M., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, Bilinski, A. &amp; Lipsitch, M.</span> (<span class="publication-date">2025</span>). <a href="https://doi.org/10.48550/arXiv.2509.05508" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Defining and Estimating Outcomes Directly Averted by a Vaccination Program when Rollout Occurs Over Time”</a>. <span class="publication-journal"><em>arXiv</em></span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.48550/arXiv.2509.05508" target="_blank">doi.org/10.48550/arXiv.2509.05508</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa6-brands:github"&gt;&lt;/iconify-icon&gt; &lt;a href="https://github.com/katjia/vax_rollout_impact" target="_blank"&gt;repository&lt;/a&gt;&lt;/span&gt;
+  
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">&lt;strong&gt;Boyer, C.&lt;/strong&gt;, Field, E., Lehrer, R., Morrison, A., &amp; Piras, C.</span> (<span class="publication-date">2025</span>). <a href="https://publications.iadb.org/en/guy-talk-catalyzing-peer-effects-ipv-through-virtual-support-groups-men" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Guy Talk: Catalyzing Peer Effects on IPV through Virtual Support Groups for Men”</a>. <span class="publication-journal"><em>Working Paper</em></span>. <span class="publication-doi">DOI: <a href="http://dx.doi.org/10.18235/0013783" target="_blank">dx.doi.org/10.18235/0013783</a></span>.
+</p>
+</li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Zhang, Z., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, Lipsitch, M.</span> (<span class="publication-date">2024</span>). <a href="https://doi.org/10.1101/2024.11.22.24317757" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Use of the test-negative design to estimate the protective effect of a scalar immune measure: A simulation analysis”</a>. <span class="publication-journal"><em>medRxiv</em></span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1101/2024.11.22.24317757" target="_blank">doi.org/10.1101/2024.11.22.24317757</a></span>.
+</p>
+</li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Joshi, K., Kahn, R., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, &amp; Lipsitch, M.</span> (<span class="publication-date">2023</span>). <a href="https://doi.org/10.1101/2023.10.03.23296455" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Some principles for using epidemiologic study results to parameterize transmission models”</a>. <span class="publication-journal"><em>medRxiv</em></span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1101/2023.10.03.23296455" target="_blank">doi.org/10.1101/2023.10.03.23296455</a></span>.
+</p>
+</li>
+</ol>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+<p>:::</p>
+<div class="hidden quarto-markdown-envelope-contents" data-render-id="cGlwZWxpbmUtbGlzdGluZy1tZXRob2RvbG9naWNhbA==">
+<div class="publications">
+<ol class="publications-list" style="padding-left: 1.25rem; margin: 0;">
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">&lt;strong&gt;Boyer, C.&lt;/strong&gt;, Li, K.Q., Shi, X., &amp; Tchetgen Tchetgen, T. J.</span> (<span class="publication-date">2026</span>). <a href="https://doi.org/10.1097/EDE.0000000000001926" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Identification and estimation of vaccine effectiveness in the test-negative design under equi-confounding”</a>. <span class="publication-journal"><em>Epidemiology</em></span>. <span class="publication-volume">37(1)</span><span class="publication-pages">, 77-87</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1097/EDE.0000000000001926" target="_blank">doi.org/10.1097/EDE.0000000000001926</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa:pencil"&gt;&lt;/iconify-icon&gt; &lt;a href="https://doi.org/10.48550/arXiv.2504.20360" target="_blank"&gt;pre-print&lt;/a&gt;&lt;/span&gt;
+  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa6-brands:github"&gt;&lt;/iconify-icon&gt; &lt;a href="https://github.com/boyercb/parallel-tnd" target="_blank"&gt;repository&lt;/a&gt;&lt;/span&gt;
+  
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Gago, J., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, &amp; Lipsitch, M.</span> (<span class="publication-date">2026</span>). <a href="https://doi.org/10.1097/EDE.0000000000001921" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“How should we study the indirect effects of antimicrobial treatment strategies? A causal perspective”</a>. <span class="publication-journal"><em>Epidemiology</em></span>. <span class="publication-volume">37(1)</span><span class="publication-pages">, 88-97</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1097/EDE.0000000000001921" target="_blank">doi.org/10.1097/EDE.0000000000001921</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa:pencil"&gt;&lt;/iconify-icon&gt; &lt;a href="https://doi.org/10.1101/2025.03.28.25324855" target="_blank"&gt;pre-print&lt;/a&gt;&lt;/span&gt;
+  
+  
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">&lt;strong&gt;Boyer, C.&lt;/strong&gt;, Dahabreh, I. J., &amp; Steingrimsson, J. A.</span> (<span class="publication-date">2025</span>). <a href="https://doi.org/10.1002/sim.70287" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Estimating and evaluating counterfactual prediction models”</a>. <span class="publication-journal"><em>Statistics in Medicine</em></span>. <span class="publication-volume">44(23-24)</span><span class="publication-pages">, e70287</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1002/sim.70287" target="_blank">doi.org/10.1002/sim.70287</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa:pencil"&gt;&lt;/iconify-icon&gt; &lt;a href="https://doi.org/10.48550/arXiv.2308.13026" target="_blank"&gt;pre-print&lt;/a&gt;&lt;/span&gt;
+  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa6-brands:github"&gt;&lt;/iconify-icon&gt; &lt;a href="https://github.com/boyercb/validating-counterfactual-predictions" target="_blank"&gt;repository&lt;/a&gt;&lt;/span&gt;
+  
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Voter, S. C., Dahabreh, I. J., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, Rahbar, H., Kontos, D., &amp; Steingrimsson, J. A.</span> (<span class="publication-date">2025</span>). <a href="https://doi.org/10.1186/s41512-025-00201-y" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Counterfactual prediction from machine learning models: transportability and joint analysis for model development and evaluation using multi-source data”</a>. <span class="publication-journal"><em>Diagnostic and Prognostic Research</em></span>. <span class="publication-volume">9(22)</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1186/s41512-025-00201-y" target="_blank">doi.org/10.1186/s41512-025-00201-y</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa6-brands:github"&gt;&lt;/iconify-icon&gt; &lt;a href="https://github.com/sarah-voter/counterfactual_prediction_machine_learning_paper_code" target="_blank"&gt;repository&lt;/a&gt;&lt;/span&gt;
+  
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Jia, K. M., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, Wallinga, J., &amp; Lipsitch, M.</span> (<span class="publication-date">2025</span>). <a href="https://doi.org/10.1097/EDE.0000000000001839" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Causal Estimands for Analyses of Averted and Avertible Outcomes due to Infectious Disease Interventions”</a>. <span class="publication-journal"><em>Epidemiology</em></span>. <span class="publication-volume">36(3)</span><span class="publication-pages">, 363-373</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1097/EDE.0000000000001839" target="_blank">doi.org/10.1097/EDE.0000000000001839</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa:pencil"&gt;&lt;/iconify-icon&gt; &lt;a href="https://www.medrxiv.org/content/10.1101/2022.01.07.21268585v2" target="_blank"&gt;pre-print&lt;/a&gt;&lt;/span&gt;
+  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa6-brands:github"&gt;&lt;/iconify-icon&gt; &lt;a href="https://github.com/katjia/impact_estimands" target="_blank"&gt;repository&lt;/a&gt;&lt;/span&gt;
+  
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">&lt;strong&gt;Boyer, C.&lt;/strong&gt; &amp; Lipsitch, M.</span> (<span class="publication-date">2025</span>). <a href="https://doi.org/10.1093/aje/kwae350" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Emulating target trials of postexposure vaccines using observational data”</a>. <span class="publication-journal"><em>American Journal of Epidemiology</em></span>. <span class="publication-volume">194(7)</span><span class="publication-pages">, 2037-2046</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1093/aje/kwae350" target="_blank">doi.org/10.1093/aje/kwae350</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa:pencil"&gt;&lt;/iconify-icon&gt; &lt;a href="https://www.medrxiv.org/content/10.1101/2022.01.07.21268585v2" target="_blank"&gt;pre-print&lt;/a&gt;&lt;/span&gt;
+  
+  
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">&lt;strong&gt;Boyer, C.&lt;/strong&gt;, Rumpler, E., Kissler, S. M., &amp; Lipsitch, M.</span> (<span class="publication-date">2022</span>). <a href="https://doi.org/10.1016/j.epidem.2022.100620" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Infectious disease dynamics and restrictions on social gathering size”</a>. <span class="publication-journal"><em>Epidemics</em></span>. <span class="publication-volume">40</span><span class="publication-pages">, 100620</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1016/j.epidem.2022.100620" target="_blank">doi.org/10.1016/j.epidem.2022.100620</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa:pencil"&gt;&lt;/iconify-icon&gt; &lt;a href="https://www.medrxiv.org/content/10.1101/2022.01.07.21268585v2" target="_blank"&gt;pre-print&lt;/a&gt;&lt;/span&gt;
+  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa6-brands:github"&gt;&lt;/iconify-icon&gt; &lt;a href="https://github.com/boyercb/covid-gathering-size" target="_blank"&gt;repository&lt;/a&gt;&lt;/span&gt;
+  
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+</ol>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+<p>:::</p>
+<div class="hidden quarto-markdown-envelope-contents" data-render-id="cGlwZWxpbmUtbGlzdGluZy1yYW5kb21pemVkLXRyaWFscw==">
+<div class="publications">
+<ol class="publications-list" style="padding-left: 1.25rem; margin: 0;">
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">&lt;strong&gt;Boyer, C.&lt;/strong&gt;, Paluck, E. L., Annan, J., Nevatia, T., Cooper, J., Namubiru, J, Heise, L., &amp; Lehrer, R.</span> (<span class="publication-date">2022</span>). <a href="https://doi.org/10.1073/pnas.2200262119" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Religious leaders can motivate men to cede power and reduce intimate partner violence: experimental evidence from Uganda”</a>. <span class="publication-journal"><em>PNAS</em></span>. <span class="publication-volume">119(31)</span><span class="publication-pages">, e2200262119</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1073/pnas.2200262119" target="_blank">doi.org/10.1073/pnas.2200262119</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa6-brands:github"&gt;&lt;/iconify-icon&gt; &lt;a href="https://doi.org/10.7910/DVN/9TEAIV" target="_blank"&gt;repository&lt;/a&gt;&lt;/span&gt;
+  
+  
+  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="carbon:plan"&gt;&lt;/iconify-icon&gt; &lt;a href="https://www.socialscienceregistry.org/trials/3994/history/43131" target="_blank"&gt;pre-analysis plan&lt;/a&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Pinchoff, J., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, Nag Chowdhuri, R., Smith, G., Chintu, N., &amp; Ngo, T. D.</span> (<span class="publication-date">2019</span>). <a href="https://doi.org/10.1371/journal.pone.0225832" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“The evaluation of the Womans Condom marketing approach: What value did peer-led interpersonal communication add to the promotion of a new female condom in urban Lusaka?”</a>. <span class="publication-journal"><em>Plos one</em></span>. <span class="publication-volume">14(12)</span><span class="publication-pages">, e0225832</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1371/journal.pone.0225832" target="_blank">doi.org/10.1371/journal.pone.0225832</a></span>.
+</p>
+</li>
+</ol>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+<p>:::</p>
+<div class="hidden quarto-markdown-envelope-contents" data-render-id="cGlwZWxpbmUtbGlzdGluZy1hcHBsaWVk">
+<div class="publications">
+<ol class="publications-list" style="padding-left: 1.25rem; margin: 0;">
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Gasoyan, H., Butsch, W. S., Schulte, R., Casacchia, N. J., Le, P., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, … &amp; Rothberg, M. B.</span> (<span class="publication-date">2025</span>). <a href="https://doi.org/10.1002/oby.24331" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Changes in weight and glycemic control following obesity treatment with semaglutide or tirzepatide by discontinuation status”</a>. <span class="publication-journal"><em>Obesity</em></span>. <span class="publication-volume">33(9)</span><span class="publication-pages">, 1657-1667</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1002/oby.24331" target="_blank">doi.org/10.1002/oby.24331</a></span>.
+</p>
+</li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Rosen, J. B., Arciuolo, R. J., Pathela, P., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, Baumgartner, J., Latash, J., Malec, L., Lee, E. H., Reddy, V., King, R., Edward Real, J., Lipsitch, M., &amp; Zucker, J. R.</span> (<span class="publication-date">2024</span>). <a href="https://doi.org/10.1016/j.vaccine.2023.12.066" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“JYNNEOS™ effectiveness as post-exposure prophylaxis against mpox: Challenges using real-world outbreak data”</a>. <span class="publication-journal"><em>Vaccine</em></span>. <span class="publication-volume">42(3)</span><span class="publication-pages">, 548-555</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1016/j.vaccine.2023.12.066" target="_blank">doi.org/10.1016/j.vaccine.2023.12.066</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa-regular:file-pdf"&gt;&lt;/iconify-icon&gt; &lt;a href="files/Rosen%20et%20al.%20-%202024%20-%20JYNNEOS%E2%84%A2%20effectiveness%20as%20post-exposure%20prophylaxi.pdf" target="_blank"&gt;pdf&lt;/a&gt;&lt;/span&gt;
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Chatterji, S., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, Sharma, V., Abramsky, T., Levtov, R., Doyle, K., Harvey, S., &amp; Heise, L.</span> (<span class="publication-date">2023</span>). <a href="https://doi.org/10.1177/08862605231162887" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Optimizing the Construction of Outcome Measures for Impact Evaluations of Intimate Partner Violence Prevention Interventions”</a>. <span class="publication-journal"><em>Journal of Interpersonal Violence</em></span>. <span class="publication-volume">38(15-16)</span><span class="publication-pages">, 9105-9131</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1177/08862605231162887" target="_blank">doi.org/10.1177/08862605231162887</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa:pencil"&gt;&lt;/iconify-icon&gt; &lt;a href="https://www.medrxiv.org/content/10.1101/2023.02.07.23285510.abstract" target="_blank"&gt;pre-print&lt;/a&gt;&lt;/span&gt;
+  
+  
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">NCD Risk Factor Collaboration (NCD-RisC).</span> (<span class="publication-date">2021</span>). <a href="https://doi.org/10.1016/S0140-6736(21)01330-1" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Worldwide trends in hypertension prevalence and progress in treatment and control from 1990 to 2019: a pooled analysis of 1201 population-representative studies with 104 million participants”</a>. <span class="publication-journal"><em>The Lancet</em></span>. <span class="publication-volume">398(10304)</span><span class="publication-pages">, 957-980</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1016/S0140-6736(21)01330-1" target="_blank">doi.org/10.1016/S0140-6736(21)01330-1</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa-regular:file-pdf"&gt;&lt;/iconify-icon&gt; &lt;a href="files/Zhou%20et%20al.%20-%202021%20-%20Worldwide%20trends%20in%20hypertension%20prevalence%20and%20pr.pdf" target="_blank"&gt;pdf&lt;/a&gt;&lt;/span&gt;
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+</ol>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+<p>:::</p>
+<div class="hidden quarto-markdown-envelope-contents" data-render-id="cGlwZWxpbmUtbGlzdGluZy1kaXNzZXJ0YXRpb24=">
+<div class="publications">
+<ol class="publications-list" style="padding-left: 1.25rem; margin: 0;">
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">&lt;strong&gt;Boyer, C.&lt;/strong&gt;</span> (<span class="publication-date">2023</span>). <a href="https://dash.harvard.edu/bitstream/handle/1/37374603/thesis.pdf" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“New approaches to factual and counterfactual prediction modeling”</a>. <span class="publication-journal"><em>Doctoral dissertation, Harvard University Graduate School of Arts and Sciences</em></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa-regular:file-pdf"&gt;&lt;/iconify-icon&gt; &lt;a href="https://dash.harvard.edu/bitstream/handle/1/37374603/thesis.pdf" target="_blank"&gt;pdf&lt;/a&gt;&lt;/span&gt;
+  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="file-icons:keynote"&gt;&lt;/iconify-icon&gt; &lt;a href="https://dash.harvard.edu/bitstream/handle/1/37374603/thesis.pdf"&gt;slides&lt;/a&gt;&lt;/span&gt;
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+</ol>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+<p>:::</p>
+<p>:::</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="peer-reviewed-publications" class="level3">
 <h3 class="anchored" data-anchor-id="peer-reviewed-publications">Peer-reviewed publications</h3>
 <section id="methodological" class="level4">
 <h4 class="anchored" data-anchor-id="methodological">Methodological</h4>
-<ol type="1">
-<li><p><strong>Boyer, C.</strong>, Li, K.Q., Shi, X., &amp; Tchetgen Tchetgen, T. J. (2025). “Identification and estimation of vaccine effectiveness in the test-negative design under equi-confounding”. <em>Epidemiology</em>. In Press. <br> <iconify-icon inline="" icon="fa:pencil"></iconify-icon> <a href="https://doi.org/10.48550/arXiv.2504.20360">pre-print</a> / <iconify-icon inline="" icon="fa6-brands:github"></iconify-icon> <a href="https://github.com/boyercb/parallel-tnd">repository</a></p></li>
-<li><p><strong>Boyer, C.</strong>, Dahabreh, I. J., &amp; Steingrimsson, J. A. (2025). “Estimating and evaluating counterfactual prediction models”. <em>Statistics in Medicine</em>, 44(23-24), e70287. <a href="https://doi.org/10.1002/sim.70287">https://doi.org/10.1002/sim.70287</a> <br> <iconify-icon inline="" icon="fa:pencil"></iconify-icon> <a href="https://doi.org/10.48550/arXiv.2308.13026">pre-print</a> / <iconify-icon inline="" icon="fa6-brands:github"></iconify-icon> <a href="https://github.com/boyercb/validating-counterfactual-predictions">repository</a></p></li>
-<li><p>Gago, J., <strong>Boyer, C.</strong>, &amp; Lipsitch, M. (2025). “How should we study the indirect effects of antimicrobial treatment strategies? A causal perspective”. <em>Epidemiology</em>. In Press. <br> <iconify-icon inline="" icon="fa:pencil"></iconify-icon> <a href="https://doi.org/10.1101/2025.03.28.25324855">pre-print</a></p></li>
-<li><p>Voter, S. C., Dahabreh, I. J., <strong>Boyer, C.</strong>, Rahbar, H., Kontos, D., &amp; Steingrimsson, J. A. (2025). “Counterfactual prediction from machine learning models: transportability and joint analysis for model development and evaluation using multi-source data”. <em>Diagnostic and Prognostic Research</em>, 9(22). <a href="https://doi.org/10.1186/s41512-025-00201-y">https://doi.org/10.1186/s41512-025-00201-y</a> <br> <iconify-icon inline="" icon="fa6-brands:github"></iconify-icon> <a href="https://github.com/sarah-voter/counterfactual_prediction_machine_learning_paper_code">repository</a> / <iconify-icon inline="" icon="fa-regular:file-pdf"></iconify-icon> <a href="files/Voter et al. - 2025 - Counterfactual prediction from machine learning models transportability and joint analysis for mode.pdf">pdf</a></p></li>
-<li><p>Jia, K. M., <strong>Boyer, C.</strong>, Wallinga, J., &amp; Lipsitch, M. (2025). “Causal Estimands for Analyses of Averted and Avertible Outcomes due to Infectious Disease Interventions”. <em>Epidemiology</em>, 36(3), 363-373. <a href="https://doi.org/10.1097/EDE.0000000000001839">https://doi.org/10.1097/EDE.0000000000001839</a> <br> <iconify-icon inline="" icon="fa:pencil"></iconify-icon> <a href="https://www.medrxiv.org/content/10.1101/2022.01.07.21268585v2">pre-print</a> / <iconify-icon inline="" icon="fa6-brands:github"></iconify-icon> <a href="https://github.com/boyercb/covid-gathering-size">repository</a> / <iconify-icon inline="" icon="fa-regular:file-pdf"></iconify-icon> <a href="files/Boyer et al. - 2022 - Infectious disease dynamics and restrictions on so.pdf">pdf</a></p></li>
-<li><p><strong>Boyer, C.</strong> &amp; Lipsitch, M. (2025). “Emulating target trials of postexposure vaccines using observational data”. <em>American Journal of Epidemiology</em>, 194(7), 2037-2046. <a href="https://doi.org/10.1093/aje/kwae350">https://doi.org/10.1093/aje/kwae350</a> <br> <iconify-icon inline="" icon="fa:pencil"></iconify-icon> <a href="https://www.medrxiv.org/content/10.1101/2022.01.07.21268585v2">pre-print</a> / <iconify-icon inline="" icon="fa6-brands:github"></iconify-icon> <a href="https://github.com/boyercb/covid-gathering-size">repository</a> / <iconify-icon inline="" icon="fa-regular:file-pdf"></iconify-icon> <a href="files/Boyer et al. - 2022 - Infectious disease dynamics and restrictions on so.pdf">pdf</a></p></li>
-<li><p><strong>Boyer, C.</strong>, Rumpler, E., Kissler, S. M., &amp; Lipsitch, M. (2022). “Infectious disease dynamics and restrictions on social gathering size”. <em>Epidemics</em>, 40, 100620. <a href="https://doi.org/10.1016/j.epidem.2022.100620">https://doi.org/10.1016/j.epidem.2022.100620</a> <br> <iconify-icon inline="" icon="fa:pencil"></iconify-icon> <a href="https://www.medrxiv.org/content/10.1101/2022.01.07.21268585v2">pre-print</a> / <iconify-icon inline="" icon="fa6-brands:github"></iconify-icon> <a href="https://github.com/boyercb/covid-gathering-size">repository</a> / <iconify-icon inline="" icon="fa-regular:file-pdf"></iconify-icon> <a href="files/Boyer et al. - 2022 - Infectious disease dynamics and restrictions on so.pdf">pdf</a></p></li>
+<div id="listing-methodological" class="quarto-listing quarto-listing-container-custom">
+<div class="publications">
+<ol class="publications-list" style="padding-left: 1.25rem; margin: 0;">
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">&lt;strong&gt;Boyer, C.&lt;/strong&gt;, Li, K.Q., Shi, X., &amp; Tchetgen Tchetgen, T. J.</span> (<span class="publication-date">2026</span>). <a href="https://doi.org/10.1097/EDE.0000000000001926" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Identification and estimation of vaccine effectiveness in the test-negative design under equi-confounding”</a>. <span class="publication-journal"><em>Epidemiology</em></span>. <span class="publication-volume">37(1)</span><span class="publication-pages">, 77-87</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1097/EDE.0000000000001926" target="_blank">doi.org/10.1097/EDE.0000000000001926</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa:pencil"&gt;&lt;/iconify-icon&gt; &lt;a href="https://doi.org/10.48550/arXiv.2504.20360" target="_blank"&gt;pre-print&lt;/a&gt;&lt;/span&gt;
+  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa6-brands:github"&gt;&lt;/iconify-icon&gt; &lt;a href="https://github.com/boyercb/parallel-tnd" target="_blank"&gt;repository&lt;/a&gt;&lt;/span&gt;
+  
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Gago, J., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, &amp; Lipsitch, M.</span> (<span class="publication-date">2026</span>). <a href="https://doi.org/10.1097/EDE.0000000000001921" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“How should we study the indirect effects of antimicrobial treatment strategies? A causal perspective”</a>. <span class="publication-journal"><em>Epidemiology</em></span>. <span class="publication-volume">37(1)</span><span class="publication-pages">, 88-97</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1097/EDE.0000000000001921" target="_blank">doi.org/10.1097/EDE.0000000000001921</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa:pencil"&gt;&lt;/iconify-icon&gt; &lt;a href="https://doi.org/10.1101/2025.03.28.25324855" target="_blank"&gt;pre-print&lt;/a&gt;&lt;/span&gt;
+  
+  
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">&lt;strong&gt;Boyer, C.&lt;/strong&gt;, Dahabreh, I. J., &amp; Steingrimsson, J. A.</span> (<span class="publication-date">2025</span>). <a href="https://doi.org/10.1002/sim.70287" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Estimating and evaluating counterfactual prediction models”</a>. <span class="publication-journal"><em>Statistics in Medicine</em></span>. <span class="publication-volume">44(23-24)</span><span class="publication-pages">, e70287</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1002/sim.70287" target="_blank">doi.org/10.1002/sim.70287</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa:pencil"&gt;&lt;/iconify-icon&gt; &lt;a href="https://doi.org/10.48550/arXiv.2308.13026" target="_blank"&gt;pre-print&lt;/a&gt;&lt;/span&gt;
+  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa6-brands:github"&gt;&lt;/iconify-icon&gt; &lt;a href="https://github.com/boyercb/validating-counterfactual-predictions" target="_blank"&gt;repository&lt;/a&gt;&lt;/span&gt;
+  
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Voter, S. C., Dahabreh, I. J., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, Rahbar, H., Kontos, D., &amp; Steingrimsson, J. A.</span> (<span class="publication-date">2025</span>). <a href="https://doi.org/10.1186/s41512-025-00201-y" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Counterfactual prediction from machine learning models: transportability and joint analysis for model development and evaluation using multi-source data”</a>. <span class="publication-journal"><em>Diagnostic and Prognostic Research</em></span>. <span class="publication-volume">9(22)</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1186/s41512-025-00201-y" target="_blank">doi.org/10.1186/s41512-025-00201-y</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa6-brands:github"&gt;&lt;/iconify-icon&gt; &lt;a href="https://github.com/sarah-voter/counterfactual_prediction_machine_learning_paper_code" target="_blank"&gt;repository&lt;/a&gt;&lt;/span&gt;
+  
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Jia, K. M., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, Wallinga, J., &amp; Lipsitch, M.</span> (<span class="publication-date">2025</span>). <a href="https://doi.org/10.1097/EDE.0000000000001839" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Causal Estimands for Analyses of Averted and Avertible Outcomes due to Infectious Disease Interventions”</a>. <span class="publication-journal"><em>Epidemiology</em></span>. <span class="publication-volume">36(3)</span><span class="publication-pages">, 363-373</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1097/EDE.0000000000001839" target="_blank">doi.org/10.1097/EDE.0000000000001839</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa:pencil"&gt;&lt;/iconify-icon&gt; &lt;a href="https://www.medrxiv.org/content/10.1101/2022.01.07.21268585v2" target="_blank"&gt;pre-print&lt;/a&gt;&lt;/span&gt;
+  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa6-brands:github"&gt;&lt;/iconify-icon&gt; &lt;a href="https://github.com/katjia/impact_estimands" target="_blank"&gt;repository&lt;/a&gt;&lt;/span&gt;
+  
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">&lt;strong&gt;Boyer, C.&lt;/strong&gt; &amp; Lipsitch, M.</span> (<span class="publication-date">2025</span>). <a href="https://doi.org/10.1093/aje/kwae350" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Emulating target trials of postexposure vaccines using observational data”</a>. <span class="publication-journal"><em>American Journal of Epidemiology</em></span>. <span class="publication-volume">194(7)</span><span class="publication-pages">, 2037-2046</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1093/aje/kwae350" target="_blank">doi.org/10.1093/aje/kwae350</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa:pencil"&gt;&lt;/iconify-icon&gt; &lt;a href="https://www.medrxiv.org/content/10.1101/2022.01.07.21268585v2" target="_blank"&gt;pre-print&lt;/a&gt;&lt;/span&gt;
+  
+  
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">&lt;strong&gt;Boyer, C.&lt;/strong&gt;, Rumpler, E., Kissler, S. M., &amp; Lipsitch, M.</span> (<span class="publication-date">2022</span>). <a href="https://doi.org/10.1016/j.epidem.2022.100620" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Infectious disease dynamics and restrictions on social gathering size”</a>. <span class="publication-journal"><em>Epidemics</em></span>. <span class="publication-volume">40</span><span class="publication-pages">, 100620</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1016/j.epidem.2022.100620" target="_blank">doi.org/10.1016/j.epidem.2022.100620</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa:pencil"&gt;&lt;/iconify-icon&gt; &lt;a href="https://www.medrxiv.org/content/10.1101/2022.01.07.21268585v2" target="_blank"&gt;pre-print&lt;/a&gt;&lt;/span&gt;
+  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa6-brands:github"&gt;&lt;/iconify-icon&gt; &lt;a href="https://github.com/boyercb/covid-gathering-size" target="_blank"&gt;repository&lt;/a&gt;&lt;/span&gt;
+  
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
 </ol>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+<p>:::</p>
+<div class="hidden quarto-markdown-envelope-contents" data-render-id="cGlwZWxpbmUtbGlzdGluZy1yYW5kb21pemVkLXRyaWFscw==">
+<div class="publications">
+<ol class="publications-list" style="padding-left: 1.25rem; margin: 0;">
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">&lt;strong&gt;Boyer, C.&lt;/strong&gt;, Paluck, E. L., Annan, J., Nevatia, T., Cooper, J., Namubiru, J, Heise, L., &amp; Lehrer, R.</span> (<span class="publication-date">2022</span>). <a href="https://doi.org/10.1073/pnas.2200262119" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Religious leaders can motivate men to cede power and reduce intimate partner violence: experimental evidence from Uganda”</a>. <span class="publication-journal"><em>PNAS</em></span>. <span class="publication-volume">119(31)</span><span class="publication-pages">, e2200262119</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1073/pnas.2200262119" target="_blank">doi.org/10.1073/pnas.2200262119</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa6-brands:github"&gt;&lt;/iconify-icon&gt; &lt;a href="https://doi.org/10.7910/DVN/9TEAIV" target="_blank"&gt;repository&lt;/a&gt;&lt;/span&gt;
+  
+  
+  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="carbon:plan"&gt;&lt;/iconify-icon&gt; &lt;a href="https://www.socialscienceregistry.org/trials/3994/history/43131" target="_blank"&gt;pre-analysis plan&lt;/a&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Pinchoff, J., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, Nag Chowdhuri, R., Smith, G., Chintu, N., &amp; Ngo, T. D.</span> (<span class="publication-date">2019</span>). <a href="https://doi.org/10.1371/journal.pone.0225832" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“The evaluation of the Womans Condom marketing approach: What value did peer-led interpersonal communication add to the promotion of a new female condom in urban Lusaka?”</a>. <span class="publication-journal"><em>Plos one</em></span>. <span class="publication-volume">14(12)</span><span class="publication-pages">, e0225832</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1371/journal.pone.0225832" target="_blank">doi.org/10.1371/journal.pone.0225832</a></span>.
+</p>
+</li>
+</ol>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+<p>:::</p>
+<div class="hidden quarto-markdown-envelope-contents" data-render-id="cGlwZWxpbmUtbGlzdGluZy1hcHBsaWVk">
+<div class="publications">
+<ol class="publications-list" style="padding-left: 1.25rem; margin: 0;">
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Gasoyan, H., Butsch, W. S., Schulte, R., Casacchia, N. J., Le, P., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, … &amp; Rothberg, M. B.</span> (<span class="publication-date">2025</span>). <a href="https://doi.org/10.1002/oby.24331" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Changes in weight and glycemic control following obesity treatment with semaglutide or tirzepatide by discontinuation status”</a>. <span class="publication-journal"><em>Obesity</em></span>. <span class="publication-volume">33(9)</span><span class="publication-pages">, 1657-1667</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1002/oby.24331" target="_blank">doi.org/10.1002/oby.24331</a></span>.
+</p>
+</li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Rosen, J. B., Arciuolo, R. J., Pathela, P., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, Baumgartner, J., Latash, J., Malec, L., Lee, E. H., Reddy, V., King, R., Edward Real, J., Lipsitch, M., &amp; Zucker, J. R.</span> (<span class="publication-date">2024</span>). <a href="https://doi.org/10.1016/j.vaccine.2023.12.066" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“JYNNEOS™ effectiveness as post-exposure prophylaxis against mpox: Challenges using real-world outbreak data”</a>. <span class="publication-journal"><em>Vaccine</em></span>. <span class="publication-volume">42(3)</span><span class="publication-pages">, 548-555</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1016/j.vaccine.2023.12.066" target="_blank">doi.org/10.1016/j.vaccine.2023.12.066</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa-regular:file-pdf"&gt;&lt;/iconify-icon&gt; &lt;a href="files/Rosen%20et%20al.%20-%202024%20-%20JYNNEOS%E2%84%A2%20effectiveness%20as%20post-exposure%20prophylaxi.pdf" target="_blank"&gt;pdf&lt;/a&gt;&lt;/span&gt;
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Chatterji, S., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, Sharma, V., Abramsky, T., Levtov, R., Doyle, K., Harvey, S., &amp; Heise, L.</span> (<span class="publication-date">2023</span>). <a href="https://doi.org/10.1177/08862605231162887" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Optimizing the Construction of Outcome Measures for Impact Evaluations of Intimate Partner Violence Prevention Interventions”</a>. <span class="publication-journal"><em>Journal of Interpersonal Violence</em></span>. <span class="publication-volume">38(15-16)</span><span class="publication-pages">, 9105-9131</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1177/08862605231162887" target="_blank">doi.org/10.1177/08862605231162887</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa:pencil"&gt;&lt;/iconify-icon&gt; &lt;a href="https://www.medrxiv.org/content/10.1101/2023.02.07.23285510.abstract" target="_blank"&gt;pre-print&lt;/a&gt;&lt;/span&gt;
+  
+  
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">NCD Risk Factor Collaboration (NCD-RisC).</span> (<span class="publication-date">2021</span>). <a href="https://doi.org/10.1016/S0140-6736(21)01330-1" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Worldwide trends in hypertension prevalence and progress in treatment and control from 1990 to 2019: a pooled analysis of 1201 population-representative studies with 104 million participants”</a>. <span class="publication-journal"><em>The Lancet</em></span>. <span class="publication-volume">398(10304)</span><span class="publication-pages">, 957-980</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1016/S0140-6736(21)01330-1" target="_blank">doi.org/10.1016/S0140-6736(21)01330-1</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa-regular:file-pdf"&gt;&lt;/iconify-icon&gt; &lt;a href="files/Zhou%20et%20al.%20-%202021%20-%20Worldwide%20trends%20in%20hypertension%20prevalence%20and%20pr.pdf" target="_blank"&gt;pdf&lt;/a&gt;&lt;/span&gt;
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+</ol>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+<p>:::</p>
+<div class="hidden quarto-markdown-envelope-contents" data-render-id="cGlwZWxpbmUtbGlzdGluZy1kaXNzZXJ0YXRpb24=">
+<div class="publications">
+<ol class="publications-list" style="padding-left: 1.25rem; margin: 0;">
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">&lt;strong&gt;Boyer, C.&lt;/strong&gt;</span> (<span class="publication-date">2023</span>). <a href="https://dash.harvard.edu/bitstream/handle/1/37374603/thesis.pdf" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“New approaches to factual and counterfactual prediction modeling”</a>. <span class="publication-journal"><em>Doctoral dissertation, Harvard University Graduate School of Arts and Sciences</em></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa-regular:file-pdf"&gt;&lt;/iconify-icon&gt; &lt;a href="https://dash.harvard.edu/bitstream/handle/1/37374603/thesis.pdf" target="_blank"&gt;pdf&lt;/a&gt;&lt;/span&gt;
+  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="file-icons:keynote"&gt;&lt;/iconify-icon&gt; &lt;a href="https://dash.harvard.edu/bitstream/handle/1/37374603/thesis.pdf"&gt;slides&lt;/a&gt;&lt;/span&gt;
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+</ol>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+<p>:::</p>
+<p>:::</p>
+<div id="quarto-meta-markdown" class="hidden">
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGF0aXRsZQ==">Publications – Christopher B. Boyer</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkdGl0bGU=">Publications – Christopher B. Boyer</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZHRpdGxl">Publications – Christopher B. Boyer</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGFzaXRlbmFtZQ==">Christopher B. Boyer</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkZGVzYw==">Personal website of Christopher B. Boyer, Assistant Professor at Cleveland Clinic specializing in causal inference and biostatistics.</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZGRkZXNj">Personal website of Christopher B. Boyer, Assistant Professor at Cleveland Clinic specializing in causal inference and biostatistics.</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="randomized-trials" class="level4">
 <h4 class="anchored" data-anchor-id="randomized-trials">Randomized Trials</h4>
-<ol start="8" type="1">
-<li><p><strong>Boyer, C.</strong>, Paluck, E. L., Annan, J., Nevatia, T., Cooper, J., Namubiru, J, Heise, L., &amp; Lehrer, R. (2022) “Religious leaders can motivate men to cede power and reduce intimate partner violence: experimental evidence from Uganda”. <em>PNAS</em>. 119(31), e2200262119. <a href="https://doi.org/10.1073/pnas.2200262119">https://doi.org/10.1073/pnas.2200262119</a> <br> <iconify-icon inline="" icon="carbon:plan"></iconify-icon> <a href="https://www.socialscienceregistry.org/trials/3994/history/43131">pre-analysis plan</a> / <iconify-icon inline="" icon="fa6-brands:github"></iconify-icon> <a href="https://doi.org/10.7910/DVN/9TEAIV">repository</a> / <iconify-icon inline="" icon="fa-regular:file-pdf"></iconify-icon> <a href="files/Boyer et al. - 2022 - Religious leaders can motivate men to cede power a.pdf">pdf</a></p></li>
-<li><p>Pinchoff, J., <strong>Boyer, C.</strong>, Nag Chowdhuri, R., Smith, G., Chintu, N., &amp; Ngo, T. D. (2019). “The evaluation of the Woman’s Condom marketing approach: What value did peer-led interpersonal communication add to the promotion of a new female condom in urban Lusaka?”. <em>Plos one</em>, 14(12), e0225832. <a href="https://doi.org/10.1371/journal.pone.0225832">https://doi.org/10.1371/journal.pone.0225832</a></p></li>
+<div id="listing-randomized-trials" class="quarto-listing quarto-listing-container-custom">
+<div class="publications">
+<ol class="publications-list" style="padding-left: 1.25rem; margin: 0;">
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">&lt;strong&gt;Boyer, C.&lt;/strong&gt;, Paluck, E. L., Annan, J., Nevatia, T., Cooper, J., Namubiru, J, Heise, L., &amp; Lehrer, R.</span> (<span class="publication-date">2022</span>). <a href="https://doi.org/10.1073/pnas.2200262119" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Religious leaders can motivate men to cede power and reduce intimate partner violence: experimental evidence from Uganda”</a>. <span class="publication-journal"><em>PNAS</em></span>. <span class="publication-volume">119(31)</span><span class="publication-pages">, e2200262119</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1073/pnas.2200262119" target="_blank">doi.org/10.1073/pnas.2200262119</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa6-brands:github"&gt;&lt;/iconify-icon&gt; &lt;a href="https://doi.org/10.7910/DVN/9TEAIV" target="_blank"&gt;repository&lt;/a&gt;&lt;/span&gt;
+  
+  
+  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="carbon:plan"&gt;&lt;/iconify-icon&gt; &lt;a href="https://www.socialscienceregistry.org/trials/3994/history/43131" target="_blank"&gt;pre-analysis plan&lt;/a&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Pinchoff, J., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, Nag Chowdhuri, R., Smith, G., Chintu, N., &amp; Ngo, T. D.</span> (<span class="publication-date">2019</span>). <a href="https://doi.org/10.1371/journal.pone.0225832" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“The evaluation of the Womans Condom marketing approach: What value did peer-led interpersonal communication add to the promotion of a new female condom in urban Lusaka?”</a>. <span class="publication-journal"><em>Plos one</em></span>. <span class="publication-volume">14(12)</span><span class="publication-pages">, e0225832</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1371/journal.pone.0225832" target="_blank">doi.org/10.1371/journal.pone.0225832</a></span>.
+</p>
+</li>
 </ol>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+<p>:::</p>
+<div class="hidden quarto-markdown-envelope-contents" data-render-id="cGlwZWxpbmUtbGlzdGluZy1hcHBsaWVk">
+<div class="publications">
+<ol class="publications-list" style="padding-left: 1.25rem; margin: 0;">
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Gasoyan, H., Butsch, W. S., Schulte, R., Casacchia, N. J., Le, P., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, … &amp; Rothberg, M. B.</span> (<span class="publication-date">2025</span>). <a href="https://doi.org/10.1002/oby.24331" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Changes in weight and glycemic control following obesity treatment with semaglutide or tirzepatide by discontinuation status”</a>. <span class="publication-journal"><em>Obesity</em></span>. <span class="publication-volume">33(9)</span><span class="publication-pages">, 1657-1667</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1002/oby.24331" target="_blank">doi.org/10.1002/oby.24331</a></span>.
+</p>
+</li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Rosen, J. B., Arciuolo, R. J., Pathela, P., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, Baumgartner, J., Latash, J., Malec, L., Lee, E. H., Reddy, V., King, R., Edward Real, J., Lipsitch, M., &amp; Zucker, J. R.</span> (<span class="publication-date">2024</span>). <a href="https://doi.org/10.1016/j.vaccine.2023.12.066" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“JYNNEOS™ effectiveness as post-exposure prophylaxis against mpox: Challenges using real-world outbreak data”</a>. <span class="publication-journal"><em>Vaccine</em></span>. <span class="publication-volume">42(3)</span><span class="publication-pages">, 548-555</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1016/j.vaccine.2023.12.066" target="_blank">doi.org/10.1016/j.vaccine.2023.12.066</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa-regular:file-pdf"&gt;&lt;/iconify-icon&gt; &lt;a href="files/Rosen%20et%20al.%20-%202024%20-%20JYNNEOS%E2%84%A2%20effectiveness%20as%20post-exposure%20prophylaxi.pdf" target="_blank"&gt;pdf&lt;/a&gt;&lt;/span&gt;
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Chatterji, S., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, Sharma, V., Abramsky, T., Levtov, R., Doyle, K., Harvey, S., &amp; Heise, L.</span> (<span class="publication-date">2023</span>). <a href="https://doi.org/10.1177/08862605231162887" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Optimizing the Construction of Outcome Measures for Impact Evaluations of Intimate Partner Violence Prevention Interventions”</a>. <span class="publication-journal"><em>Journal of Interpersonal Violence</em></span>. <span class="publication-volume">38(15-16)</span><span class="publication-pages">, 9105-9131</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1177/08862605231162887" target="_blank">doi.org/10.1177/08862605231162887</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa:pencil"&gt;&lt;/iconify-icon&gt; &lt;a href="https://www.medrxiv.org/content/10.1101/2023.02.07.23285510.abstract" target="_blank"&gt;pre-print&lt;/a&gt;&lt;/span&gt;
+  
+  
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">NCD Risk Factor Collaboration (NCD-RisC).</span> (<span class="publication-date">2021</span>). <a href="https://doi.org/10.1016/S0140-6736(21)01330-1" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Worldwide trends in hypertension prevalence and progress in treatment and control from 1990 to 2019: a pooled analysis of 1201 population-representative studies with 104 million participants”</a>. <span class="publication-journal"><em>The Lancet</em></span>. <span class="publication-volume">398(10304)</span><span class="publication-pages">, 957-980</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1016/S0140-6736(21)01330-1" target="_blank">doi.org/10.1016/S0140-6736(21)01330-1</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa-regular:file-pdf"&gt;&lt;/iconify-icon&gt; &lt;a href="files/Zhou%20et%20al.%20-%202021%20-%20Worldwide%20trends%20in%20hypertension%20prevalence%20and%20pr.pdf" target="_blank"&gt;pdf&lt;/a&gt;&lt;/span&gt;
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+</ol>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+<p>:::</p>
+<div class="hidden quarto-markdown-envelope-contents" data-render-id="cGlwZWxpbmUtbGlzdGluZy1kaXNzZXJ0YXRpb24=">
+<div class="publications">
+<ol class="publications-list" style="padding-left: 1.25rem; margin: 0;">
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">&lt;strong&gt;Boyer, C.&lt;/strong&gt;</span> (<span class="publication-date">2023</span>). <a href="https://dash.harvard.edu/bitstream/handle/1/37374603/thesis.pdf" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“New approaches to factual and counterfactual prediction modeling”</a>. <span class="publication-journal"><em>Doctoral dissertation, Harvard University Graduate School of Arts and Sciences</em></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa-regular:file-pdf"&gt;&lt;/iconify-icon&gt; &lt;a href="https://dash.harvard.edu/bitstream/handle/1/37374603/thesis.pdf" target="_blank"&gt;pdf&lt;/a&gt;&lt;/span&gt;
+  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="file-icons:keynote"&gt;&lt;/iconify-icon&gt; &lt;a href="https://dash.harvard.edu/bitstream/handle/1/37374603/thesis.pdf"&gt;slides&lt;/a&gt;&lt;/span&gt;
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+</ol>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+<p>:::</p>
+<p>:::</p>
+<div id="quarto-meta-markdown" class="hidden">
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGF0aXRsZQ==">Publications – Christopher B. Boyer</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkdGl0bGU=">Publications – Christopher B. Boyer</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZHRpdGxl">Publications – Christopher B. Boyer</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGFzaXRlbmFtZQ==">Christopher B. Boyer</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkZGVzYw==">Personal website of Christopher B. Boyer, Assistant Professor at Cleveland Clinic specializing in causal inference and biostatistics.</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZGRkZXNj">Personal website of Christopher B. Boyer, Assistant Professor at Cleveland Clinic specializing in causal inference and biostatistics.</span></p>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="appliedcollaborative" class="level4">
 <h4 class="anchored" data-anchor-id="appliedcollaborative">Applied/Collaborative</h4>
-<ol start="10" type="1">
-<li><p>Gasoyan, H., Butsch, W. S., Schulte, R., Casacchia, N. J., Le, P., <strong>Boyer, C.</strong>, … &amp; Rothberg, M. B. (2025). “Changes in weight and glycemic control following obesity treatment with semaglutide or tirzepatide by discontinuation status”. <em>Obesity</em>, 33(9), 1657-1667. <a href="https://doi.org/10.1002/oby.24331">https://doi.org/10.1002/oby.24331</a></p></li>
-<li><p>Rosen, J. B., Arciuolo, R. J., Pathela, P., <strong>Boyer, C.</strong>, Baumgartner, J., Latash, J., Malec, L., Lee, E. H., Reddy, V., King, R., Edward Real, J., Lipsitch, M., &amp; Zucker, J. R. (2024). “JYNNEOS™ effectiveness as post-exposure prophylaxis against mpox: Challenges using real-world outbreak data”. <em>Vaccine</em>, 42(3), 548-555. <a href="https://doi.org/10.1016/j.vaccine.2023.12.066">https://doi.org/10.1016/j.vaccine.2023.12.066</a> <br> <iconify-icon inline="" icon="fa-regular:file-pdf"></iconify-icon> <a href="files/Rosen et al. - 2024 - JYNNEOS™ effectiveness as post-exposure prophylaxi.pdf">pdf</a></p></li>
-<li><p>Chatterji, S., <strong>Boyer, C.</strong>, Sharma, V., Abramsky, T., Levtov, R., Doyle, K., Harvey, S., &amp; Heise, L. (2023). “Optimizing the Construction of Outcome Measures for Impact Evaluations of Intimate Partner Violence Prevention Interventions.” <em>Journal of Interpersonal Violence</em>, 38(15-16), 9105-9131. <a href="https://doi.org/10.1177/08862605231162887">https://doi.org/10.1177/08862605231162887</a> <br> <iconify-icon inline="" icon="fa:pencil"></iconify-icon> <a href="https://www.medrxiv.org/content/10.1101/2023.02.07.23285510.abstract">pre-print</a> / <iconify-icon inline="" icon="fa-regular:file-pdf"></iconify-icon> <a href="files/Chatterji et al. - 2023 - Optimizing the Construction of Outcome Measures fo.pdf">pdf</a></p></li>
-<li><p>NCD Risk Factor Collaboration (NCD-RisC). (2021) “Worldwide trends in hypertension prevalence and progress in treatment and control from 1990 to 2019: a pooled analysis of 1201 population-representative studies with 104 million participants”. <em>The Lancet</em>. 398(10304), 957–980. <a href="https://doi.org/10.1016/S0140-6736(21)01330-1">https://doi.org/10.1016/S0140-6736(21)01330-1</a> <br> <iconify-icon inline="" icon="fa-regular:file-pdf"></iconify-icon> <a href="files/Zhou et al. - 2021 - Worldwide trends in hypertension prevalence and pr.pdf">pdf</a></p></li>
+<div id="listing-applied" class="quarto-listing quarto-listing-container-custom">
+<div class="publications">
+<ol class="publications-list" style="padding-left: 1.25rem; margin: 0;">
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Gasoyan, H., Butsch, W. S., Schulte, R., Casacchia, N. J., Le, P., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, … &amp; Rothberg, M. B.</span> (<span class="publication-date">2025</span>). <a href="https://doi.org/10.1002/oby.24331" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Changes in weight and glycemic control following obesity treatment with semaglutide or tirzepatide by discontinuation status”</a>. <span class="publication-journal"><em>Obesity</em></span>. <span class="publication-volume">33(9)</span><span class="publication-pages">, 1657-1667</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1002/oby.24331" target="_blank">doi.org/10.1002/oby.24331</a></span>.
+</p>
+</li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Rosen, J. B., Arciuolo, R. J., Pathela, P., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, Baumgartner, J., Latash, J., Malec, L., Lee, E. H., Reddy, V., King, R., Edward Real, J., Lipsitch, M., &amp; Zucker, J. R.</span> (<span class="publication-date">2024</span>). <a href="https://doi.org/10.1016/j.vaccine.2023.12.066" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“JYNNEOS™ effectiveness as post-exposure prophylaxis against mpox: Challenges using real-world outbreak data”</a>. <span class="publication-journal"><em>Vaccine</em></span>. <span class="publication-volume">42(3)</span><span class="publication-pages">, 548-555</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1016/j.vaccine.2023.12.066" target="_blank">doi.org/10.1016/j.vaccine.2023.12.066</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa-regular:file-pdf"&gt;&lt;/iconify-icon&gt; &lt;a href="files/Rosen%20et%20al.%20-%202024%20-%20JYNNEOS%E2%84%A2%20effectiveness%20as%20post-exposure%20prophylaxi.pdf" target="_blank"&gt;pdf&lt;/a&gt;&lt;/span&gt;
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">Chatterji, S., &lt;strong&gt;Boyer, C.&lt;/strong&gt;, Sharma, V., Abramsky, T., Levtov, R., Doyle, K., Harvey, S., &amp; Heise, L.</span> (<span class="publication-date">2023</span>). <a href="https://doi.org/10.1177/08862605231162887" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Optimizing the Construction of Outcome Measures for Impact Evaluations of Intimate Partner Violence Prevention Interventions”</a>. <span class="publication-journal"><em>Journal of Interpersonal Violence</em></span>. <span class="publication-volume">38(15-16)</span><span class="publication-pages">, 9105-9131</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1177/08862605231162887" target="_blank">doi.org/10.1177/08862605231162887</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa:pencil"&gt;&lt;/iconify-icon&gt; &lt;a href="https://www.medrxiv.org/content/10.1101/2023.02.07.23285510.abstract" target="_blank"&gt;pre-print&lt;/a&gt;&lt;/span&gt;
+  
+  
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">NCD Risk Factor Collaboration (NCD-RisC).</span> (<span class="publication-date">2021</span>). <a href="https://doi.org/10.1016/S0140-6736(21)01330-1" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“Worldwide trends in hypertension prevalence and progress in treatment and control from 1990 to 2019: a pooled analysis of 1201 population-representative studies with 104 million participants”</a>. <span class="publication-journal"><em>The Lancet</em></span>. <span class="publication-volume">398(10304)</span><span class="publication-pages">, 957-980</span>. <span class="publication-doi">DOI: <a href="https://doi.org/10.1016/S0140-6736(21)01330-1" target="_blank">doi.org/10.1016/S0140-6736(21)01330-1</a></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa-regular:file-pdf"&gt;&lt;/iconify-icon&gt; &lt;a href="files/Zhou%20et%20al.%20-%202021%20-%20Worldwide%20trends%20in%20hypertension%20prevalence%20and%20pr.pdf" target="_blank"&gt;pdf&lt;/a&gt;&lt;/span&gt;
+  
+  
+&lt;/div&gt;</code></pre>
+</div></li>
 </ol>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+<p>:::</p>
+<div class="hidden quarto-markdown-envelope-contents" data-render-id="cGlwZWxpbmUtbGlzdGluZy1kaXNzZXJ0YXRpb24=">
+<div class="publications">
+<ol class="publications-list" style="padding-left: 1.25rem; margin: 0;">
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">&lt;strong&gt;Boyer, C.&lt;/strong&gt;</span> (<span class="publication-date">2023</span>). <a href="https://dash.harvard.edu/bitstream/handle/1/37374603/thesis.pdf" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“New approaches to factual and counterfactual prediction modeling”</a>. <span class="publication-journal"><em>Doctoral dissertation, Harvard University Graduate School of Arts and Sciences</em></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa-regular:file-pdf"&gt;&lt;/iconify-icon&gt; &lt;a href="https://dash.harvard.edu/bitstream/handle/1/37374603/thesis.pdf" target="_blank"&gt;pdf&lt;/a&gt;&lt;/span&gt;
+  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="file-icons:keynote"&gt;&lt;/iconify-icon&gt; &lt;a href="https://dash.harvard.edu/bitstream/handle/1/37374603/thesis.pdf"&gt;slides&lt;/a&gt;&lt;/span&gt;
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+</ol>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+<p>:::</p>
+<p>:::</p>
+<div id="quarto-meta-markdown" class="hidden">
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGF0aXRsZQ==">Publications – Christopher B. Boyer</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkdGl0bGU=">Publications – Christopher B. Boyer</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZHRpdGxl">Publications – Christopher B. Boyer</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGFzaXRlbmFtZQ==">Christopher B. Boyer</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkZGVzYw==">Personal website of Christopher B. Boyer, Assistant Professor at Cleveland Clinic specializing in causal inference and biostatistics.</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZGRkZXNj">Personal website of Christopher B. Boyer, Assistant Professor at Cleveland Clinic specializing in causal inference and biostatistics.</span></p>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="dissertation" class="level3">
 <h3 class="anchored" data-anchor-id="dissertation">Dissertation</h3>
-<ul>
-<li><strong>Boyer, C.</strong> (2023) “New approaches to factual and counterfactual prediction modeling”. <em>Doctoral dissertation</em>, Harvard University Graduate School of Arts and Sciences. <br> <iconify-icon inline="" icon="fa-regular:file-pdf"></iconify-icon> <a href="https://dash.harvard.edu/bitstream/handle/1/37374603/thesis.pdf">pdf</a> / <iconify-icon inline="" icon="file-icons:keynote"></iconify-icon> <a href="files/defense.pdf">slides</a></li>
-</ul>
+<div id="listing-dissertation" class="quarto-listing quarto-listing-container-custom">
+<div class="publications">
+<ol class="publications-list" style="padding-left: 1.25rem; margin: 0;">
+<li style="margin-bottom: 1rem;">
+<p class="publication-entry" style="margin: 0;">
+<span class="publication-author">&lt;strong&gt;Boyer, C.&lt;/strong&gt;</span> (<span class="publication-date">2023</span>). <a href="https://dash.harvard.edu/bitstream/handle/1/37374603/thesis.pdf" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">“New approaches to factual and counterfactual prediction modeling”</a>. <span class="publication-journal"><em>Doctoral dissertation, Harvard University Graduate School of Arts and Sciences</em></span>.
+</p>
+<div class="publication-links" style="margin-top: 0.25rem;">
+<pre><code>  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="fa-regular:file-pdf"&gt;&lt;/iconify-icon&gt; &lt;a href="https://dash.harvard.edu/bitstream/handle/1/37374603/thesis.pdf" target="_blank"&gt;pdf&lt;/a&gt;&lt;/span&gt;
+  &lt;span style="margin-right: 10px;"&gt;&lt;iconify-icon inline icon="file-icons:keynote"&gt;&lt;/iconify-icon&gt; &lt;a href="https://dash.harvard.edu/bitstream/handle/1/37374603/thesis.pdf"&gt;slides&lt;/a&gt;&lt;/span&gt;
+  
+&lt;/div&gt;</code></pre>
+</div></li>
+</ol>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+<p>:::</p>
+<p>:::</p>
+<div id="quarto-meta-markdown" class="hidden">
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGF0aXRsZQ==">Publications – Christopher B. Boyer</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkdGl0bGU=">Publications – Christopher B. Boyer</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZHRpdGxl">Publications – Christopher B. Boyer</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGFzaXRlbmFtZQ==">Christopher B. Boyer</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkZGVzYw==">Personal website of Christopher B. Boyer, Assistant Professor at Cleveland Clinic specializing in causal inference and biostatistics.</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZGRkZXNj">Personal website of Christopher B. Boyer, Assistant Professor at Cleveland Clinic specializing in causal inference and biostatistics.</span></p>
+</div>
+</div>
 
 
-</section>
+</section></main></div>
 
-</main> <!-- /main -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -632,7 +1396,44 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-</div> <!-- /content -->
+ <!-- /content -->
+<script>
+(() => {
+  const decode = (s) => {
+    const el = document.createElement('textarea');
+    el.innerHTML = s;
+    return el.value;
+  };
+
+  // Fix authors (decode entities and bold)
+  document.querySelectorAll('.publication-author').forEach((el) => {
+    const decoded = decode(el.innerHTML);
+    el.innerHTML = decoded.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  });
+
+  // Fix link blocks that were escaped into text
+  document.querySelectorAll('.publication-links').forEach((el) => {
+    const raw = el.textContent.trim();
+    if (!raw) return;
+    el.innerHTML = decode(raw);
+  });
+
+  // Fix DOI blocks only if they were escaped; leave real links intact
+  document.querySelectorAll('.publication-doi').forEach((el) => {
+    if (el.querySelector('a')) return;
+    const raw = el.innerHTML;
+    if (!raw || !raw.match(/&lt;|&gt;|&amp;/)) return;
+    el.innerHTML = decode(raw);
+  });
+
+  // Remove any orphaned triple-colon artifacts Quarto leaves around listings
+  document.querySelectorAll('p').forEach((p) => {
+    if (p.textContent.trim() === ':::') {
+      p.remove();
+    }
+  });
+})();
+</script>
 
 
 

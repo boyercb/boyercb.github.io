@@ -1,0 +1,52 @@
+<div class="publications">
+<ol class="publications-list" style="padding-left: 1.25rem; margin: 0;">
+<% function decodeEntities(str) {
+     let out = str || '';
+     // Decode twice to handle double-escaped values (&amp;lt;strong&amp;gt;)
+     for (let i = 0; i < 2; i++) {
+       out = out
+         .replace(/&lt;/g, '<')
+         .replace(/&gt;/g, '>')
+         .replace(/&quot;/g, '"')
+         .replace(/&amp;/g, '&');
+     }
+     return out;
+   }
+%>
+<% for (let idx = 0; idx < items.length; idx++) { %>
+  <% const item = items[idx];
+     const authorRaw = decodeEntities(item.author || '');
+     const author = authorRaw.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+     const hasLinks = item.url_preprint || item.url_repo || item.url_pdf || item.url_slides || item.url_pap;
+     // Extract year safely: if it's a Date, use UTC year to avoid tz rollback; otherwise regex the first 4-digit year
+     const baseYear = item.date instanceof Date
+       ? item.date.getUTCFullYear()
+       : ((('' + item.date).match(/(\d{4})/) || [])[1] || (item.date || ''));
+     const year = (() => {
+       const n = parseInt(baseYear, 10);
+       return Number.isFinite(n) ? String(n + 1) : baseYear;
+     })();
+     const hasVolume = item.volume || item.issue;
+     const hasPages = !!item.pages;
+     const hasVolOrPages = hasVolume || hasPages;
+     const doiLink = (item.doi || '').trim() || (typeof item.path === 'string' && item.path.includes('doi.org') ? item.path : '');
+     const pubmedLink = (item.url_pubmed || '').trim(); %>
+  <li style="margin-bottom: 1rem;">
+    <p class="publication-entry" style="margin: 0;">
+      <span class="publication-author"><%- author %></span> (<span class="publication-date"><%= year %></span>).
+      <% if (item.path) { %><a href="<%= item.path %>" target="_blank" class="publication-title" style="text-decoration: none; color: inherit; font-weight: inherit;">"<%= item.title %>"</a>.<% } else { %>"<span class="publication-title"><%= item.title %></span>".<% } %>
+      <span class="publication-journal"><em><%= item.subtitle %></em></span><% if (hasVolOrPages) { %>.<% } %><% if (hasVolume) { %> <span class="publication-volume"><%= item.volume || '' %><% if (item.issue) { %>(<%= item.issue %>)<% } %></span><% } %><% if (hasPages) { %><span class="publication-pages"><% if (hasVolume) { %>, <% } %><%= item.pages %></span><% } %><% if (doiLink) { %>. <span class="publication-doi">DOI: <a href="<%= doiLink %>" target="_blank"><%= doiLink.replace(/^https?:\/\//,'') %></a><% if (pubmedLink) { %> &nbsp;&nbsp;<iconify-icon inline icon="mdi:link-variant"></iconify-icon> <a href="<%= pubmedLink %>" target="_blank">PubMed</a><% } %></span><% } %>.
+    </p>
+    <% if (hasLinks) { %>
+    <div class="publication-links" style="margin-top: 0.25rem;">
+      <% if (item.url_preprint) { %><span style="margin-right: 10px;"><iconify-icon inline icon="fa:pencil"></iconify-icon> <a href="<%= item.url_preprint %>" target="_blank">pre-print</a></span><% } %>
+      <% if (item.url_repo) { %><span style="margin-right: 10px;"><iconify-icon inline icon="fa6-brands:github"></iconify-icon> <a href="<%= item.url_repo %>" target="_blank">repository</a></span><% } %>
+      <% if (item.url_pdf) { %><span style="margin-right: 10px;"><iconify-icon inline icon="fa-regular:file-pdf"></iconify-icon> <a href="<%= item.url_pdf %>" target="_blank">pdf</a></span><% } %>
+      <% if (item.url_slides) { %><span style="margin-right: 10px;"><iconify-icon inline icon="file-icons:keynote"></iconify-icon> <a href="<%= item.url_slides %>">slides</a></span><% } %>
+      <% if (item.url_pap) { %><span style="margin-right: 10px;"><iconify-icon inline icon="carbon:plan"></iconify-icon> <a href="<%= item.url_pap %>" target="_blank">pre-analysis plan</a></span><% } %>
+    </div>
+    <% } %>
+  </li>
+<% } %>
+</ol>
+</div>
