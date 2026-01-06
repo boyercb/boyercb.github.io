@@ -1,0 +1,102 @@
+---
+title: "Parallel test-negative designs: a quick simulation tour"
+subtitle: "A blog companion to the equi-confounding paper"
+date: "2025-12-11"
+categories: [causal-inference, vaccines, simulation, R]
+format:
+  html:
+    code-fold: true
+    code-summary: "Show R code"
+draft: true
+---
+
+> A short, code-first walkthrough of the ideas behind the test-negative equi-confounding paper—using a toy simulation you can rerun or extend.
+
+## What the paper tackles (in two bullets)
+
+- When vaccination rolls out over time and infection risk also changes over time, the usual test-negative design can be biased if we do not adjust for the time trends ("equi-confounding").
+- Running designs in parallel across calendar time—plus careful adjustment—reduces that bias. The full paper lives in the [parallel-tnd repo](https://github.com/boyercb/parallel-tnd).
+
+## A tiny, reproducible simulation
+
+This is intentionally minimal: one confounder, two calendar periods, vaccine uptake that rises over time, and risk that also changes over time. The goal is just to show how time confounding pushes the vaccine effectiveness (VE) estimate when we ignore it.
+
+```{r setup, include=FALSE}
+library(tidyverse)
+
+theme_set(theme_minimal(base_size = 13))
+```
+
+### Data-generating process
+
+```{r}
+#| label: sim-once
+#| message: false
+#| warning: false
+logit <- plogis
+
+sim_once <- function(N = 20000, ve_true = 0.6) {
+  risk    <- rnorm(N)                 # continuous risk factor
+  time    <- rbinom(N, 1, 0.5)        # period 0 vs 1 (rollout)
+  # vaccine uptake rises over time and among higher-risk people
+  p_vacc  <- logit(-1 + 0.8 * risk + 0.8 * time)
+  vacc    <- rbinom(N, 1, p_vacc)
+  # infection risk also shifts over time and with risk; vaccination lowers risk
+  logit_inf <- -2 + 1.1 * risk + 0.6 * time - log(1 - ve_true) * vacc + 0.4 * risk * time
+  case    <- rbinom(N, 1, logit(logit_inf))  # 1 = test-positive, 0 = test-negative
+  tibble(case, vacc, time, risk)
+}
+
+estimate_ve <- function(dat) {
+  naive  <- glm(case ~ vacc, family = binomial, data = dat)
+  adj    <- glm(case ~ vacc + time + risk, family = binomial, data = dat)
+  tibble(
+    ve_naive = 1 - exp(coef(naive)["vacc"]),
+    ve_adj   = 1 - exp(coef(adj)["vacc"])
+  )
+}
+```
+
+### Run many simulations
+
+```{r}
+set.seed(9152)
+B <- 400
+res <- map_dfr(seq_len(B), ~ {
+  dat <- sim_once()
+  estimate_ve(dat)
+}) |>
+  pivot_longer(everything(), names_to = "estimator", values_to = "ve") |>
+  mutate(estimator = recode(estimator, ve_naive = "naive (no time adj)", ve_adj = "adjusted (time + risk)"))
+```
+
+### What we see
+
+```{r}
+true_ve <- 0.6
+
+res |>
+  ggplot(aes(x = ve, fill = estimator)) +
+  geom_density(alpha = 0.55) +
+  geom_vline(xintercept = true_ve, linetype = 2, color = "black") +
+  scale_x_continuous(labels = scales::percent_format(accuracy = 1)) +
+  labs(
+    x = "Vaccine effectiveness (VE = 1 - OR)",
+    y = NULL,
+    title = "Ignoring calendar time biases VE when rollout and risk move together",
+    subtitle = "Simple test-negative simulation with time-varying uptake and risk"
+  ) +
+  guides(fill = guide_legend(title = NULL))
+```
+
+- The naive estimator that ignores time undershoots the true VE because vaccine uptake and infection risk both shift with calendar time.
+- Adding time (and the risk factor) pulls the estimate back toward the truth. This mirrors the equi-confounding point from the paper: we need parallel adjustment for rollout and risk dynamics.
+
+## Want to go deeper?
+
+- Full code, Stan models, and replication materials: [parallel-tnd on GitHub](https://github.com/boyercb/parallel-tnd).
+- Ideas to extend this post: vary the strength of the time trend, add misclassification, or explore calendar-time splines instead of a binary period.
+
+## TL;DR
+
+If vaccine uptake and infection risk co-move over calendar time, the test-negative design needs parallel adjustment for time (and other shared causes) to recover unbiased VE. Even a tiny simulation makes the bias visible.

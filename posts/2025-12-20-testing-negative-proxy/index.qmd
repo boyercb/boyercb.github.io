@@ -1,0 +1,497 @@
+---
+title: "Can test-negative results correct hidden confounding?"
+subtitle: "A simulation walk-through of negative control outcomes for vaccine effectiveness"
+date: "2025-12-20"
+categories: [causal-inference, test-negative, vaccines, simulation, R]
+format:
+  html:
+    code-fold: true
+    code-summary: "Show R code"
+---
+
+> Note: I first wrote this as a working note for a colleague. Here is a cleaned-up version for anyone curious about how test-negative results can act as a negative control outcome to diagnose—and sometimes correct—unmeasured confounding in vaccine studies.
+
+## Why this simulation?
+
+Observational evaluations of vaccines and other infectious disease interventions confront a common challenge: often only those who are motivated to seek care when sick receive a test. When these test-seeking behaviors share common causes with receiving a vaccine, our estimates of vaccine effectiveness may be biased. The idea explored here: using differences in testing **negative** between vaccinated and unvaccinated as a proxy for that shared bias. If unmeasured confounding affects both positive and negative tests in similar ways (an "equi-confounding" assumption), we can de-bias the vaccine effect on positives by differencing against the effect on negatives.
+
+## Setup
+
+We define the following variables:
+
+- `A`: binary vaccination status (0/1)
+- `X`: measured covariate
+- `U`: unmeasured confounder that drives both testing and vaccination
+- `T1`: time to a negative test (a negative control outcome)
+- `T2`: time to a positive test (the outcome of interest)
+- `C`: time to right censoring due to other reasons (e.g. loss to follow up, administrative censoring)
+
+R packages we will use:
+
+```{r}
+#| warning: false
+#| message: false
+library(tidyverse)
+library(gt)
+library(gtsummary)
+library(tidycmprsk)
+library(survival)
+library(ggsurvfit)
+library(riskRegression)
+
+# Consistent palette and levels for estimators across plots
+theme_set(theme_minimal())
+estimator_levels <- c("naive", "difference-in-differences", "test-negative", "proxy")
+estimator_palette <- c(
+  "naive" = "#4A6FE3",
+  "difference-in-differences" = "#E5881A",
+  "test-negative" = "#2CA58D",
+  "proxy" = "#8E4B9D"
+)
+
+outcome_palette <- c(
+  "Test negative" = "#00798C",
+  "Test positive" = "#D1495B"
+)
+```
+
+### Data generation
+We generate data under the following process:
+
+$$
+\begin{aligned}
+U &\sim \text{Unif}(0,1) \\
+X &\sim \text{Unif}(0,1) \\
+A &\sim \text{Bern}(\text{expit}\{U + X\}) \\
+T_1 &\sim \text{Exp}(\lambda_{10}\exp\{\beta_{1X} X + \beta_{1U}U\}) \\
+T_2 &\sim \text{Exp}(\lambda_{20}\exp\{\beta_{2A} A + \beta_{2X} X + \beta_{2U}U\}) \\
+C &\sim \text{Unif}(1, 3) 
+\end{aligned}
+$$
+where $\text{expit}(x) = 1 / \{1 + \exp(-x)\}$.
+Vaccination depends on both the measured (`X`) and unmeasured (`U`) covariate. Hazards for testing negative and positive also depend on those factors. Censoring happens uniformly between 1 and 3 time units. The causal hazard ratio for the effect of vaccination is given by $\exp\{\beta_{2A}\}$. 
+
+```{r}
+#| label: generate-data
+#| warning: false
+#| message: false
+
+generate_data <- function(n, b1x, b1u, b2a, b2x, b2u) {
+  U <- runif(n)
+  X <- runif(n)
+
+  A <- rbinom(n, 1, plogis(U + X))
+  hazard1 <- 0.04 * exp(b1x * X + b1u * U)
+  hazard2 <- 0.02 * exp(b2a * A + b2x * X + b2u * U)
+
+  time1 <- rexp(n, rate = hazard1)
+  time2 <- rexp(n, rate = hazard2)
+  cens <- runif(n, 1, 3)
+
+  time <- pmin(time1, time2, cens)
+  status <- rep(0, n)
+  status <- replace(status, time1 <= time2 & time1 <= cens, 1)
+  status <- replace(status, time2 <= time1 & time2 <= cens, 2)
+
+  status <- factor(status,
+                   levels = c(0, 1, 2),
+                   labels = c("Cens", "Test negative", "Test positive"))
+
+  tibble(U, X, A, time1, time2, cens, time, status)
+}
+```
+
+Here's a few simulated observations:
+
+```{r}
+set.seed(123)
+
+example_df <- generate_data(
+  n = 1000,
+  b1x = 0.3, b1u = 2,
+  b2a = -0.5, b2x = 0.2, b2u = 2
+)
+
+example_df |>
+  sample_n(10) |>
+  gt() |>
+  fmt_number(decimals = 2)
+```
+
+We can also glance at the cumulative incidence curves for negative and positive tests:
+
+```{r}
+cif <- cuminc(Surv(time, status) ~ 1, data = example_df)
+
+ggcuminc(cif, outcome = c("Test negative", "Test positive"), linewidth = 0.8) +
+  aes(color = outcome, fill = outcome) +
+  labs(x = "Time", y = "Cumulative incidence") +
+  add_confidence_interval() +
+  scale_color_manual(values = outcome_palette) +
+  scale_fill_manual(values = outcome_palette) +
+  guides(linetype = "none", fill = "none")
+```
+
+## Naive approach (and why it is biased)
+
+A common approach in observational studies estimates the effect of vaccination via the Cox model
+$$
+\lambda(t | A, X) = \lambda_0(t) \exp(\beta_AA + \beta_X X)
+$$
+
+Applying this to our generated data above, we find:
+```{r}
+fit_naive <- coxph(
+  Surv(time_new, status_new) ~ A + X,
+  data = example_df |>
+    mutate(time_new = pmin(time2, cens), status_new = ifelse(time2 <= cens, 1, 0))
+)
+
+tbl_regression(fit_naive)
+```
+
+Note that the true log hazard ratio for vaccination under our generation process is `-0.5`. Here, the naive estimate is `-0.24` and is biased toward zero because of unmeasured confounding by `U`.
+
+To verify the bias, we can run a Monte Carlo simulation and look at the distribution of estimates:
+
+```{r}
+#| echo: false
+
+sims <- 1000
+naive <- vector(length = sims)
+
+for (s in seq_len(sims)) {
+  dat <- generate_data(n = 1000, b1x = 0.3, b1u = 2, b2a = -0.5, b2x = 0.2, b2u = 2)
+
+  fit <- coxph(
+    Surv(time_new, status_new) ~ A + X,
+    data = dat |>
+      mutate(time_new = pmin(time2, cens), status_new = ifelse(time2 <= cens, 1, 0))
+  )
+
+  naive[s] <- coef(fit)[1]
+}
+
+p <- tibble(name = factor("naive", levels = estimator_levels), value = naive)
+
+ggplot(p, aes(x = value, fill = name)) +
+  geom_histogram(bins = 40) +
+  geom_vline(xintercept = -0.5, linetype = "dashed") +
+  geom_vline(xintercept = mean(p$value), linetype = "solid") +
+  scale_fill_manual(values = estimator_palette, drop = FALSE) +
+  theme(legend.position = "none") +
+  labs(
+    x = expression(hat(beta)[2 * "A"]),
+    y = "count",
+    caption = "solid line = mean estimate; dashed line = true value"
+  )
+```
+
+## Using negative tests as a proxy for bias
+
+Suppose the unmeasured confounder `U` pushes people to get tested when ill *regardless* of whether their illness is caused by the test-positive pathogen or something else as long as they produce similar symptoms. Then if symptoms are screened before a test is offered then we can plausibly assume `U` acts similarly on positive and negative hazards, i.e. 
+$$
+\beta_{1U} = \beta_{2U}.
+$$
+We call this **equi-confounding**. If we also assume that vaccine has no effect on any test-negative illnesses, then `T1` is a classic *negative outcome control* and the hazard ratio for testing-negative reveals the degree of residual confounding. We can then remove the bias from our original vaccine effectiveness estimate by taking the ratio of hazard ratios:
+
+$$
+\exp\{\beta_{2A}\} \approx \frac{\exp\{\beta^*_{2A}\}}{\exp\{\beta^*_{1A}\}},
+$$
+
+where $\beta^*_{2A}$ comes from the cause-specific model for testing positive and $\beta^*_{1A}$ from the model for testing negative, given by:
+$$
+\begin{aligned}
+\lambda_1(t | A, X) = \lambda_{10}(t) \exp(\beta^*_{1A}A + \beta^*_{1X} X) \\
+\lambda_2(t | A, X) = \lambda_{20}(t) \exp(\beta^*_{2A}A + \beta^*_{2X} X)
+\end{aligned}
+$$
+
+Applying this to refine our previous estimate, we find:
+```{r}
+fit_neg_once <- coxph(Surv(time, status == "Test negative") ~ A + X, data = example_df)
+fit_pos_once <- coxph(Surv(time, status == "Test positive") ~ A + X, data = example_df)
+
+tbl_merge(
+  list(
+    tbl_regression(fit_neg_once), 
+    tbl_regression(fit_pos_once)
+  ),
+  tab_spanner = c("**Test negative**", "**Test positive**")
+)
+```
+
+The implied difference-in-differences estimate is the difference between the two vaccination coefficients^[Note: difference-in-differences on the log scale is the same as a ratio of hazard ratios on the multiplicative scale]. In this run we get roughly `-0.49`, closer to the truth than the naive `-0.24`.
+
+Monte Carlo simulation confirms the unbiasedness of this approach when equi-confounding holds:
+
+```{r}
+#| echo: false
+
+sims <- 1000
+naive <- vector(length = sims)
+did <- vector(length = sims)
+
+for (s in seq_len(sims)) {
+  dat <- generate_data(n = 1000, b1x = 0.3, b1u = 2, b2a = -0.5, b2x = 0.2, b2u = 2)
+
+  fit <- coxph(
+    Surv(time_new, status_new) ~ A + X,
+    data = dat |>
+      mutate(time_new = pmin(time2, cens), status_new = ifelse(time2 <= cens, 1, 0))
+  )
+
+  fit1 <- coxph(Surv(time, status == "Test negative") ~ A + X, data = dat)
+  fit2 <- coxph(Surv(time, status == "Test positive") ~ A + X, data = dat)
+
+  naive[s] <- coef(fit)[1]
+  did[s] <- coef(fit2)[1] - coef(fit1)[1]
+}
+
+p <- tibble(
+  name = factor(rep(c("difference-in-differences", "naive"), each = sims), levels = estimator_levels),
+  value = c(did, naive)
+)
+
+ggplot(p, aes(x = name, y = value, fill = name)) +
+  geom_violin() +
+  geom_boxplot(width = 0.25) +
+  geom_hline(yintercept = -0.5, linetype = "dashed") +
+  scale_fill_manual(values = estimator_palette, drop = FALSE) +
+  theme(legend.position = "none") +
+  labs(x = "Estimator", y = expression(hat(beta)[2 * "A"]), caption = "dashed line = true value")
+```
+
+## Link to the classic test-negative design
+
+If we subset to people who got tested and run a simple logistic regression of testing "positive vs negative" on vaccination, we recover the same value, `-0.49` as above. This is the familiar test-negative odds ratio.
+
+```{r}
+tnd_fit_once <- glm(
+  status == "Test positive" ~ A + X,
+  data = subset(example_df, status != "Cens"),
+  family = binomial(link = "logit")
+)
+
+tbl_regression(tnd_fit_once)
+```
+
+Monte Carlo simulation again shows the unbiasedness of test-negative design when equi-confounding holds:
+
+```{r}
+#| echo: false
+
+sims <- 1000
+naive <- vector(length = sims)
+did <- vector(length = sims)
+tnd_mc <- vector(length = sims)
+
+for (s in seq_len(sims)) {
+  dat <- generate_data(n = 1000, b1x = 0.3, b1u = 2, b2a = -0.5, b2x = 0.2, b2u = 2)
+
+  fit <- coxph(
+    Surv(time_new, status_new) ~ A + X,
+    data = dat |>
+      mutate(time_new = pmin(time2, cens), status_new = ifelse(time2 <= cens, 1, 0))
+  )
+
+  fit1 <- coxph(Surv(time, status == "Test negative") ~ A + X, data = dat)
+  fit2 <- coxph(Surv(time, status == "Test positive") ~ A + X, data = dat)
+
+  fit_tnd_s <- glm(
+    status == "Test positive" ~ A + X,
+    data = subset(dat, status != "Cens"),
+    family = binomial(link = "logit")
+  )
+
+  naive[s] <- coef(fit)[1]
+  did[s] <- coef(fit2)[1] - coef(fit1)[1]
+  tnd_mc[s] <- coef(fit_tnd_s)[2]
+}
+
+p <- tibble(
+  name = factor(c(rep("test-negative", sims), rep("difference-in-differences", sims), rep("naive", sims)),
+                levels = estimator_levels),
+  value = c(tnd_mc, did, naive)
+)
+
+ggplot(p, aes(x = name, y = value, fill = name)) +
+  geom_violin() +
+  geom_boxplot(width = 0.25) +
+  geom_hline(yintercept = -0.5, linetype = "dashed") +
+  scale_fill_manual(values = estimator_palette, drop = FALSE) +
+  theme(legend.position = "none") +
+  labs(x = "Estimator", y = expression(hat(beta)[2 * "A"]), caption = "dashed line = true value")
+```
+
+## When equi-confounding breaks
+
+What if the unmeasured factor affects the testing positive outcome more than the test negative (or vice versa)? Then the difference-in-differences trick no longer removes all the bias. 
+
+Here we make `U` twice as influential for testing positive as for testing negative. Both the naive and difference-in-differences approaches now miss the true effect:
+
+```{r}
+#| echo: false
+
+sims <- 1000
+naive <- vector(length = sims)
+did <- vector(length = sims)
+
+for (s in seq_len(sims)) {
+  dat <- generate_data(n = 1000, b1x = 0.3, b1u = 1.25, b2a = -0.5, b2x = 0.2, b2u = 2)
+
+  fit <- coxph(
+    Surv(time_new, status_new) ~ A + X,
+    data = dat |>
+      mutate(time_new = pmin(time2, cens), status_new = ifelse(time2 <= cens, 1, 0))
+  )
+
+  fit1 <- coxph(Surv(time, status == "Test negative") ~ A + X, data = dat)
+  fit2 <- coxph(Surv(time, status == "Test positive") ~ A + X, data = dat)
+
+  naive[s] <- coef(fit)[1]
+  did[s] <- coef(fit2)[1] - coef(fit1)[1]
+}
+
+p <- tibble(
+  name = factor(rep(c("difference-in-differences", "naive"), each = sims), levels = estimator_levels),
+  value = c(did, naive)
+)
+
+ggplot(p, aes(x = name, y = value, fill = name)) +
+  geom_violin() +
+  geom_boxplot(width = 0.25) +
+  geom_hline(yintercept = -0.5, linetype = "dashed") +
+  scale_fill_manual(values = estimator_palette, drop = FALSE) +
+  theme(legend.position = "none") +
+  labs(x = "Estimator", y = expression(hat(beta)[2 * "A"]), caption = "dashed line = true value")
+```
+
+### Using a negative control exposure as a check
+
+We can sometimes *detect* this by adding another variable `Z` that is related to `U` but has no direct effect on test positive or test negative illness. We call this a *negative control exposure*. 
+
+Let's add `Z` to our original data generation process and generate a new example when equi-confounding does not hold. 
+
+```{r}
+#| label: generate-data-z
+#| warning: false
+#| message: false
+
+generate_data_z <- function(n, b1x, b1u, b2a, b2x, b2u) {
+  U <- runif(n)
+  X <- runif(n)
+  Z <- rbinom(n, 1, U)
+
+  A <- rbinom(n, 1, plogis(U + X))
+  hazard1 <- 0.04 * exp(b1x * X + b1u * U)
+  hazard2 <- 0.02 * exp(b2a * A + b2x * X + b2u * U)
+
+  time1 <- rexp(n, rate = hazard1)
+  time2 <- rexp(n, rate = hazard2)
+  cens <- runif(n, 1, 3)
+
+  time <- pmin(time1, time2, cens)
+  status <- rep(0, n)
+  status <- replace(status, time1 <= time2 & time1 <= cens, 1)
+  status <- replace(status, time2 <= time1 & time2 <= cens, 2)
+
+  status <- factor(status,
+                   levels = c(0, 1, 2),
+                   labels = c("Cens", "Test negative", "Test positive"))
+
+  tibble(U, X, Z, A, time1, time2, cens, time, status)
+}
+
+example_z_df <- generate_data_z(
+    n = 1000,
+    b1x = 0.2,
+    b1u = 1.25,
+    b2a = -0.5,
+    b2x = 0.2,
+    b2u = 2
+  ) 
+
+```
+
+We can fit a model for testing negative that includes `Z`; any association between `Z` and the negative test hazard flags residual confounding. 
+
+```{r}
+fit_neg_z_once <- coxph(
+  Surv(time, status == "Test negative") ~ A + X + Z, 
+  data = example_z_df
+)
+
+fit_pos_z_once <- coxph(
+  Surv(time, status == "Test positive") ~ A + X + Z, 
+  data = example_z_df
+)
+
+tbl_merge(
+  list(
+    tbl_regression(fit_neg_z_once), 
+    tbl_regression(fit_pos_z_once)
+  ),
+  tab_spanner = c("**Test negative**", "**Test positive**")
+)
+```
+
+
+### Using a negative control exposure for further de-biasing
+
+You may now be wondering... could we use this additional information from `Z` to further de-bias our result? In fact, we can through an approach called *proximal inference*. But we'll leave this for a future post.
+
+<!-- In the simplest case^[i.e. assuming linear mean model for underlying structural equations], proximal inference involves a two-step procedure:
+1. Fit model for $T_1 ~ A + X + Z$
+2. Use fitted values $\widehat{T_1}$ in a second stage model of $T_2 ~ A + X + T_1$.
+
+```{r}
+#| echo: false
+
+sims <- 1000
+naive <- vector(length = sims)
+did <- vector(length = sims)
+proxy <- vector(length = sims)
+
+for (s in seq_len(sims)) {
+  dat <- generate_data_z(n = 1000, b1x = 0.3, b1u = 1.25, b2a = -0.5, b2x = 0.2, b2u = 2)
+
+  fit <- coxph(
+    Surv(time_new, status_new) ~ A + X,
+    data = dat |>
+      mutate(time_new = pmin(time2, cens), status_new = ifelse(time2 <= cens, 1, 0))
+  )
+
+  fit1 <- coxph(Surv(time, status == "Test negative") ~ A + X, data = dat)
+  fit2 <- coxph(Surv(time, status == "Test positive") ~ A + X, data = dat)
+
+  fit1z <- coxph(Surv(time, status == "Test negative") ~ A + X + Z, data = dat)
+
+  dat$p <- predict(fit1z, newdata = dat)
+
+  fitp <- coxph(Surv(time, status == "Test positive") ~ A + X + p, data = dat)
+
+  naive[s] <- coef(fit)[1]
+  did[s] <- coef(fit2)[1] - coef(fit1)[1]
+  proxy[s] <- coef(fitp)[1]
+}
+
+p <- tibble(
+  name = factor(rep(c("proxy", "difference-in-differences", "naive"), each = sims), levels = estimator_levels),
+  value = c(proxy, did, naive)
+)
+
+ggplot(p, aes(x = name, y = value, fill = name)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_hline(yintercept = -0.5, linetype = "dashed") +
+  scale_fill_manual(values = estimator_palette, drop = FALSE) +
+  theme(legend.position = "none") +
+  labs(x = "Estimator", y = expression(hat(beta)[2 * "A"]), caption = "dashed line = true value")
+``` -->
+
+## Takeaways
+
+- Test-negative outcomes can act as a **built-in negative control** for unmeasured confounding when they represent other illnesses that share similar drivers as the focal illness.
+- The ratio of hazard ratios (positive vs negative) mirrors the classic test-negative odds ratio when equi-confounding holds.
+- If the assumption fails, adding a **negative control exposure** can flag residual bias and potentially correct it.
+- All code here is runnable and tweakable—change the coefficients, add time trends, or swap in splines to stress-test the idea.

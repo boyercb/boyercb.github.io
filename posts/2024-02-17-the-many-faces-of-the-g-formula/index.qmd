@@ -4,6 +4,7 @@ subtitle: |
     And how to implement them from scratch using R.
 date: "2024-02-16"
 categories: [causal inference, code, g-formula]
+draft: true
 ---
 
 ```{r setup, include=FALSE}
