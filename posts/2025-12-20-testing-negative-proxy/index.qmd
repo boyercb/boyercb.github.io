@@ -2,7 +2,7 @@
 title: "Can test-negative results correct hidden confounding?"
 subtitle: "A simulation walk-through of negative control outcomes for vaccine effectiveness"
 date: "2025-12-20"
-categories: [causal-inference, test-negative, vaccines, simulation, R]
+categories: [causal inference, test-negative, vaccines, simulation, R]
 format:
   html:
     code-fold: true
@@ -68,8 +68,8 @@ T_2 &\sim \text{Exp}(\lambda_{20}\exp\{\beta_{2A} A + \beta_{2X} X + \beta_{2U}U
 C &\sim \text{Unif}(1, 3) 
 \end{aligned}
 $$
-where $\text{expit}(x) = 1 / \{1 + \exp(-x)\}$.
-Vaccination depends on both the measured (`X`) and unmeasured (`U`) covariate. Hazards for testing negative and positive also depend on those factors. Censoring happens uniformly between 1 and 3 time units. The causal hazard ratio for the effect of vaccination is given by $\exp\{\beta_{2A}\}$. 
+
+Vaccination depends on both the measured (`X`) and unmeasured (`U`) covariate. Hazards for testing negative and positive also depend on those factors. Censoring happens uniformly between 1 and 3 time units. The causal hazard ratio for the effect of vaccination is given by $\exp\{\beta_{2A}\}$. In reality, we observe time `T` which is the minimum of `T1`, `T2`, and `C`.
 
 ```{r}
 #| label: generate-data
@@ -136,7 +136,7 @@ ggcuminc(cif, outcome = c("Test negative", "Test positive"), linewidth = 0.8) +
 
 A common approach in observational studies estimates the effect of vaccination via the Cox model
 $$
-\lambda(t | A, X) = \lambda_0(t) \exp(\beta_AA + \beta_X X)
+\lambda(t | A, X) = \lambda_0(t) \exp(\beta_A A + \beta_X X)
 $$
 
 Applying this to our generated data above, we find:
@@ -189,14 +189,18 @@ ggplot(p, aes(x = value, fill = name)) +
 
 ## Using negative tests as a proxy for bias
 
-Suppose the unmeasured confounder `U` pushes people to get tested when ill *regardless* of whether their illness is caused by the test-positive pathogen or something else as long as they produce similar symptoms. Then if symptoms are screened before a test is offered then we can plausibly assume `U` acts similarly on positive and negative hazards, i.e. 
+Suppose the unmeasured confounder `U` reflects a certain tendency to seek care when ill *regardless* of whether the underlying illness is caused by the test-positive pathogen or something else. Then we might expect `U` acts similarly on testing behavior for other illnesses that produce similar symptoms (e.g. fever, congestion, etc.)^[Assuming, of course, the individual has no other outside knowledge of the source of their symptoms. Such as results from a rapid home test or contact with a previously tested case.]. How might we identify these "proxy" illnesses? Well, if symptoms are universally screened or recorded prior to ordering tests, then we can assume that everyone who receives a test but **tests negative** has such an illness. 
+
+We call this **equi-confounding** and in our data generation process above it would imply
 $$
 \beta_{1U} = \beta_{2U}.
 $$
-We call this **equi-confounding**. If we also assume that vaccine has no effect on any test-negative illnesses, then `T1` is a classic *negative outcome control* and the hazard ratio for testing-negative reveals the degree of residual confounding. We can then remove the bias from our original vaccine effectiveness estimate by taking the ratio of hazard ratios:
+If we similarly assume that vaccine has no effect on any test-negative illnesses, then `T1` is a classic *negative outcome control* and the hazard ratio for testing-negative reveals the degree of residual confounding. 
+
+We can then remove the bias from our original vaccine effectiveness estimate by taking the ratio of hazard ratios:
 
 $$
-\exp\{\beta_{2A}\} \approx \frac{\exp\{\beta^*_{2A}\}}{\exp\{\beta^*_{1A}\}},
+\exp\{\beta_{2A}\} = \frac{\exp\{\beta^*_{2A}\}}{\exp\{\beta^*_{1A}\}},
 $$
 
 where $\beta^*_{2A}$ comes from the cause-specific model for testing positive and $\beta^*_{1A}$ from the model for testing negative, given by:
@@ -207,7 +211,9 @@ $$
 \end{aligned}
 $$
 
-Applying this to refine our previous estimate, we find:
+Note, this is similar to a difference-in-differences analysis on the multiplicative scale where testing negative takes the role of differences in the pre-period!
+
+Using this approach to refine our previous estimate of the vaccine effect, we find:
 ```{r}
 fit_neg_once <- coxph(Surv(time, status == "Test negative") ~ A + X, data = example_df)
 fit_pos_once <- coxph(Surv(time, status == "Test positive") ~ A + X, data = example_df)
@@ -221,7 +227,7 @@ tbl_merge(
 )
 ```
 
-The implied difference-in-differences estimate is the difference between the two vaccination coefficients^[Note: difference-in-differences on the log scale is the same as a ratio of hazard ratios on the multiplicative scale]. In this run we get roughly `-0.49`, closer to the truth than the naive `-0.24`.
+The de-biased estimate is the difference between the two vaccination coefficients^[Note: difference-in-differences on the log scale is the same as a ratio of hazard ratios on the multiplicative scale]. In this run we get roughly `-0.49`, closer to the truth than the naive `-0.24`.
 
 Monte Carlo simulation confirms the unbiasedness of this approach when equi-confounding holds:
 
@@ -264,7 +270,7 @@ ggplot(p, aes(x = name, y = value, fill = name)) +
 
 ## Link to the classic test-negative design
 
-If we subset to people who got tested and run a simple logistic regression of testing "positive vs negative" on vaccination, we recover the same value, `-0.49` as above. This is the familiar test-negative odds ratio.
+If we subset to people who got tested and run a simple logistic regression of testing "positive vs negative" on vaccination, we recover the same value, `-0.49` as above. 
 
 ```{r}
 tnd_fit_once <- glm(
@@ -275,6 +281,8 @@ tnd_fit_once <- glm(
 
 tbl_regression(tnd_fit_once)
 ```
+
+This is functionally equivalent to the classic test-negative design which only collects data from the tested.^[Indeed, one way to conceptualize the test-negative design is as a case-control study where cases and controls are concurrently sampled outcome-negative control outcome pairs. For more on this see: https://doi.org/10.1097/EDE.0000000000001926]
 
 Monte Carlo simulation again shows the unbiasedness of test-negative design when equi-confounding holds:
 

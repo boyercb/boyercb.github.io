@@ -214,7 +214,7 @@ window.Quarto = {
       <h1 class="title">Can test-negative results correct hidden confounding?</h1>
             <p class="subtitle lead">A simulation walk-through of negative control outcomes for vaccine effectiveness</p>
                                 <div class="quarto-categories">
-                <div class="quarto-category">causal-inference</div>
+                <div class="quarto-category">causal inference</div>
                 <div class="quarto-category">test-negative</div>
                 <div class="quarto-category">vaccines</div>
                 <div class="quarto-category">simulation</div>
@@ -346,7 +346,8 @@ T_1 &amp;\sim \text{Exp}(\lambda_{10}\exp\{\beta_{1X} X + \beta_{1U}U\}) \\
 T_2 &amp;\sim \text{Exp}(\lambda_{20}\exp\{\beta_{2A} A + \beta_{2X} X + \beta_{2U}U\}) \\
 C &amp;\sim \text{Unif}(1, 3)
 \end{aligned}
-\]</span> where <span class="math inline">\(\text{expit}(x) = 1 / \{1 + \exp(-x)\}\)</span>. Vaccination depends on both the measured (<code>X</code>) and unmeasured (<code>U</code>) covariate. Hazards for testing negative and positive also depend on those factors. Censoring happens uniformly between 1 and 3 time units. The causal hazard ratio for the effect of vaccination is given by <span class="math inline">\(\exp\{\beta_{2A}\}\)</span>.</p>
+\]</span></p>
+<p>Vaccination depends on both the measured (<code>X</code>) and unmeasured (<code>U</code>) covariate. Hazards for testing negative and positive also depend on those factors. Censoring happens uniformly between 1 and 3 time units. The causal hazard ratio for the effect of vaccination is given by <span class="math inline">\(\exp\{\beta_{2A}\}\)</span>. In reality, we observe time <code>T</code> which is the minimum of <code>T1</code>, <code>T2</code>, and <code>C</code>.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show R code</summary>
@@ -990,7 +991,7 @@ C &amp;\sim \text{Unif}(1, 3)
 <section id="naive-approach-and-why-it-is-biased" class="level2">
 <h2 class="anchored" data-anchor-id="naive-approach-and-why-it-is-biased">Naive approach (and why it is biased)</h2>
 <p>A common approach in observational studies estimates the effect of vaccination via the Cox model <span class="math display">\[
-\lambda(t | A, X) = \lambda_0(t) \exp(\beta_AA + \beta_X X)
+\lambda(t | A, X) = \lambda_0(t) \exp(\beta_A A + \beta_X X)
 \]</span></p>
 <p>Applying this to our generated data above, we find:</p>
 <div class="cell">
@@ -1502,11 +1503,13 @@ C &amp;\sim \text{Unif}(1, 3)
 </section>
 <section id="using-negative-tests-as-a-proxy-for-bias" class="level2">
 <h2 class="anchored" data-anchor-id="using-negative-tests-as-a-proxy-for-bias">Using negative tests as a proxy for bias</h2>
-<p>Suppose the unmeasured confounder <code>U</code> pushes people to get tested when ill <em>regardless</em> of whether their illness is caused by the test-positive pathogen or something else as long as they produce similar symptoms. Then if symptoms are screened before a test is offered then we can plausibly assume <code>U</code> acts similarly on positive and negative hazards, i.e.&nbsp; <span class="math display">\[
+<p>Suppose the unmeasured confounder <code>U</code> reflects a certain tendency to seek care when ill <em>regardless</em> of whether the underlying illness is caused by the test-positive pathogen or something else. Then we might expect <code>U</code> acts similarly on testing behavior for other illnesses that produce similar symptoms (e.g.&nbsp;fever, congestion, etc.)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. How might we identify these “proxy” illnesses? Well, if symptoms are universally screened or recorded prior to ordering tests, then we can assume that everyone who receives a test but <strong>tests negative</strong> has such an illness.</p>
+<p>We call this <strong>equi-confounding</strong> and in our data generation process above it would imply <span class="math display">\[
 \beta_{1U} = \beta_{2U}.
-\]</span> We call this <strong>equi-confounding</strong>. If we also assume that vaccine has no effect on any test-negative illnesses, then <code>T1</code> is a classic <em>negative outcome control</em> and the hazard ratio for testing-negative reveals the degree of residual confounding. We can then remove the bias from our original vaccine effectiveness estimate by taking the ratio of hazard ratios:</p>
+\]</span> If we similarly assume that vaccine has no effect on any test-negative illnesses, then <code>T1</code> is a classic <em>negative outcome control</em> and the hazard ratio for testing-negative reveals the degree of residual confounding.</p>
+<p>We can then remove the bias from our original vaccine effectiveness estimate by taking the ratio of hazard ratios:</p>
 <p><span class="math display">\[
-\exp\{\beta_{2A}\} \approx \frac{\exp\{\beta^*_{2A}\}}{\exp\{\beta^*_{1A}\}},
+\exp\{\beta_{2A}\} = \frac{\exp\{\beta^*_{2A}\}}{\exp\{\beta^*_{1A}\}},
 \]</span></p>
 <p>where <span class="math inline">\(\beta^*_{2A}\)</span> comes from the cause-specific model for testing positive and <span class="math inline">\(\beta^*_{1A}\)</span> from the model for testing negative, given by: <span class="math display">\[
 \begin{aligned}
@@ -1514,7 +1517,8 @@ C &amp;\sim \text{Unif}(1, 3)
 \lambda_2(t | A, X) = \lambda_{20}(t) \exp(\beta^*_{2A}A + \beta^*_{2X} X)
 \end{aligned}
 \]</span></p>
-<p>Applying this to refine our previous estimate, we find:</p>
+<p>Note, this is similar to a difference-in-differences analysis on the multiplicative scale where testing negative takes the role of differences in the pre-period!</p>
+<p>Using this approach to refine our previous estimate of the vaccine effect, we find:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show R code</summary>
@@ -2039,7 +2043,7 @@ C &amp;\sim \text{Unif}(1, 3)
 </div>
 </div>
 </div>
-<p>The implied difference-in-differences estimate is the difference between the two vaccination coefficients<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. In this run we get roughly <code>-0.49</code>, closer to the truth than the naive <code>-0.24</code>.</p>
+<p>The de-biased estimate is the difference between the two vaccination coefficients<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. In this run we get roughly <code>-0.49</code>, closer to the truth than the naive <code>-0.24</code>.</p>
 <p>Monte Carlo simulation confirms the unbiasedness of this approach when equi-confounding holds:</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -2053,7 +2057,7 @@ C &amp;\sim \text{Unif}(1, 3)
 </section>
 <section id="link-to-the-classic-test-negative-design" class="level2">
 <h2 class="anchored" data-anchor-id="link-to-the-classic-test-negative-design">Link to the classic test-negative design</h2>
-<p>If we subset to people who got tested and run a simple logistic regression of testing “positive vs negative” on vaccination, we recover the same value, <code>-0.49</code> as above. This is the familiar test-negative odds ratio.</p>
+<p>If we subset to people who got tested and run a simple logistic regression of testing “positive vs negative” on vaccination, we recover the same value, <code>-0.49</code> as above.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show R code</summary>
@@ -2549,6 +2553,7 @@ C &amp;\sim \text{Unif}(1, 3)
 </div>
 </div>
 </div>
+<p>This is functionally equivalent to the classic test-negative design which only collects data from the tested.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 <p>Monte Carlo simulation again shows the unbiasedness of test-negative design when equi-confounding holds:</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -3225,7 +3230,9 @@ ggplot(p, aes(x = name, y = value, fill = name)) +
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Note: difference-in-differences on the log scale is the same as a ratio of hazard ratios on the multiplicative scale<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Assuming, of course, the individual has no other outside knowledge of the source of their symptoms. Such as results from a rapid home test or contact with a previously tested case.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Note: difference-in-differences on the log scale is the same as a ratio of hazard ratios on the multiplicative scale<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Indeed, one way to conceptualize the test-negative design is as a case-control study where cases and controls are concurrently sampled outcome-negative control outcome pairs. For more on this see: https://doi.org/10.1097/EDE.0000000000001926<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{boyer2025,
   author = {Boyer, Christopher},
