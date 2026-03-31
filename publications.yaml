@@ -1,11 +1,10 @@
-- title: Defining and Estimating Outcomes Directly Averted by a Vaccination Program when Rollout Occurs Over Time
-  author: Jia, K.M., <strong>Boyer, C.</strong>, Bilinski, A. & Lipsitch, M.
-  date: '2025'
+- title: 'Advantages of a Two-Stage Randomized Trial Design to Evaluate Antimicrobial Treatment Strategies: a Simulation Study'
+  author: Gago, J., <strong>Boyer, C.</strong>, & Lipsitch, M.
+  date: '2026'
   categories:
   - Pre-print
-  subtitle: arXiv
-  url_repo: https://github.com/katjia/vax_rollout_impact
-  path: https://doi.org/10.48550/arXiv.2509.05508
+  subtitle: medRxiv
+  path: https://www.medrxiv.org/content/10.64898/2026.03.16.26347803v1
 - title: 'Guy Talk: Catalyzing Peer Effects on IPV through Virtual Support Groups for Men'
   author: <strong>Boyer, C.</strong>, Field, E., Lehrer, R., Morrison, A., & Piras, C.
   date: '2025'
@@ -14,13 +13,6 @@
   subtitle: Working Paper
   doi: http://dx.doi.org/10.18235/0013783
   path: https://publications.iadb.org/en/guy-talk-catalyzing-peer-effects-ipv-through-virtual-support-groups-men
-- title: 'Use of the test-negative design to estimate the protective effect of a scalar immune measure: A simulation analysis'
-  author: Zhang, Z., <strong>Boyer, C.</strong>, Lipsitch, M.
-  date: '2024'
-  categories:
-  - Pre-print
-  subtitle: medRxiv
-  path: https://doi.org/10.1101/2024.11.22.24317757
 - title: Some principles for using epidemiologic study results to parameterize transmission models
   author: Joshi, K., Kahn, R., <strong>Boyer, C.</strong>, & Lipsitch, M.
   date: '2023'
@@ -41,6 +33,31 @@
   path: https://doi.org/10.1097/EDE.0000000000001926
   url_preprint: https://doi.org/10.48550/arXiv.2504.20360
   url_repo: https://github.com/boyercb/parallel-tnd
+- title: 'Use of the test-negative design to estimate the protective effect of a scalar immune measure: A simulation analysis'
+  author: Zhang, Z., <strong>Boyer, C.</strong>, Lipsitch, M.
+  date: '2026'
+  categories:
+  - Methodological
+  subtitle: American Journal of Epidemiology
+  # volume: 
+  # issue: 
+  # pages: 
+  doi: https://doi.org/10.1093/aje/kwag036
+  path: https://doi.org/10.1093/aje/kwag036
+  url_preprint: https://doi.org/10.1101/2024.11.22.24317757
+- title: Defining and Estimating Outcomes Directly Averted by a Vaccination Program when Rollout Occurs Over Time
+  author: Jia, K.M., <strong>Boyer, C.</strong>, Bilinski, A. & Lipsitch, M.
+  date: '2026'
+  categories:
+  - Methodological
+  subtitle: Epidemiology
+  # volume: -
+  # issue: -
+  # pages: -
+  doi: https://doi.org/10.1097/EDE.0000000000001953
+  path: https://doi.org/10.1097/EDE.0000000000001953
+  url_preprint: https://doi.org/10.48550/arXiv.2509.05508
+  url_repo: https://github.com/katjia/vax_rollout_impact
 - title: Estimating and evaluating counterfactual prediction models
   author: <strong>Boyer, C.</strong>, Dahabreh, I. J., & Steingrimsson, J. A.
   date: '2025'
