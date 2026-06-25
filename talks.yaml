@@ -1,3 +1,12 @@
+-  title: "How should we select test-negative controls? A causal perspective in the era of multiplex respiratory testing"
+   description: |
+     SER 2026 
+   author:
+     - name: Christopher B. Boyer
+   date: '2026-06-24'
+   subtitle: Society for Epidemiologic Research 2026, Phoenix, AZ
+   image: talks/2026-06-24/snapshot.png
+   path: talks/2026-06-24/slides.pdf
 -  title: "Use of the test-negative design to estimate the protective effect of a scalar immune measure"
    description: |
      SER 2025 
