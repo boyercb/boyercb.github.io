@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.29">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -34,14 +34,15 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5b4ad623e5705c0698d39aec6f10cf02.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/iconify-1.0.8/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -123,7 +124,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -153,6 +154,8 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Christopher B. Boyer</span>
     </a>
@@ -221,7 +224,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="QmF5ZXM=">Bayes <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2F1c2FsJTIwaW5mZXJlbmNl">causal inference <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Y29kZQ==">code <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bS1lc3RpbWF0aW9u">m-estimation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWVhc3VyZW1lbnQ=">measurement <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2ltdWxhdGlvbg==">simulation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3Rhbg==">Stan <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGVzdC1uZWdhdGl2ZQ==">test-negative <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dmFjY2luZXM=">vaccines <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2F1c2FsJTIwaW5mZXJlbmNl">causal inference <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2ltdWxhdGlvbg==">simulation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGVzdC1uZWdhdGl2ZQ==">test-negative <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dmFjY2luZXM=">vaccines <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -235,7 +238,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Y2F1c2FsJTIwaW5mZXJlbmNlJTJDdGVzdC1uZWdhdGl2ZSUyQ3ZhY2NpbmVzJTJDc2ltdWxhdGlvbiUyQ1I=" data-listing-date-sort="1766206800000" data-listing-file-modified-sort="1774986717498" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2821">
+<div class="quarto-post image-right" data-index="0" data-categories="Y2F1c2FsJTIwaW5mZXJlbmNlJTJDdGVzdC1uZWdhdGl2ZSUyQ3ZhY2NpbmVzJTJDc2ltdWxhdGlvbiUyQ1I=" data-listing-date-sort="1766206800000" data-listing-file-modified-sort="1767751951881" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2821">
 <div class="thumbnail"><a href="./posts/2025-12-20-testing-negative-proxy/index.html" class="no-external">
 
 <p class="card-img-top"><img src="posts/2025-12-20-testing-negative-proxy/index_files/figure-html/unnamed-chunk-4-1.png"  class="thumbnail-image card-img"/></p>
@@ -269,80 +272,6 @@ Note: I first wrote this as a working note for a colleague. Here is a cleaned-up
 <a href="./posts/2025-12-20-testing-negative-proxy/index.html" class="no-external">
 <div class="listing-date">
 Dec 20, 2025
-</div>
-<div class="listing-author">
-Christopher Boyer
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="bWVhc3VyZW1lbnQlMkNCYXllcyUyQ1N0YW4=" data-listing-date-sort="1708923600000" data-listing-file-modified-sort="1710855711989" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1121">
-<div class="thumbnail"><a href="./posts/2024-02-26-bayesian-measurement-error-models/index.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/2024-02-26-bayesian-measurement-error-models/index_files/figure-html/unnamed-chunk-1-1.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-02-26-bayesian-measurement-error-models/index.html" class="no-external">Bayesian measurement error models for longitudinal data</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-02-26-bayesian-measurement-error-models/index.html" class="no-external">TLDR: Why a good sandwich can solve so many of life’s problems. </a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWVhc3VyZW1lbnQ='); return false;">measurement</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('QmF5ZXM='); return false;">Bayes</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3Rhbg=='); return false;">Stan</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/2024-02-26-bayesian-measurement-error-models/index.html" class="no-external">
-Recently, I have been working with longitudinal biomarker data that looks something like this:
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-02-26-bayesian-measurement-error-models/index.html" class="no-external">
-<div class="listing-date">
-Feb 26, 2024
-</div>
-<div class="listing-author">
-Christopher Boyer
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Y2F1c2FsJTIwaW5mZXJlbmNlJTJDbS1lc3RpbWF0aW9uJTJDY29kZQ==" data-listing-date-sort="1708059600000" data-listing-file-modified-sort="1746207285790" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1853">
-<div class="thumbnail"><a href="./posts/2024-02-18-m-estimation-for-causal-inference/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-02-18-m-estimation-for-causal-inference/index.html" class="no-external">M-estimation for causal inference in R</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-02-18-m-estimation-for-causal-inference/index.html" class="no-external">TLDR: Why a good sandwich can solve so many of life’s problems. </a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y2F1c2FsJTIwaW5mZXJlbmNl'); return false;">causal inference</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('bS1lc3RpbWF0aW9u'); return false;">m-estimation</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/2024-02-18-m-estimation-for-causal-inference/index.html" class="no-external">
-In this post
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-02-18-m-estimation-for-causal-inference/index.html" class="no-external">
-<div class="listing-date">
-Feb 16, 2024
 </div>
 <div class="listing-author">
 Christopher Boyer
@@ -404,13 +333,14 @@ Christopher Boyer
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

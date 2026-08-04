@@ -4,6 +4,7 @@ subtitle: |
     TLDR: Why a good sandwich can solve so many of life's problems.
 date: "2024-02-26"
 categories: [measurement, Bayes, Stan]
+draft: true
 ---
 ```{r setup, include=FALSE}
 library(tidyverse)
