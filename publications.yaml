@@ -1,3 +1,11 @@
+- title: 'How should we select test-negative controls? A causal perspective in the era of multiplex respiratory testing'
+  author: <strong>Boyer, C.</strong>, Li, K.Q., Shi, X., Lipsitch, M., & Tchetgen Tchetgen, E. J.
+  date: '2026'
+  categories:
+  - Pre-print
+  subtitle: arXiv
+  path: https://arxiv.org/abs/2607.28792
+  doi: https://doi.org/10.48550/arXiv.2607.28792
 - title: 'Inferring infectiousness: a joint model of the within-host viral kinetics of SARS-CoV-2'
   author: <strong>Boyer, C.</strong>, Kissler, S.M., Hakki, S., Jonnerby, J., Lalvani, A., & Lipsitch, M.
   date: '2026'
@@ -65,7 +73,7 @@
   # pages: -
   doi: https://doi.org/10.1097/EDE.0000000000001953
   path: https://doi.org/10.1097/EDE.0000000000001953
-  url_preprint: https://doi.org/10.48550/arXiv.2509.05508
+  url_preprint: https://www.medrxiv.org/content/10.1101/2024.07.24.24310946v3
   url_repo: https://github.com/katjia/vax_rollout_impact
 - title: Estimating and evaluating counterfactual prediction models
   author: <strong>Boyer, C.</strong>, Dahabreh, I. J., & Steingrimsson, J. A.
