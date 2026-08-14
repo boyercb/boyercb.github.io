@@ -79,26 +79,31 @@ listing:
     sort: "date desc"
 ---
 
+Below is a selected list of my publications. For a full list visit my [Google Scholar Page](https://scholar.google.com/citations?user=MRTAUFwAAAAJ&hl=en "https://scholar.google.com/citations?user=MRTAUFwAAAAJ&hl=en").
+
 ### Pre-prints
 
-<div id="pre-prints"></div>
+::: {#pre-prints}
+:::
 
 ### Peer-reviewed publications
 
 #### Methodological
 
-<div id="methodological"></div>
+::: {#methodological}
+:::
 
 #### Randomized Trials
 
-<div id="randomized-trials"></div>
+::: {#randomized-trials}
+:::
 
 #### Applied/Collaborative
 
-<div id="applied"></div>
+::: {#applied}
+:::
 
 ### Dissertation
 
-<div id="dissertation"></div>
-
-
+::: {#dissertation}
+:::
