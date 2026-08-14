@@ -56,9 +56,9 @@
   categories:
   - Methodological
   subtitle: American Journal of Epidemiology
-  # volume: 
-  # issue: 
-  # pages: 
+  volume: 195
+  issue: 5
+  pages: 1388-1396
   doi: https://doi.org/10.1093/aje/kwag036
   path: https://doi.org/10.1093/aje/kwag036
   url_preprint: https://doi.org/10.1101/2024.11.22.24317757
@@ -68,9 +68,9 @@
   categories:
   - Methodological
   subtitle: Epidemiology
-  # volume: -
-  # issue: -
-  # pages: -
+  volume: 37
+  issue: 4
+  pages: 408-416
   doi: https://doi.org/10.1097/EDE.0000000000001953
   path: https://doi.org/10.1097/EDE.0000000000001953
   url_preprint: https://www.medrxiv.org/content/10.1101/2024.07.24.24310946v3
